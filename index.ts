@@ -928,3 +928,102 @@ console.log(queue.dequeue());  // Output: "a"
 console.log(queue.dequeue());  // Output: "b"
 console.log(queue.isEmpty()); // Output: true
  */
+
+//~ ### Day 10: Task
+
+//& # Question 19: Implement a Basic Counter
+
+//todo=> Problem Statement: Create a TypeScript class Counter that manages a simple counter with the following methods:
+
+//todo=> increment(): void - Increments the counter by 1.
+//todo=> decrement(): void - Decrements the counter by 1.
+//todo=> getValue(): number - Returns the current value of the counter.
+//todo=> Example Usage:
+
+//todo=> const counter = new Counter();
+
+//todo=> counter.increment(); // 0 + 1 = 1
+//todo=> counter.increment(); // 1 + 1 = 2
+//todo=> counter.increment(); // 2 + 1 = 3
+//todo=> counter.increment(); // 3 + 1 = 4
+//todo=> counter.increment(); // 4 + 1 = 5
+//todo=> console.log(counter.getValue()); // Output: 5
+//todo=> counter.decrement(); // 5 - 1 = 4
+//todo=> console.log(counter.getValue()); // Output: 4
+/* 
+class Counter {
+  private count: number;
+
+  constructor() {
+      this.count = 0;
+  }
+
+  increment(): void {
+      this.count += 1;
+  }
+
+  decrement(): void {
+      this.count -= 1;
+  }
+
+  getValue(): number {
+      return this.count;
+  }
+}
+
+
+const counter = new Counter();
+counter.increment(); // 0 + 1 = 1
+counter.increment(); // 1 + 1 = 2
+counter.increment(); // 2 + 1 = 3
+counter.increment(); // 3 + 1 = 4
+counter.increment(); // 4 + 1 = 5
+console.log(counter.getValue()); // Output: 5
+counter.decrement();// 5 - 1 = 4
+console.log(counter.getValue()); // Output: 4
+ */
+
+
+//& # Question 20: Implement a Simple Student Record
+
+//todo=> Problem Statement: Create a TypeScript class Student to manage a student's name and grade. The class should have the following methods:
+
+//todo=> setName(name: string): void - Sets the student's name.
+//todo=> setGrade(grade: number): void - Sets the student's grade.
+//todo=> getRecord(): { name: string; grade: number } - Returns an object with the student's name and grade.
+//todo=> Example Usage:
+
+//todo=> const student = new Student();
+//todo=> student.setName("Alice");
+//todo=> student.setGrade(90);
+//todo=> console.log(student.getRecord()); // Output: { name: "Alice", grade: 90 }
+
+/*
+class Student {
+  private name: string;
+  private grade: number;
+
+  constructor() {
+      this.name = "";
+      this.grade = 0;
+  }
+
+  setName(name: string): void {
+      this.name = name;
+  }
+
+  setGrade(grade: number): void {
+      this.grade = grade;
+  }
+
+  getRecord(): { name: string; grade: number } {
+      return { name: this.name, grade: this.grade };
+  }
+}
+
+
+const student = new Student();
+student.setName("Alice");
+student.setGrade(90);
+console.log(student.getRecord()); // Output: { name: "Alice", grade: 90 }
+ */
