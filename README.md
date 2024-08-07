@@ -14,7 +14,7 @@ INSTALLATION OF SOME IMPORTANT FILES
 
 •	Step-6 / add index.ts file. ( It will add a file index / main / any of your choice is a TS code file).
 
-•	Step-7 / This file will vasically support hello coders assignments projects.
+•	Step-7 / This file will basically support hello coders assignments projects.
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
