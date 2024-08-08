@@ -1027,3 +1027,125 @@ student.setName("Alice");
 student.setGrade(90);
 console.log(student.getRecord()); // Output: { name: "Alice", grade: 90 }
  */
+
+//~ # Day-11
+
+//& # Question 21: Merge Two Sorted Arrays
+//todo=> Write a function mergeSortedArrays that takes two sorted arrays of numbers and returns a single sorted array by merging them. You cannot use any built-in sort function.
+
+// typescript
+//todo=> function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+//todo=> Your implementation here
+//todo=> }
+
+// Example Usage:
+//todo=> const arr1 = [1, 3, 5, 7];
+//todo=> const arr2 = [2, 4, 6, 8];
+//todo=> console.log(mergeSortedArrays(arr1, arr2)); 
+// Expected output: [1, 2, 3, 4, 5, 6, 7, 8]
+
+
+//  Hint:
+//todo=> - *Hint 1*: Start with two pointers, one at the beginning of each array.
+//todo=> - *Hint 2*: Compare the elements at both pointers and add the smaller element to the result array.
+//todo=> - *Hint 3*: Move the pointer of the array from which the element was taken.
+//todo=> - *Hint 4*: Repeat until all elements from both arrays are merged.
+
+/*
+function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+  const mergedArray: number[] = [];
+  let i = 0, j = 0;
+
+  Hint 1: Start with two pointers, one at the beginning of each array.
+  while (i < arr1.length && j < arr2.length) {
+    Hint 2: Compare the elements at both pointers and add the smaller element to the result array.
+      if (arr1[i] < arr2[j]) {
+          mergedArray.push(arr1[i]);
+          i++; // Hint 3: Move the pointer of the array from which the element was taken.
+      } else {
+          mergedArray.push(arr2[j]);
+          j++;
+      }
+  }
+
+  If there are remaining elements in arr1, add them to mergedArray
+  while (i < arr1.length) {
+      mergedArray.push(arr1[i]);
+      i++;
+  }
+
+  If there are remaining elements in arr2, add them to mergedArray
+  while (j < arr2.length) {
+      mergedArray.push(arr2[j]);
+      j++;
+  }
+
+  return mergedArray; // Hint 4: Repeat until all elements from both arrays are merged.
+}
+
+Example Usage:
+const arr1 = [1, 3, 5, 7];
+const arr2 = [2, 4, 6, 8];
+console.log(mergeSortedArrays(arr1, arr2));
+Expected output: [1, 2, 3, 4, 5, 6, 7, 8]
+ */
+
+
+//& # Question 22: Find the First Non-Repeated Character
+//todo=> Write a function firstNonRepeatedCharacter that takes a string and returns the first character that does not repeat. If all characters repeat, return an empty string.
+
+// typescript
+//todo=> function firstNonRepeatedCharacter(s: string): string {
+//todo=> Your implementation here
+//todo=> }
+
+// Example Usage:
+//todo=> const s = "swiss";
+//todo=> console.log(firstNonRepeatedCharacter(s)); 
+// Expected output: "w"
+
+// Hint:
+//todo=> - *Hint 1*: Create an object to count the frequency of each character in the string.
+//todo=> - *Hint 2*: Iterate through the string and update the count for each character.
+//todo=> - *Hint 3*: Iterate through the string again and find the first character with a count of 1 in the object.
+//todo=> - *Hint 4*: If no character with a count of 1 is found, return an empty string.
+
+/*
+function firstNonRepeatedCharacter(s: string): string {
+  Hint 1: Create an object to count the frequency of each character in the string.
+  const charCount: { [key: string]: number } = {};
+
+  Hint 2: Iterate through the string and update the count for each character.
+  for (let char of s) {
+      charCount[char] = (charCount[char] || 0) + 1;
+  }
+
+  Hint 3: Iterate through the string again and find the first character with a count of 1 in the object.
+  for (let char of s) {
+      if (charCount[char] === 1) {
+          return char;
+      }
+  }
+
+Hint 4: If no character with a count of 1 is found, return an empty string.
+  return '';
+}
+
+
+//^ if we need to call both non repeated characters then use following code
+// let nonRepeatedChars = '';
+// for (let char of s) {
+//     if (charCount[char] === 1) {
+//         nonRepeatedChars += char;
+//     }
+// }
+
+// return nonRepeatedChars;
+// }
+
+Example Usage:
+const s = "swiss";
+console.log(firstNonRepeatedCharacter(s));
+Expected output: "w"
+
+ */
