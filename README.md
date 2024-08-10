@@ -383,7 +383,7 @@ Hint:
 
 # Day 12
 
-### Question 1: Remove Duplicates from Sorted Array
+### Question 23: Remove Duplicates from Sorted Array
 *Problem:*
 You are given a sorted array that may contain duplicate elements. Your task is to remove the duplicates in-place (without creating a new array) and return the length of the resulting array. The array should be compressed so that the unique elements are placed first.
 
@@ -398,7 +398,7 @@ Explanation: The resulting array is [1, 2, 3, 4, 5] and its length is 5.
 * Only return the length of the unique elements.
 * Duplicate elements should be ignored.
 
-### Question 2: Move Zeroes
+### Question 24: Move Zeroes
 *Problem:*
 You are given an array that contains some zero elements. Your task is to move all the zeroes to the end of the array, while keeping the relative order of the non-zero elements unchanged.
 
@@ -414,7 +414,7 @@ Output: [1, 3, 12, 0, 0]
 
 # Day 13
 
-### Question 1: Count Vowels in a String
+### Question 25: Count Vowels in a String
 *Problem Statement:*
 Write a function in TypeScript that takes a string as input and returns the number of vowels (a, e, i, o, u) in the string.
 
@@ -445,7 +445,7 @@ function countVowels(str: string): number {
 4. *Return the count:*
    - After completing the loop, return the value of the counter, which represents the total number of vowels in the string.
 
-### Question 2: Find the Missing Number in an Array
+### Question 26: Find the Missing Number in an Array
 *Problem Statement:*
 Write a function in TypeScript that takes an array of numbers containing n distinct numbers taken from the range 1 to n+1, where one number is missing. The function should find and return the missing number.
 
