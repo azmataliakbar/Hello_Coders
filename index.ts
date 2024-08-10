@@ -1149,3 +1149,231 @@ console.log(firstNonRepeatedCharacter(s));
 Expected output: "w"
 
  */
+
+//~ Day 12
+
+//& ### Question 23: Remove Duplicates from Sorted Array
+// *Problem:*
+//todo=> You are given a sorted array that may contain duplicate elements. Your task is to remove the duplicates in-place (without creating a new array) and return the length of the resulting array. The array should be compressed so that the unique elements are placed first.
+
+// *Example:*
+//todo=> typescript
+//todo=> Input: [1, 1, 2, 2, 3, 4, 4, 5]
+//todo=> Output: 5
+//todo=> Explanation: The resulting array is [1, 2, 3, 4, 5] and its length is 5.
+
+// *Note:*
+//todo=> * Only return the length of the unique elements.
+//todo=> * Duplicate elements should be ignored.
+/* 
+function removeDuplicates(nums: number[]): number {
+  if (nums.length === 0) return 0;
+  
+  let uniqueIndex = 0;
+  
+  for (let i = 1; i < nums.length; i++) {
+      if (nums[i] !== nums[uniqueIndex]) {
+          uniqueIndex++;
+          nums[uniqueIndex] = nums[i];
+      }
+  }
+  
+  return uniqueIndex + 1;
+}
+
+// Example usage:
+const nums = [1, 1, 2, 2, 3, 4, 4, 5];
+const length = removeDuplicates(nums);
+console.log(length); // Output: 5
+console.log(nums.slice(0, length)); // Output: [1, 2, 3, 4, 5]
+ */
+
+
+//& ### Question 24: Move Zeroes
+// *Problem:*
+//todo=> You are given an array that contains some zero elements. Your task is to move all the zeroes to the end of the array, while keeping the relative order of the non-zero elements unchanged.
+
+// *Example:*
+//todo=> typescript
+//todo=> Input: [0, 1, 0, 3, 12]
+//todo=> Output: [1, 3, 12, 0, 0]
+
+
+// *Note:*
+//todo=> * You must modify the array in-place.
+//todo=> * The relative order of the non-zero elements should remain the same.
+/* 
+function moveZeroes(nums: number[]): void {
+  let lastNonZeroIndex = 0;
+
+  // Move all non-zero elements to the front of the array
+  for (let i = 0; i < nums.length; i++) {
+      if (nums[i] !== 0) {
+          nums[lastNonZeroIndex] = nums[i];
+          lastNonZeroIndex++;
+      }
+  }
+
+  // Fill the remaining part of the array with zeros
+  for (let i = lastNonZeroIndex; i < nums.length; i++) {
+      nums[i] = 0;
+  }
+}
+
+// Example usage:
+const nums = [0, 1, 0, 3, 12];
+moveZeroes(nums);
+console.log(nums); // Output: [1, 3, 12, 0, 0]
+ */
+
+//~ # Day 13
+
+//& ### Question 25: Count Vowels in a String
+// *Problem Statement:*
+//todo=> Write a function in TypeScript that takes a string as input and returns the number of vowels (a, e, i, o, u) in the string.
+
+// *Example:*
+//todo=> typescript
+//todo=> countVowels("hello world"); // Output: 3
+//todo=> countVowels("TypeScript"); // Output: 2
+
+
+// *Function Signature:*
+//todo=> typescript
+//todo=> function countVowels(str: string): number {
+//todo=> Your code here
+//todo=> }
+
+
+// *Hints:*
+
+//todo=> 1. *Loop through the string:*
+//todo=>    - Use a loop to iterate over each character in the string.
+
+//todo=> 2. *Check for vowels:*
+//todo=>    - Compare each character with the vowels ('a', 'e', 'i', 'o', 'u'). Make sure to check both lowercase and uppercase vowels.
+
+//todo=> 3. *Counting:*
+//todo=>    - Maintain a counter variable to keep track of the number of vowels found. Increment this counter each time you encounter a vowel.
+
+//todo=> 4. *Return the count:*
+//todo=>    - After completing the loop, return the value of the counter, which represents the total number of vowels in the string.
+
+/*
+function countVowels(str: string): number {
+  let vowelCount = 0;
+  const vowels = "aeiouAEIOU";
+
+  for (let char of str) {
+      if (vowels.includes(char)) {
+          vowelCount++;
+      }
+  }
+
+  return vowelCount;
+}
+
+// Example usage:
+console.log(countVowels("hello world")); // Output: 3
+console.log(countVowels("TypeScript")); // Output: 2
+console.log(countVowels("Governor Sindh Initiative Program")); // Output:12
+ */
+
+//& ### Question 26: Find the Missing Number in an Array
+// *Problem Statement:*
+//todo=> Write a function in TypeScript that takes an array of numbers containing n distinct numbers taken from the range 1 to n+1, where one number is missing. The function should find and return the missing number.
+
+// *Example:*
+//todo=> typescript
+//todo=> findMissingNumber([1, 2, 4, 5]); // Output: 3
+//todo=> findMissingNumber([3, 7, 1, 2, 8, 4, 5]); // Output: 6
+
+
+// *Function Signature:*
+//todo=> typescript
+//todo=> function findMissingNumber(arr: number[]): number {
+//todo=>    Your code here
+//todo=> }
+
+
+// *Hints:*
+
+//todo=> 1. *Sum Formula:*
+//todo=>    - Use the formula for the sum of the first n natural numbers: \(\text{Sum} = \frac{n(n+1)}{2}\). This gives you the total sum if no numbers were missing.
+
+//todo=> 2. *Sum the Array:*
+//todo=>    - Calculate the sum of all elements present in the given array.
+
+//todo=> 3. *Subtract to Find Missing Number:*
+//todo=>    - Subtract the sum of the elements in the array from the expected sum (calculated using the formula). The result will be the missing number.
+
+//todo=> 4. *Edge Cases:*
+//todo=>    - Consider edge cases where the missing number might be the smallest (1) or the largest number in the range.
+
+/*
+function findMissingNumber(arr: number[]): number {
+  const n = arr.length + 1;
+  const totalSum = (n * (n + 1)) / 2;
+  const arraySum = arr.reduce((sum, num) => sum + num, 0);
+
+  return totalSum - arraySum;
+}
+findMissingNumber([1, 2, 4, 5]); // Output: 3
+findMissingNumber([3, 7, 1, 2, 8, 4, 5]); // Output: 6
+ */
+
+
+//^ Please check below more mathematical details:
+/* console.log(findMissingNumber([1, 2, 4, 5])); // Output: 3 */
+// Step-by-Step Explanation:
+// Determine n:
+
+// n is the total number of elements that should be in the array including the missing one.
+// The length of the given array is 4, so n = 4 + 1 = 5.
+// Calculate the Total Sum using the Formula:
+
+// Total Sum = n ( n + 1 ) / 2
+
+// Substitute n = 5:
+// Total Sum = 5 × (5 + 1) / 2 = 30 / 2
+
+// So, the sum of numbers from 1 to 5 is 15.
+// Calculate the Sum of the Given Array:
+
+// The array [1, 2, 4, 5] has elements that sum to:
+// Array Sum = 1 + 2 + 4 + 5 = 12
+
+// Find the Missing Number:
+
+// The missing number is found by subtracting the sum of the array from the total sum:
+// Missing Number = Total Sum − Array Sum = 15 − 12 = 3
+
+// So, the missing number in the array [1, 2, 4, 5] is 3. This is how the function calculates it.
+
+//^ Please check below more mathematical details:
+/* console.log(findMissingNumber([3, 7, 1, 2, 8, 4, 5])); // Output: 6 */
+// Step-by-Step Explanation:
+// Determine n:
+
+// n is the total number of elements that should be in the array including the missing one.
+// The length of the given array is 7, so n = 7 + 1 = 8.
+// Calculate the Total Sum using the Formula:
+
+// Total Sum = n ( n + 1 ) / 2
+
+// Substitute n = 8:
+// Total Sum = 8 × (8 + 1) / 2 = 72 / 2
+
+// So, the sum of numbers from 1 to 8 is 36.
+// Calculate the Sum of the Given Array:
+
+// The array [3, 7, 1, 2, 8, 4, 5] has elements that sum to:
+// Array Sum = 3 + 7 + 1 + 2 + 8 + 4 + 5 = 30
+
+// Find the Missing Number:
+
+// The missing number is found by subtracting the sum of the array from the total sum:
+// Missing Number = Total Sum − Array Sum = 36 − 30 = 6
+
+// So, the missing number in the array [3, 7, 1, 2, 8, 4, 5] is 6. This is how the function calculates it.
+

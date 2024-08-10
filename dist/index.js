@@ -185,7 +185,6 @@ function findDuplicates(numbers: number[]): number[] {
   const counts: { [key: number]: number } = {};
   const duplicates: number[] = [];
 
-  // Count the occurrences of each number
   for (const num of numbers) {
     if (counts[num] === undefined) {
       counts[num] = 1;
@@ -194,7 +193,7 @@ function findDuplicates(numbers: number[]): number[] {
     }
   }
 
-Add duplicates based on their counts
+
   for (const num in counts) {
     if (counts[num] > 1) {
       for (let i = 0; i < counts[num] - 1; i++) {
@@ -206,7 +205,7 @@ Add duplicates based on their counts
   return duplicates;
 }
 
-Test cases
+
 const numbers = [1, 2, 3, 2, 4, 5, 5, 6];
 const duplicates = findDuplicates(numbers);
 console.log(duplicates); // Output: [2, 5]
@@ -244,18 +243,14 @@ function printTopStudents(students: Student[]): void {
   });
 }
 
-Test cases
+
 const students: Student[] = [
   { name: "Ali", age: 20, marks: 75 },
   { name: "Sara", age: 22, marks: 85 },
   { name: "John", age: 21, marks: 90 }
 ];
 
-printTopStudents(students);
-
-Will print:
-Sara - Age: 22, Marks: 85
-John - Age: 21, Marks: 90
+printTopStudents(students); // Will print: Sara - Age: 22, Marks: 85 , John - Age: 21, Marks: 90
  */
 //~ Day 5: Task
 //& Question 9: Array Comparison and Manipulation (Updated)
@@ -279,7 +274,7 @@ John - Age: 21, Marks: 90
 //todo=> Example Test Cases // manipulateArrays([1, 2, 3], [1, 2, 3]) should output 36 (product of [1, 2, 3, 1, 2, 3]) // manipulateArrays([1, 2], [3, 4, 5]) should output 3 (middle element of [1, 2, 3, 4, 5]) // manipulateArrays([1, 2], [3, 4]) should output 6 (sum of [1, 2, 1, 2])
 /*
 function manipulateArrays(arr1: number[], arr2: number[]): number {
-  // Function to check if two arrays are equal
+
   function arraysAreEqual(a: number[], b: number[]): boolean {
       if (a.length !== b.length) return false;
       for (let i = 0; i < a.length; i++) {
@@ -288,7 +283,7 @@ function manipulateArrays(arr1: number[], arr2: number[]): number {
       return true;
   }
 
-  // Function to multiply all elements of an array
+
   function multiplyArrayElements(arr: number[]): number {
       let product = 1;
       for (let i = 0; i < arr.length; i++) {
@@ -297,13 +292,13 @@ function manipulateArrays(arr1: number[], arr2: number[]): number {
       return product;
   }
 
-  // Function to find the middle element of an array
+
   function findMiddleElement(arr: number[]): number {
       const middleIndex = Math.floor(arr.length / 2);
       return arr[middleIndex];
   }
 
-  // Function to sum all elements of an array
+
   function sumArrayElements(arr: number[]): number {
       let sum = 0;
       for (let i = 0; i < arr.length; i++) {
@@ -312,19 +307,18 @@ function manipulateArrays(arr1: number[], arr2: number[]): number {
       return sum;
   }
 
-  // Case 1: Lengths are the same and all elements are the same
   if (arr1.length === arr2.length && arraysAreEqual(arr1, arr2)) {
       const mergedArray = arr1.concat(arr2);
       return multiplyArrayElements(mergedArray);
   }
 
-  // Case 2: Lengths are different
+
   if (arr1.length !== arr2.length) {
       const mergedArray = arr1.concat(arr2);
       return findMiddleElement(mergedArray);
   }
 
-  // Case 3: Lengths are the same but elements are different
+
   if (arr1.length === arr2.length && !arraysAreEqual(arr1, arr2)) {
       const newArray = [];
       for (let i = 0; i < arr1.length; i++) {
@@ -336,7 +330,7 @@ function manipulateArrays(arr1: number[], arr2: number[]): number {
   return 0; // Default return value, should not reach here
 }
 
-// Example Test Cases
+
 console.log(manipulateArrays([1, 2, 3], [1, 2, 3])); // Output: 36
 console.log(manipulateArrays([1, 2], [3, 4, 5])); // Output: 3
 console.log(manipulateArrays([1, 2], [3, 4])); // Output: 10
@@ -362,11 +356,20 @@ function extractFirstLetters(names: string[]): string[] {
   return firstLetters;
 }
 
-// Example Test Case
+
 console.log(extractFirstLetters(["Alice", "Bob", "Charlie", "David", "Eve"])); // Output: ["A", "B", "C", "D", "E"]
  */
+//~ ### Day 6: Task
+//& ### Question 11: Simple Calculator
+//todo=> Task: Create a simple calculator that can perform addition, subtraction, multiplication, and division.
+//todo=> Functional Programming Approach:
+//todo=> Write functions for each operation: add, subtract, multiply, and divide.
+//todo=> Implement a function calculate that takes two numbers and an operation (as a string) and returns the result of the operation.
+//todo=> Object-Oriented Programming (OOP) Approach:
+//todo=> Create a Calculator class with methods for each operation.
+//todo=> Implement a method calculate in the class that takes two numbers and an operation (as a string) and returns the result of the operation.
 //^ Functional Programming Approach
-// Functions for each operation
+//^ Functions for each operation
 /*
 function add(a: number, b: number): number {
   return a + b;
@@ -387,7 +390,7 @@ function divide(a: number, b: number): number {
   return a / b;
 }
 
-// Function to calculate based on operation
+Function to calculate based on operation
 function calculate(a: number, b: number, operation: string): number {
   switch (operation) {
       case "add":
@@ -403,11 +406,12 @@ function calculate(a: number, b: number, operation: string): number {
   }
 }
 
-// Example usage
+Example usage
 console.log(calculate(10, 5, "add")); // Output: 15
 console.log(calculate(10, 5, "subtract")); // Output: 5
 console.log(calculate(10, 5, "multiply")); // Output: 50
 console.log(calculate(10, 5, "divide")); // Output: 2
+
  */
 //^ Object-Oriented Programming (OOP) Approach
 /*
@@ -447,7 +451,7 @@ class Calculator {
   }
 }
 
-// Example usage
+Example usage
 const calculator = new Calculator();
 console.log(calculator.calculate(10, 5, "add")); // Output: 15
 console.log(calculator.calculate(10, 5, "subtract")); // Output: 5
@@ -455,17 +459,66 @@ console.log(calculator.calculate(10, 5, "multiply")); // Output: 50
 console.log(calculator.calculate(10, 5, "divide")); // Output: 2
 
  */
-// OOP Related
-// Create a TypeScript class Book that has properties for title, author, publicationYear, and genre. The class should have methods to:
-// 1. Display the book details.
-// 2. Check if the book is a recent publication (within the last 5 years).
-// 3. Change the genre of the book.
-// 4. Check if the book's author matches a given author name.
+//& ### Question 12: Separate Elements by Type
+//todo=> Task: Given an array with mixed types of elements, separate them into different arrays based on their type (number, string, boolean).
+/*
+type SeparatedElements = {
+  numbers: number[],
+  strings: string[],
+  booleans: boolean[]
+};
+
+function separateElementsByType(arr: any[]): SeparatedElements {
+  const separated: SeparatedElements = {
+    numbers: [],
+    strings: [],
+    booleans: []
+  };
+
+  arr.forEach(item => {
+    if (typeof item === 'number') {
+      separated.numbers.push(item);
+    } else if (typeof item === 'string') {
+      separated.strings.push(item);
+    } else if (typeof item === 'boolean') {
+      separated.booleans.push(item);
+    }
+  });
+
+  return separated;
+}
+
+
+const mixedArray = [1, "hello", true, 42, "world", false, 3.14];
+const separatedElements = separateElementsByType(mixedArray);
+
+console.log(separatedElements);
+Output:{numbers: [1, 42, 3.14], strings: ["hello", "world"], booleans: [true, false] }
+
+ */
+//~ ### Day:7
+//& ### Question 13: OOP Related
+//todo=> Create a TypeScript class Book that has properties for title, author, publicationYear, and genre. The class should have methods to:
+//todo=> 1. Display the book details.
+//todo=> 2. Check if the book is a recent publication (within the last 5 years).
+//todo=> 3. Change the genre of the book.
+//todo=> 4. Check if the book's author matches a given author name.
 // *Hints:*
-// - Use console.log to print book details in the displayDetails method.
-// - In the isRecent method, get the current year using new Date().getFullYear() and compare it with publicationYear.
-// - Update the genre property in the changeGenre method.
-// - In the isAuthor method, compare the author property with the given author name.
+//todo=> - Use console.log to print book details in the displayDetails method.
+//todo=> - In the isRecent method, get the current year using new Date().getFullYear() and compare it with publicationYear.
+//todo=> - Update the genre property in the changeGenre method.
+//todo=> - In the isAuthor method, compare the author property with the given author name.
+//* OOP Related
+//todo=> Create a TypeScript class Book that has properties for title, author, publicationYear, and genre. The class should have methods to:
+//todo=> 1. Display the book details.
+//todo=> 2. Check if the book is a recent publication (within the last 5 years).
+//todo=> 3. Change the genre of the book.
+//todo=> 4. Check if the book's author matches a given author name.
+// *Hints:*
+//todo=> - Use console.log to print book details in the displayDetails method.
+//todo=> - In the isRecent method, get the current year using new Date().getFullYear() and compare it with publicationYear.
+//todo=> - Update the genre property in the changeGenre method.
+//todo=> - In the isAuthor method, compare the author property with the given author name.
 /*
 class Book {
   title: string;
@@ -480,7 +533,7 @@ class Book {
       this.genre = genre;
   }
 
-  // Method to display the book details
+
   displayDetails(): void {
       console.log(`Title: ${this.title}`);
       console.log(`Author: ${this.author}`);
@@ -488,32 +541,32 @@ class Book {
       console.log(`Genre: ${this.genre}`);
   }
 
-  // Method to check if the book is a recent publication (within the last 5 years)
+
   isRecent(): boolean {
       const currentYear = new Date().getFullYear();
       return currentYear - this.publicationYear <= 5;
   }
 
-  // Method to change the genre of the book
+Method to change the genre of the book
   changeGenre(newGenre: string): void {
       this.genre = newGenre;
   }
 
-  // Method to check if the book's author matches a given author name
+
   isAuthor(authorName: string): boolean {
       return this.author.toLowerCase() === authorName.toLowerCase();
   }
 }
 
-// Example usage:
+Example usage:
 const book = new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, "Novel");
 
 book.displayDetails();
-// Output:
-// Title: The Great Gatsby
-// Author: F. Scott Fitzgerald
-// Publication Year: 1925
-// Genre: Novel
+Output:
+Title: The Great Gatsby
+Author: F. Scott Fitzgerald
+Publication Year: 1925
+Genre: Novel
 
 console.log(book.isRecent()); // Output: false
 
@@ -523,25 +576,24 @@ console.log(book.genre); // Output: Classic
 console.log(book.isAuthor("F. Scott Fitzgerald")); // Output: true
 console.log(book.isAuthor("J.K. Rowling")); // Output: false
  */
-//& Question 12: Nested Object with Interfaces
-// Create an interface Person that includes properties for name, age, email, phone, and addresses. The addresses property should be an array of objects, each containing street, city, state, and zipcode. Write a function to find the first person living in a specific city and return their name and email.
+//& Question 14: Nested Object with Interfaces
+//todo=> Create an interface Person that includes properties for name, age, email, phone, and addresses. The addresses property should be an array of objects, each containing street, city, state, and zipcode. Write a function to find the first person living in a specific city and return their name and email.
 // *Hints:*
-// - Define the Address and Person interfaces with the required properties.
-// - Use nested loops to iterate through the people array and each person's addresses array.
-// - Check if the city property matches the given city in the function.
-// - Return the name and email of the first matching person or undefined if no match is found.
+//todo=> - Define the Address and Person interfaces with the required properties.
+//todo=> - Use nested loops to iterate through the people array and each person's addresses array.
+//todo=> - Check if the city property matches the given city in the function.
+//todo=> - Return the name and email of the first matching person or undefined if no match is found.
 //^ OOP Related
-// Create a TypeScript class Book that has properties for title, author, publicationYear, and genre. The class should have methods to:
-// 1. Display the book details.
-// 2. Check if the book is a recent publication (within the last 5 years).
-// 3. Change the genre of the book.
-// 4. Check if the book's author matches a given author name.
+//todo=> Create a TypeScript class Book that has properties for title, author, publicationYear, and genre. The class should have methods to:
+//todo=> 1. Display the book details.
+//todo=> 2. Check if the book is a recent publication (within the last 5 years).
+//todo=> 3. Change the genre of the book.
+//todo=> 4. Check if the book's author matches a given author name.
 //  *Hints:*
-// - Use console.log to print book details in the displayDetails method.
-// - In the isRecent method, get the current year using new Date().getFullYear() and compare it with publicationYear.
-// - Update the genre property in the changeGenre method.
-// - In the isAuthor method, compare the author property with the given author name.
-// Nested Object with Interfaces
+//todo=> - Use console.log to print book details in the displayDetails method.
+//todo=> - In the isRecent method, get the current year using new Date().getFullYear() and compare it with publicationYear.
+//todo=> - Update the genre property in the changeGenre method.
+//todo=> - In the isAuthor method, compare the author property with the given author name.
 /*
 interface Address {
   street: string;
@@ -569,7 +621,7 @@ function findPersonInCity(people: Person[], city: string): { name: string; email
   return undefined;
 }
 
-// Example usage:
+
 const people: Person[] = [
   {
       name: "John Doe",
@@ -610,7 +662,7 @@ class Book {
       this.genre = genre;
   }
 
-  // Method to display the book details
+  Method to display the book details
   displayDetails(): void {
       console.log(`Title: ${this.title}`);
       console.log(`Author: ${this.author}`);
@@ -618,32 +670,32 @@ class Book {
       console.log(`Genre: ${this.genre}`);
   }
 
-  // Method to check if the book is a recent publication (within the last 5 years)
+  Method to check if the book is a recent publication (within the last 5 years)
   isRecent(): boolean {
       const currentYear = new Date().getFullYear();
       return currentYear - this.publicationYear <= 5;
   }
 
-  // Method to change the genre of the book
+  Method to change the genre of the book
   changeGenre(newGenre: string): void {
       this.genre = newGenre;
   }
 
-  // Method to check if the book's author matches a given author name
+  Method to check if the book's author matches a given author name
   isAuthor(authorName: string): boolean {
       return this.author.toLowerCase() === authorName.toLowerCase();
   }
 }
 
-// Example usage:
+Example usage:
 const book = new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, "Novel");
 
 book.displayDetails();
-// Output:
-// Title: The Great Gatsby
-// Author: F. Scott Fitzgerald
-// Publication Year: 1925
-// Genre: Novel
+Output:
+Title: The Great Gatsby
+Author: F. Scott Fitzgerald
+Publication Year: 1925
+Genre: Novel
 
 console.log(book.isRecent()); // Output: false
 
@@ -654,7 +706,7 @@ console.log(book.isAuthor("F. Scott Fitzgerald")); // Output: true
 console.log(book.isAuthor("J.K. Rowling")); // Output: false
  */
 //~ ### Day 8: TypeScript Modules (Export and Import)
-//& #### Question 1: Exporting and Importing Multiple Functions
+//& #### Question 15: Exporting and Importing Multiple Functions
 // *Question:*
 //todo=> Create two separate files. In the first file, define and export two functions: calculateArea (calculates the area of a rectangle given its width and height) and calculatePerimeter (calculates the perimeter of a rectangle given its width and height). In the second file, import both functions and use them to calculate the area and perimeter of a rectangle with a width of 5 and a height of 10. Print the results to the console.
 // *Hint:*
@@ -674,7 +726,7 @@ const perimeter = calculatePerimeter(width, height);
 console.log(`Area: ${area}`); // Area: 50
 console.log(`Perimeter: ${perimeter}`); // Perimeter: 30
 */
-//& #### Question 14: Exporting and Importing Interfaces and Classes
+//& #### Question 16: Exporting and Importing Interfaces and Classes
 // *Question:*
 //todo=> Create three separate files. In the first file, define and export an interface Shape with properties name and area, and a method calculateArea(). In the second file, define and export a class Circle that implements the Shape interface. The class should have a property radius and implement the calculateArea method. In the third file, import the Circle class, create an instance of Circle, and print the name and area of the circle.
 // *Hint:*
@@ -692,25 +744,25 @@ console.log(`Area: ${myCircle.area}`); // Area: 314.1592653589793
 
  */
 //~ Day 9
-//& ### Question 1: Implement a Stack using TypeScript
+//& ### Question 17: Implement a Stack using TypeScript
 // *Problem Statement:*
-// Implement a stack using TypeScript. The stack should have the following methods:
-// 1. push(item: T): void - Adds an item to the top of the stack.
-// 2. pop(): T | undefined - Removes and returns the item from the top of the stack. If the stack is empty, it should return undefined.
-// 3. peek(): T | undefined - Returns the item at the top of the stack without removing it. If the stack is empty, it should return undefined.
-// 4. isEmpty(): boolean - Returns true if the stack is empty, otherwise false.
+//todo=> Implement a stack using TypeScript. The stack should have the following methods:
+//todo=> 1. push(item: T): void - Adds an item to the top of the stack.
+//todo=> 2. pop(): T | undefined - Removes and returns the item from the top of the stack. If the stack is empty, it should return undefined.
+//todo=> 3. peek(): T | undefined - Returns the item at the top of the stack without removing it. If the stack is empty, it should return undefined.
+//todo=> 4. isEmpty(): boolean - Returns true if the stack is empty, otherwise false.
 // *Constraints:*
-// - Use generics to make the stack implementation type-safe.
-// - The stack should handle various data types (number, string, etc.).
+//todo=> - Use generics to make the stack implementation type-safe.
+//todo=> - The stack should handle various data types (number, string, etc.).
 // *Example Usage:*
-// typescript
-// const stack = new Stack<number>();
-// stack.push(1);
-// stack.push(2);
-// console.log(stack.peek()); // Output: 2
-// console.log(stack.pop());  // Output: 2
-// console.log(stack.pop());  // Output: 1
-// console.log(stack.isEmpty()); // Output: true
+//todo=> typescript
+//todo=> const stack = new Stack<number>();
+//todo=> stack.push(1);
+//todo=> stack.push(2);
+//todo=> console.log(stack.peek()); // Output: 2
+//todo=> console.log(stack.pop());  // Output: 2
+//todo=> console.log(stack.pop());  // Output: 1
+//todo=> console.log(stack.isEmpty()); // Output: true
 /*
 
 class Stack<T> {
@@ -742,4 +794,371 @@ console.log(stack.pop());  // Output: 2
 console.log(stack.pop());  // Output: 1
 console.log(stack.isEmpty()); // Output: true
  */
-console.log("hello");
+//& ### Question 18: Implement a Queue using TypeScript
+// *Problem Statement:*
+//todo=> Implement a queue using TypeScript. The queue should have the following methods:
+//todo=> 1. enqueue(item: T): void - Adds an item to the end of the queue.
+//todo=> 2. dequeue(): T | undefined - Removes and returns the item from the front of the queue. If the queue is empty, it should return undefined.
+//todo=> 3. peek(): T | undefined - Returns the item at the front of the queue without removing it. If the queue is empty, it should return undefined.
+//todo=> 4. isEmpty(): boolean - Returns true if the queue is empty, otherwise false.
+// *Constraints:*
+//todo=> - Use generics to make the queue implementation type-safe.
+//todo=> - The queue should handle various data types (number, string, etc.).
+// *Example Usage:*
+//todo=> typescript
+//todo=> const queue = new Queue<string>();
+//todo=> queue.enqueue("a");
+//todo=> queue.enqueue("b");
+//todo=> console.log(queue.peek()); // Output: "a"
+//todo=> console.log(queue.dequeue());  // Output: "a"
+//todo=> console.log(queue.dequeue());  // Output: "b"
+//todo=> console.log(queue.isEmpty()); // Output: true
+/*
+class Queue<T> {
+  private items: T[] = [];
+
+  enqueue(item: T): void {
+    this.items.push(item);
+  }
+
+  dequeue(): T | undefined {
+    return this.items.shift();
+  }
+
+  peek(): T | undefined {
+    return this.items[0];
+  }
+
+  isEmpty(): boolean {
+    return this.items.length === 0;
+  }
+}
+
+Example Usage:
+const queue = new Queue<string>();
+queue.enqueue("a");
+queue.enqueue("b");
+console.log(queue.peek()); // Output: "a"
+console.log(queue.dequeue());  // Output: "a"
+console.log(queue.dequeue());  // Output: "b"
+console.log(queue.isEmpty()); // Output: true
+ */
+//~ ### Day 10: Task
+//& # Question 19: Implement a Basic Counter
+//todo=> Problem Statement: Create a TypeScript class Counter that manages a simple counter with the following methods:
+//todo=> increment(): void - Increments the counter by 1.
+//todo=> decrement(): void - Decrements the counter by 1.
+//todo=> getValue(): number - Returns the current value of the counter.
+//todo=> Example Usage:
+//todo=> const counter = new Counter();
+//todo=> counter.increment(); // 0 + 1 = 1
+//todo=> counter.increment(); // 1 + 1 = 2
+//todo=> counter.increment(); // 2 + 1 = 3
+//todo=> counter.increment(); // 3 + 1 = 4
+//todo=> counter.increment(); // 4 + 1 = 5
+//todo=> console.log(counter.getValue()); // Output: 5
+//todo=> counter.decrement(); // 5 - 1 = 4
+//todo=> console.log(counter.getValue()); // Output: 4
+/*
+class Counter {
+  private count: number;
+
+  constructor() {
+      this.count = 0;
+  }
+
+  increment(): void {
+      this.count += 1;
+  }
+
+  decrement(): void {
+      this.count -= 1;
+  }
+
+  getValue(): number {
+      return this.count;
+  }
+}
+
+
+const counter = new Counter();
+counter.increment(); // 0 + 1 = 1
+counter.increment(); // 1 + 1 = 2
+counter.increment(); // 2 + 1 = 3
+counter.increment(); // 3 + 1 = 4
+counter.increment(); // 4 + 1 = 5
+console.log(counter.getValue()); // Output: 5
+counter.decrement();// 5 - 1 = 4
+console.log(counter.getValue()); // Output: 4
+ */
+//& # Question 20: Implement a Simple Student Record
+//todo=> Problem Statement: Create a TypeScript class Student to manage a student's name and grade. The class should have the following methods:
+//todo=> setName(name: string): void - Sets the student's name.
+//todo=> setGrade(grade: number): void - Sets the student's grade.
+//todo=> getRecord(): { name: string; grade: number } - Returns an object with the student's name and grade.
+//todo=> Example Usage:
+//todo=> const student = new Student();
+//todo=> student.setName("Alice");
+//todo=> student.setGrade(90);
+//todo=> console.log(student.getRecord()); // Output: { name: "Alice", grade: 90 }
+/*
+class Student {
+  private name: string;
+  private grade: number;
+
+  constructor() {
+      this.name = "";
+      this.grade = 0;
+  }
+
+  setName(name: string): void {
+      this.name = name;
+  }
+
+  setGrade(grade: number): void {
+      this.grade = grade;
+  }
+
+  getRecord(): { name: string; grade: number } {
+      return { name: this.name, grade: this.grade };
+  }
+}
+
+
+const student = new Student();
+student.setName("Alice");
+student.setGrade(90);
+console.log(student.getRecord()); // Output: { name: "Alice", grade: 90 }
+ */
+//~ # Day-11
+//& # Question 21: Merge Two Sorted Arrays
+//todo=> Write a function mergeSortedArrays that takes two sorted arrays of numbers and returns a single sorted array by merging them. You cannot use any built-in sort function.
+// typescript
+//todo=> function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+//todo=> Your implementation here
+//todo=> }
+// Example Usage:
+//todo=> const arr1 = [1, 3, 5, 7];
+//todo=> const arr2 = [2, 4, 6, 8];
+//todo=> console.log(mergeSortedArrays(arr1, arr2)); 
+// Expected output: [1, 2, 3, 4, 5, 6, 7, 8]
+//  Hint:
+//todo=> - *Hint 1*: Start with two pointers, one at the beginning of each array.
+//todo=> - *Hint 2*: Compare the elements at both pointers and add the smaller element to the result array.
+//todo=> - *Hint 3*: Move the pointer of the array from which the element was taken.
+//todo=> - *Hint 4*: Repeat until all elements from both arrays are merged.
+/*
+function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+  const mergedArray: number[] = [];
+  let i = 0, j = 0;
+
+  Hint 1: Start with two pointers, one at the beginning of each array.
+  while (i < arr1.length && j < arr2.length) {
+    Hint 2: Compare the elements at both pointers and add the smaller element to the result array.
+      if (arr1[i] < arr2[j]) {
+          mergedArray.push(arr1[i]);
+          i++; // Hint 3: Move the pointer of the array from which the element was taken.
+      } else {
+          mergedArray.push(arr2[j]);
+          j++;
+      }
+  }
+
+  If there are remaining elements in arr1, add them to mergedArray
+  while (i < arr1.length) {
+      mergedArray.push(arr1[i]);
+      i++;
+  }
+
+  If there are remaining elements in arr2, add them to mergedArray
+  while (j < arr2.length) {
+      mergedArray.push(arr2[j]);
+      j++;
+  }
+
+  return mergedArray; // Hint 4: Repeat until all elements from both arrays are merged.
+}
+
+Example Usage:
+const arr1 = [1, 3, 5, 7];
+const arr2 = [2, 4, 6, 8];
+console.log(mergeSortedArrays(arr1, arr2));
+Expected output: [1, 2, 3, 4, 5, 6, 7, 8]
+ */
+//& # Question 22: Find the First Non-Repeated Character
+//todo=> Write a function firstNonRepeatedCharacter that takes a string and returns the first character that does not repeat. If all characters repeat, return an empty string.
+// typescript
+//todo=> function firstNonRepeatedCharacter(s: string): string {
+//todo=> Your implementation here
+//todo=> }
+// Example Usage:
+//todo=> const s = "swiss";
+//todo=> console.log(firstNonRepeatedCharacter(s)); 
+// Expected output: "w"
+// Hint:
+//todo=> - *Hint 1*: Create an object to count the frequency of each character in the string.
+//todo=> - *Hint 2*: Iterate through the string and update the count for each character.
+//todo=> - *Hint 3*: Iterate through the string again and find the first character with a count of 1 in the object.
+//todo=> - *Hint 4*: If no character with a count of 1 is found, return an empty string.
+/*
+function firstNonRepeatedCharacter(s: string): string {
+  Hint 1: Create an object to count the frequency of each character in the string.
+  const charCount: { [key: string]: number } = {};
+
+  Hint 2: Iterate through the string and update the count for each character.
+  for (let char of s) {
+      charCount[char] = (charCount[char] || 0) + 1;
+  }
+
+  Hint 3: Iterate through the string again and find the first character with a count of 1 in the object.
+  for (let char of s) {
+      if (charCount[char] === 1) {
+          return char;
+      }
+  }
+
+Hint 4: If no character with a count of 1 is found, return an empty string.
+  return '';
+}
+
+
+//^ if we need to call both non repeated characters then use following code
+// let nonRepeatedChars = '';
+// for (let char of s) {
+//     if (charCount[char] === 1) {
+//         nonRepeatedChars += char;
+//     }
+// }
+
+// return nonRepeatedChars;
+// }
+
+Example Usage:
+const s = "swiss";
+console.log(firstNonRepeatedCharacter(s));
+Expected output: "w"
+
+ */
+//~ Day 12
+//& ### Question 23: Remove Duplicates from Sorted Array
+// *Problem:*
+//todo=> You are given a sorted array that may contain duplicate elements. Your task is to remove the duplicates in-place (without creating a new array) and return the length of the resulting array. The array should be compressed so that the unique elements are placed first.
+// *Example:*
+//todo=> typescript
+//todo=> Input: [1, 1, 2, 2, 3, 4, 4, 5]
+//todo=> Output: 5
+//todo=> Explanation: The resulting array is [1, 2, 3, 4, 5] and its length is 5.
+// *Note:*
+//todo=> * Only return the length of the unique elements.
+//todo=> * Duplicate elements should be ignored.
+/*
+function removeDuplicates(nums: number[]): number {
+  if (nums.length === 0) return 0;
+  
+  let uniqueIndex = 0;
+  
+  for (let i = 1; i < nums.length; i++) {
+      if (nums[i] !== nums[uniqueIndex]) {
+          uniqueIndex++;
+          nums[uniqueIndex] = nums[i];
+      }
+  }
+  
+  return uniqueIndex + 1;
+}
+
+// Example usage:
+const nums = [1, 1, 2, 2, 3, 4, 4, 5];
+const length = removeDuplicates(nums);
+console.log(length); // Output: 5
+console.log(nums.slice(0, length)); // Output: [1, 2, 3, 4, 5]
+ */
+//& ### Question 24: Move Zeroes
+// *Problem:*
+//todo=> You are given an array that contains some zero elements. Your task is to move all the zeroes to the end of the array, while keeping the relative order of the non-zero elements unchanged.
+// *Example:*
+//todo=> typescript
+//todo=> Input: [0, 1, 0, 3, 12]
+//todo=> Output: [1, 3, 12, 0, 0]
+// *Note:*
+//todo=> * You must modify the array in-place.
+//todo=> * The relative order of the non-zero elements should remain the same.
+/*
+function moveZeroes(nums: number[]): void {
+  let lastNonZeroIndex = 0;
+
+  // Move all non-zero elements to the front of the array
+  for (let i = 0; i < nums.length; i++) {
+      if (nums[i] !== 0) {
+          nums[lastNonZeroIndex] = nums[i];
+          lastNonZeroIndex++;
+      }
+  }
+
+  // Fill the remaining part of the array with zeros
+  for (let i = lastNonZeroIndex; i < nums.length; i++) {
+      nums[i] = 0;
+  }
+}
+
+// Example usage:
+const nums = [0, 1, 0, 3, 12];
+moveZeroes(nums);
+console.log(nums); // Output: [1, 3, 12, 0, 0]
+ */
+//~ # Day 13
+//& ### Question 1: Count Vowels in a String
+// *Problem Statement:*
+// Write a function in TypeScript that takes a string as input and returns the number of vowels (a, e, i, o, u) in the string.
+// *Example:*
+// typescript
+// countVowels("hello world"); // Output: 3
+// countVowels("TypeScript"); // Output: 3
+// *Function Signature:*
+// typescript
+// function countVowels(str: string): number {
+// Your code here
+// }
+// *Hints:*
+// 1. *Loop through the string:*
+//    - Use a loop to iterate over each character in the string.
+// 2. *Check for vowels:*
+//    - Compare each character with the vowels ('a', 'e', 'i', 'o', 'u'). Make sure to check both lowercase and uppercase vowels.
+// 3. *Counting:*
+//    - Maintain a counter variable to keep track of the number of vowels found. Increment this counter each time you encounter a vowel.
+// 4. *Return the count:*
+//    - After completing the loop, return the value of the counter, which represents the total number of vowels in the string.
+function countVowels(str) {
+    let vowelCount = 0;
+    const vowels = "aeiouAEIOU";
+    for (let char of str) {
+        if (vowels.includes(char)) {
+            vowelCount++;
+        }
+    }
+    return vowelCount;
+}
+// Example usage:
+console.log(countVowels("hello world")); // Output: 3
+console.log(countVowels("TypeScript")); // Output: 3
+//& ### Question 26: Find the Missing Number in an Array
+// *Problem Statement:*
+// Write a function in TypeScript that takes an array of numbers containing n distinct numbers taken from the range 1 to n+1, where one number is missing. The function should find and return the missing number.
+// *Example:*
+// typescript
+// findMissingNumber([1, 2, 4, 5]); // Output: 3
+// findMissingNumber([3, 7, 1, 2, 8, 4, 5]); // Output: 6
+// *Function Signature:*
+// typescript
+// function findMissingNumber(arr: number[]): number {
+//    Your code here
+// }
+// *Hints:*
+// 1. *Sum Formula:*
+//    - Use the formula for the sum of the first n natural numbers: \(\text{Sum} = \frac{n(n+1)}{2}\). This gives you the total sum if no numbers were missing.
+// 2. *Sum the Array:*
+//    - Calculate the sum of all elements present in the given array.
+// 3. *Subtract to Find Missing Number:*
+//    - Subtract the sum of the elements in the array from the expected sum (calculated using the formula). The result will be the missing number.
+// 4. *Edge Cases:*
+//    - Consider edge cases where the missing number might be the smallest (1) or the largest number in the range.
