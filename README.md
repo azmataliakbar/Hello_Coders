@@ -384,7 +384,7 @@ Hint:
 
 # Day-12
 
-### Question 1: Remove Duplicates from Sorted Array
+### Question 23: Remove Duplicates from Sorted Array
 *Problem:*
 You are given a sorted array that may contain duplicate elements. Your task is to remove the duplicates in-place (without creating a new array) and return the length of the resulting array. The array should be compressed so that the unique elements are placed first.
 
@@ -476,6 +476,7 @@ function findMissingNumber(arr: number[]): number {
 
 4. *Edge Cases:*
    - Consider edge cases where the missing number might be the smallest (1) or the largest number in the range.
+<<<<<<< HEAD
 
 # DAY 14
 
@@ -534,3 +535,5 @@ isPalindrome("hello"); // Output: false
 
 4. *Step 4: Test with Various Strings*
    - Test the function with both palindromes and non-palindromes to verify that it works as expected.
+=======
+>>>>>>> 375797d17f0463a8cb9314a209c47c3768f655b8
