@@ -1377,3 +1377,130 @@ findMissingNumber([3, 7, 1, 2, 8, 4, 5]); // Output: 6
 
 // So, the missing number in the array [3, 7, 1, 2, 8, 4, 5] is 6. This is how the function calculates it.
 
+//~ # DAY 14
+
+//& ### Q27  *Find the Maximum Sum from Two Arrays*
+// *Problem Statement:*
+//todo=> Create a function findMaxSum that accepts two arrays of numbers. The function should determine the maximum number from each array and return the sum of these two maximum numbers.
+
+// *Example:*
+//todo=> typescript
+//todo=> findMaxSum([3, 5, 7, 2, 8], [10, 20, 30, 5]); // Output: 38 (8 from the first array + 30 from the second array)
+//todo=> findMaxSum([1, 2, 3], [4, 5, 6]); // Output: 9 (3 from the first array + 6 from the second array)
+
+
+// *Hints:*
+//todo=> 1. *Step 1: Write a Helper Function to Find the Maximum Value in an Array*
+//todo=>    - Start by creating a function findMax that takes an array of numbers as its parameter.
+//todo=>    - Initialize a variable (e.g., let max = array[0];) to store the first element of the array, assuming it to be the maximum.
+//todo=>    - Use a for loop to iterate over the remaining elements of the array.
+//todo=>    - During each iteration, compare the current element with max. If the current element is greater, update max.
+//todo=>    - After the loop, max will hold the largest number in the array. Return this value.
+
+//todo=> 2. *Step 2: Apply the Helper Function to Both Arrays*
+//todo=>    - Use the findMax function to find the maximum value in both input arrays.
+//todo=>    - Store these maximum values in two separate variables.
+
+//todo=> 3. *Step 3: Sum the Maximum Values*
+//todo=>    - Calculate the sum of the two maximum values obtained from the arrays.
+//todo=>    - Return the final sum.
+
+//todo=> 4. *Step 4: Test with Multiple Scenarios*
+//todo=>    - Test the function with different arrays to ensure it correctly finds the maximum values and sums them.
+
+//todo=> By following these steps, students will have a clear path to solving the problem, allowing them to build their understanding of both array traversal and function utilization in TypeScript.
+/*
+Step 1: a Function to Find the Maximum Value in an Array
+function findMax(arr: number[]): number {
+  let max = arr[0]; // Assume the first element is the maximum
+  for (let i = 1; i < arr.length; i++) { // Iterate over the remaining elements
+      if (arr[i] > max) { // Update max if the current element is greater
+          max = arr[i];
+      }
+  }
+  return max; // Return the largest number in the array
+}
+
+Step 2: Apply the Helper Function to Both Arrays
+function findMaxSum(arr1: number[], arr2: number[]): number {
+  const max1 = findMax(arr1); // Find the max in the first array
+  const max2 = findMax(arr2); // Find the max in the second array
+
+  Step 3: Sum the Maximum Values
+  return max1 + max2; // Return the sum of the two maximum values
+}
+
+Step 4: Test with Multiple Scenarios
+console.log(findMaxSum([3, 5, 7, 2, 8], [10, 20, 30, 5])); // Output: 38
+console.log(findMaxSum([1, 2, 3], [4, 5, 6])); // Output: 9
+ */
+
+//& ### Question 28: *Check if a String is a Palindrome*
+// *Problem Statement:*
+//todo=> Write a function isPalindrome that takes a string as input and checks if it reads the same backward as forward. The function should return true if the string is a palindrome and false otherwise.
+
+// *Example:*
+//todo=> typescript
+//todo=> isPalindrome("madam"); // Output: true
+//todo=> isPalindrome("hello"); // Output: false
+
+
+// *Hints:*
+//todo=> 1. *Step 1: Normalize the String*
+//todo=>    - Convert the string to lowercase to handle case sensitivity (str = str.toLowerCase();).
+//todo=>    - If necessary, remove non-alphanumeric characters (e.g., spaces, punctuation) to focus on the actual content.
+//todo=>   2. *Step 2: Use Two-Pointer Technique*
+//todo=>    - Initialize two pointers: one at the start of the string (let left = 0;) and one at the end (let right = str.length - 1;).
+//todo=>    - Use a while loop to compare characters at these pointers. Continue looping until the two pointers meet in the middle.
+//todo=>    - If at any point the characters at left and right pointers do not match, return false.
+
+//todo=> 3. *Step 3: Complete the Loop*
+//todo=>    - If the loop completes without finding a mismatch, the string is a palindrome. Return true.
+
+//todo=> 4. *Step 4: Test with Various Strings*
+//todo=>   - Test the function with both palindromes and non-palindromes to verify that it works as expected.
+
+/*
+// Step 1: Normalize the String
+function normalizeString(str: string): string {
+  // Convert the string to lowercase and remove non-alphanumeric characters
+  return str.toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+// Step 2: Use Two-Pointer Technique
+function isPalindrome(str: string): boolean {
+  // First, normalize the string
+  const normalizedStr = normalizeString(str);
+  
+  // Initialize two pointers
+  let left = 0;
+  let right = normalizedStr.length - 1;
+  
+  // Step 3: Complete the Loop
+  while (left < right) {
+      // If characters don't match, it's not a palindrome
+      if (normalizedStr[left] !== normalizedStr[right]) {
+          return false;
+      }
+      left++;
+      right--;
+  }
+  
+  // If we complete the loop, it is a palindrome
+  return true;
+}
+
+// Step 4: Test with Various Strings
+console.log(isPalindrome("madam")); // Output: true
+// After normalization, the string becomes "madam".
+console.log(isPalindrome("hello")); // Output: false
+// After normalization, the string becomes "hello".
+console.log(isPalindrome("A man, a plan, a canal, Panama")); // Output: true
+// After normalization, the string becomes "amanaplanacanalpanama".
+console.log(isPalindrome("No 'x' in Nixon")); // Output: true
+// After normalization, the string becomes "noxinnixon".
+console.log(isPalindrome("12321")); // Output: true
+// After normalization, the string becomes "12321".
+console.log(isPalindrome("123456")); // Output: false
+// After normalization, the string becomes "123456".
+ */

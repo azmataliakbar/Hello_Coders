@@ -20,7 +20,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 30-Day-DSA-challenge From Hello Coders Team
 
-### Day:1 Task
+# Day-1
 
 ### Question 1: Sum of an Array Instructions:
 
@@ -39,9 +39,10 @@ Write a function named reverseString that takes a string as input. The function 
 
 Input: "hello" Output: "olleh"
 
-### Day:2 Task
+# Day-2
 
-Question 3: First and Last Element Instructions: Objective: Write a TypeScript function that takes an array of numbers and returns a new array containing only the first and last elements of the input array.
+### Question 3:
+ First and Last Element Instructions: Objective: Write a TypeScript function that takes an array of numbers and returns a new array containing only the first and last elements of the input array.
 
 Requirements:
 
@@ -56,7 +57,7 @@ Requirements:
 
 The function should handle arrays with positive and negative numbers. If the array contains only one number, return that number. Ensure the function handles an empty array gracefully (you might decide to return undefined or throw an error based on your needs). Note: This solution avoids using built-in methods like Math.max and demonstrates basic iteration and comparison logic.
 
-### Day 3: Task
+# Day-3
 
 ### Question 5:
 Remove Duplicates from Array Instructions: Write a TypeScript function named removeDuplicates that takes an array of numbers and returns a new array with all duplicate elements removed. Do not use built-in methods like Set.
@@ -84,7 +85,7 @@ Example: typescript function findSecondLargest(arr: number[]): number { // Your 
 
 Example usage: console.log(findSecondLargest([1, 2, 3, 4, 5])); // Output: 4 console.log(findSecondLargest([10, 20, 30, 15, 25])); // Output: 25
 
-### Day 4: Task
+# Day-4
 
 ### Question 7: Find Duplicate Numbers in an Array
 
@@ -134,7 +135,7 @@ Check if the marks property of each student is greater than 80.
 If true, print the student's details.
 
 
-### Day 5: Task
+# Day-5
 
 ### Question 9: Array Comparison and Manipulation (Updated)
 
@@ -175,7 +176,7 @@ Example: typescript function extractFirstLetters(names: string[]): string[] { //
 
 // Example Test Case // extractFirstLetters(["Alice", "Bob", "Charlie", "David", "Eve"]) should output ["A", "B", "C", "D", "E"]
 
-### Day 6: Task
+# Day-6
 
 ### Question 11: Simple Calculator
 
@@ -194,7 +195,7 @@ Implement a method calculate in the class that takes two numbers and an operatio
 
 Task: Given an array with mixed types of elements, separate them into different arrays based on their type (number, string, boolean).
 
-### Day:7
+### Day-7
 
 ### Question 13: OOP Related
 
@@ -234,9 +235,9 @@ Create a TypeScript class Book that has properties for title, author, publicatio
 - Update the genre property in the changeGenre method.
 - In the isAuthor method, compare the author property with the given author name.
 
-### Day 8: TypeScript Modules (Export and Import)
+# Day-8
 
-#### Question 15: Exporting and Importing Multiple Functions
+#### Question 15: Exporting and Importing Multiple Functions : TypeScript Modules (Export and Import)
 
 *Question:*
 Create two separate files. In the first file, define and export two functions: calculateArea (calculates the area of a rectangle given its width and height) and calculatePerimeter (calculates the perimeter of a rectangle given its width and height). In the second file, import both functions and use them to calculate the area and perimeter of a rectangle with a width of 5 and a height of 10. Print the results to the console.
@@ -257,7 +258,7 @@ Create three separate files. In the first file, define and export an interface S
 - Use named imports to bring the interface and class into the third file.
 - Ensure that the file paths are correctly specified when importing.
 
-### Day 9
+ # Day-9
 
 ### Question 17: Implement a Stack using TypeScript
 
@@ -306,9 +307,9 @@ console.log(queue.dequeue());  // Output: "a"
 console.log(queue.dequeue());  // Output: "b"
 console.log(queue.isEmpty()); // Output: true
 
-### Day 10: Task
+# Day-10
 
-# Question 19: Implement a Basic Counter
+### Question 19: Implement a Basic Counter
 
 Problem Statement: Create a TypeScript class Counter that manages a simple counter with the following methods:
 
@@ -325,7 +326,7 @@ counter.decrement();
 console.log(counter.getValue()); // Output: 1
 
 
-# Question 20: Implement a Simple Student Record
+### Question 20: Implement a Simple Student Record
 
 Problem Statement: Create a TypeScript class Student to manage a student's name and grade. The class should have the following methods:
 
@@ -341,7 +342,7 @@ console.log(student.getRecord()); // Output: { name: "Alice", grade: 90 }
 
 # Day-11
 
-# Question 21: Merge Two Sorted Arrays
+### Question 21: Merge Two Sorted Arrays
 Write a function mergeSortedArrays that takes two sorted arrays of numbers and returns a single sorted array by merging them. You cannot use any built-in sort function.
 
 typescript
@@ -362,7 +363,7 @@ console.log(mergeSortedArrays(arr1, arr2));
 - *Hint 3*: Move the pointer of the array from which the element was taken.
 - *Hint 4*: Repeat until all elements from both arrays are merged.
 
-# Question 22: Find the First Non-Repeated Character
+### Question 22: Find the First Non-Repeated Character
 Write a function firstNonRepeatedCharacter that takes a string and returns the first character that does not repeat. If all characters repeat, return an empty string.
 
 typescript
@@ -381,7 +382,7 @@ Hint:
 - *Hint 3*: Iterate through the string again and find the first character with a count of 1 in the object.
 - *Hint 4*: If no character with a count of 1 is found, return an empty string.
 
-# Day 12
+# Day-12
 
 ### Question 1: Remove Duplicates from Sorted Array
 *Problem:*
@@ -398,7 +399,7 @@ Explanation: The resulting array is [1, 2, 3, 4, 5] and its length is 5.
 * Only return the length of the unique elements.
 * Duplicate elements should be ignored.
 
-### Question 2: Move Zeroes
+### Question 24: Move Zeroes
 *Problem:*
 You are given an array that contains some zero elements. Your task is to move all the zeroes to the end of the array, while keeping the relative order of the non-zero elements unchanged.
 
@@ -412,9 +413,9 @@ Output: [1, 3, 12, 0, 0]
 * You must modify the array in-place.
 * The relative order of the non-zero elements should remain the same.
 
-# Day 13
+# Day-13
 
-### Question 1: Count Vowels in a String
+### Question 25: Count Vowels in a String
 *Problem Statement:*
 Write a function in TypeScript that takes a string as input and returns the number of vowels (a, e, i, o, u) in the string.
 
@@ -445,7 +446,7 @@ function countVowels(str: string): number {
 4. *Return the count:*
    - After completing the loop, return the value of the counter, which represents the total number of vowels in the string.
 
-### Question 2: Find the Missing Number in an Array
+### Question 26: Find the Missing Number in an Array
 *Problem Statement:*
 Write a function in TypeScript that takes an array of numbers containing n distinct numbers taken from the range 1 to n+1, where one number is missing. The function should find and return the missing number.
 
@@ -475,3 +476,61 @@ function findMissingNumber(arr: number[]): number {
 
 4. *Edge Cases:*
    - Consider edge cases where the missing number might be the smallest (1) or the largest number in the range.
+
+# DAY 14
+
+ ### Q27  *Find the Maximum Sum from Two Arrays*
+*Problem Statement:*
+Create a function findMaxSum that accepts two arrays of numbers. The function should determine the maximum number from each array and return the sum of these two maximum numbers.
+
+*Example:*
+typescript
+findMaxSum([3, 5, 7, 2, 8], [10, 20, 30, 5]); // Output: 38 (8 from the first array + 30 from the second array)
+findMaxSum([1, 2, 3], [4, 5, 6]); // Output: 9 (3 from the first array + 6 from the second array)
+
+
+*Hints:*
+1. *Step 1: Write a Helper Function to Find the Maximum Value in an Array*
+   - Start by creating a function findMax that takes an array of numbers as its parameter.
+   - Initialize a variable (e.g., let max = array[0];) to store the first element of the array, assuming it to be the maximum.
+   - Use a for loop to iterate over the remaining elements of the array.
+   - During each iteration, compare the current element with max. If the current element is greater, update max.
+   - After the loop, max will hold the largest number in the array. Return this value.
+
+2. *Step 2: Apply the Helper Function to Both Arrays*
+   - Use the findMax function to find the maximum value in both input arrays.
+   - Store these maximum values in two separate variables.
+
+3. *Step 3: Sum the Maximum Values*
+   - Calculate the sum of the two maximum values obtained from the arrays.
+   - Return the final sum.
+
+4. *Step 4: Test with Multiple Scenarios*
+   - Test the function with different arrays to ensure it correctly finds the maximum values and sums them.
+
+By following these steps, students will have a clear path to solving the problem, allowing them to build their understanding of both array traversal and function utilization in TypeScript.
+
+### Question 28: *Check if a String is a Palindrome*
+*Problem Statement:*
+Write a function isPalindrome that takes a string as input and checks if it reads the same backward as forward. The function should return true if the string is a palindrome and false otherwise.
+
+*Example:*
+typescript
+isPalindrome("madam"); // Output: true
+isPalindrome("hello"); // Output: false
+
+
+*Hints:*
+1. *Step 1: Normalize the String*
+   - Convert the string to lowercase to handle case sensitivity (str = str.toLowerCase();).
+   - If necessary, remove non-alphanumeric characters (e.g., spaces, punctuation) to focus on the actual content.
+  2. *Step 2: Use Two-Pointer Technique*
+   - Initialize two pointers: one at the start of the string (let left = 0;) and one at the end (let right = str.length - 1;).
+   - Use a while loop to compare characters at these pointers. Continue looping until the two pointers meet in the middle.
+   - If at any point the characters at left and right pointers do not match, return false.
+
+3. *Step 3: Complete the Loop*
+   - If the loop completes without finding a mismatch, the string is a palindrome. Return true.
+
+4. *Step 4: Test with Various Strings*
+   - Test the function with both palindromes and non-palindromes to verify that it works as expected.
