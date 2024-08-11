@@ -535,5 +535,3 @@ isPalindrome("hello"); // Output: false
 
 4. *Step 4: Test with Various Strings*
    - Test the function with both palindromes and non-palindromes to verify that it works as expected.
-=======
->>>>>>> 375797d17f0463a8cb9314a209c47c3768f655b8
