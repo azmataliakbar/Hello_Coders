@@ -1264,51 +1264,341 @@ console.log(findMaxSum([1, 2, 3], [4, 5, 6])); // Output: 9
  */
 //& ### Question 28: *Check if a String is a Palindrome*
 // *Problem Statement:*
-// Write a function isPalindrome that takes a string as input and checks if it reads the same backward as forward. The function should return true if the string is a palindrome and false otherwise.
+//todo=> Write a function isPalindrome that takes a string as input and checks if it reads the same backward as forward. The function should return true if the string is a palindrome and false otherwise.
 // *Example:*
-// typescript
-// isPalindrome("madam"); // Output: true
-// isPalindrome("hello"); // Output: false
+//todo=> typescript
+//todo=> isPalindrome("madam"); // Output: true
+//todo=> isPalindrome("hello"); // Output: false
 // *Hints:*
-// 1. *Step 1: Normalize the String*
-//    - Convert the string to lowercase to handle case sensitivity (str = str.toLowerCase();).
-//    - If necessary, remove non-alphanumeric characters (e.g., spaces, punctuation) to focus on the actual content.
-//   2. *Step 2: Use Two-Pointer Technique*
-//    - Initialize two pointers: one at the start of the string (let left = 0;) and one at the end (let right = str.length - 1;).
-//    - Use a while loop to compare characters at these pointers. Continue looping until the two pointers meet in the middle.
-//    - If at any point the characters at left and right pointers do not match, return false.
-// 3. *Step 3: Complete the Loop*
-//    - If the loop completes without finding a mismatch, the string is a palindrome. Return true.
-// 4. *Step 4: Test with Various Strings*
-//    - Test the function with both palindromes and non-palindromes to verify that it works as expected.
+//todo=> 1. *Step 1: Normalize the String*
+//todo=>    - Convert the string to lowercase to handle case sensitivity (str = str.toLowerCase();).
+//todo=>    - If necessary, remove non-alphanumeric characters (e.g., spaces, punctuation) to focus on the actual content.
+//todo=>   2. *Step 2: Use Two-Pointer Technique*
+//todo=>    - Initialize two pointers: one at the start of the string (let left = 0;) and one at the end (let right = str.length - 1;).
+//todo=>    - Use a while loop to compare characters at these pointers. Continue looping until the two pointers meet in the middle.
+//todo=>    - If at any point the characters at left and right pointers do not match, return false.
+//todo=> 3. *Step 3: Complete the Loop*
+//todo=>    - If the loop completes without finding a mismatch, the string is a palindrome. Return true.
+//todo=> 4. *Step 4: Test with Various Strings*
+//todo=>   - Test the function with both palindromes and non-palindromes to verify that it works as expected.
+/*
 // Step 1: Normalize the String
-function normalizeString(str) {
-    // Convert the string to lowercase and remove non-alphanumeric characters
-    return str.toLowerCase().replace(/[^a-z0-9]/g, '');
+function normalizeString(str: string): string {
+  // Convert the string to lowercase and remove non-alphanumeric characters
+  return str.toLowerCase().replace(/[^a-z0-9]/g, '');
 }
+
 // Step 2: Use Two-Pointer Technique
-function isPalindrome(str) {
-    // First, normalize the string
-    var normalizedStr = normalizeString(str);
-    // Initialize two pointers
-    var left = 0;
-    var right = normalizedStr.length - 1;
-    // Step 3: Complete the Loop
-    while (left < right) {
-        // If characters don't match, it's not a palindrome
-        if (normalizedStr[left] !== normalizedStr[right]) {
-            return false;
-        }
-        left++;
-        right--;
-    }
-    // If we complete the loop, it is a palindrome
-    return true;
+function isPalindrome(str: string): boolean {
+  // First, normalize the string
+  const normalizedStr = normalizeString(str);
+  
+  // Initialize two pointers
+  let left = 0;
+  let right = normalizedStr.length - 1;
+  
+  // Step 3: Complete the Loop
+  while (left < right) {
+      // If characters don't match, it's not a palindrome
+      if (normalizedStr[left] !== normalizedStr[right]) {
+          return false;
+      }
+      left++;
+      right--;
+  }
+  
+  // If we complete the loop, it is a palindrome
+  return true;
 }
+
 // Step 4: Test with Various Strings
 console.log(isPalindrome("madam")); // Output: true
+// After normalization, the string becomes "madam".
 console.log(isPalindrome("hello")); // Output: false
+// After normalization, the string becomes "hello".
 console.log(isPalindrome("A man, a plan, a canal, Panama")); // Output: true
+// After normalization, the string becomes "amanaplanacanalpanama".
 console.log(isPalindrome("No 'x' in Nixon")); // Output: true
+// After normalization, the string becomes "noxinnixon".
 console.log(isPalindrome("12321")); // Output: true
+// After normalization, the string becomes "12321".
 console.log(isPalindrome("123456")); // Output: false
+// After normalization, the string becomes "123456".
+ */
+//~ # Day-15
+//& ### Question 29: Anagrams
+// *Problem:*
+//todo=> Write a TypeScript function areAnagrams(str1: string, str2: string): boolean that checks if two strings are anagrams of each other. An anagram is a word or phrase formed by rearranging the letters of another word or phrase using all the original letters exactly once.
+// *Hints:*
+//todo=> 1. *Normalize Case:*
+//todo=>    - Convert both strings to lowercase to ensure that the comparison is case-insensitive.
+//todo=>    - Traverse each character of the strings and convert uppercase characters to lowercase.
+//todo=> 2. *Count Characters:*
+//todo=>    - Use a fixed-size data structure like an array to count the occurrences of each character in both strings. Since we're only dealing with lowercase letters, an array of size 26 (for 'a' to 'z') will suffice.
+//todo=>    - Initialize two arrays (or two objects with 26 keys) to keep track of character frequencies for each string.
+//todo=> 3. *Compare Character Counts:*
+//todo=>    - After populating the frequency arrays for both strings, compare them to determine if they are identical.
+//todo=>    - If they match, then the two strings are anagrams; otherwise, they are not.
+//todo=> 4. *Edge Cases:*
+//todo=>    - Check if the strings have different lengths initially. If they do, they cannot be anagrams.
+//todo=>    - Handle empty strings as valid anagrams of each other.
+/*
+function areAnagrams(str1: string, str2: string): boolean {
+  // Normalize Case
+  str1 = str1.toLowerCase();
+  str2 = str2.toLowerCase();
+
+  Check if the strings have different lengths
+  if (str1.length !== str2.length) {
+      return false;
+  }
+
+  // Initialize character count arrays for 'a' to 'z'
+  // Create an Array of Size 26:
+
+//^ new Array(26) creates a new array with 26 elements.
+//^ At this point, the array has a length of 26, but its elements are uninitialized (i.e., they are undefined by default).
+//^ Fill the Array with Zeros:
+
+//^ The .fill(0) method fills all 26 elements of the array with the value 0.
+//^ After this operation, the array charCount1 will be an array of size 26 where each element is initialized to 0.
+
+  const charCount1: number[] = new Array(26).fill(0);
+  const charCount2: number[] = new Array(26).fill(0);
+
+  // Count character occurrences in both strings
+  //^ here all characters of word, one by one will change into code number from alphabet to confirm exact alphabet
+  for (let i = 0; i < str1.length; i++) {
+      charCount1[str1.charCodeAt(i) - 97]++;
+      charCount2[str2.charCodeAt(i) - 97]++;
+  }
+
+  // Compare character counts
+  //^ here from word all alphabets of str1 & str2 will be separated and will be compared with each other for true or false statement
+  for (let i = 0; i < 26; i++) {
+      if (charCount1[i] !== charCount2[i]) {
+          return false;
+      }
+  }
+
+  return true;
+}
+
+// Example usage:
+console.log(areAnagrams("listen", "silent")); // true
+console.log(areAnagrams("hello", "world"));   // false
+ */
+/*
+Find the character code for 'a'
+console.log('a'.charCodeAt(0)); // Outputs: 97
+
+Find the character code for 'b'
+console.log('b'.charCodeAt(0)); // Outputs: 98
+
+You can do this for any letter
+console.log('c'.charCodeAt(0)); // Outputs: 99
+console.log('z'.charCodeAt(0)); // Outputs: 122
+ */
+//& ### Question 30: Reverse Words in a Sentence
+// *Problem:*
+//todo=> Write a TypeScript function reverseWords(sentence: string): string that reverses the words in a given sentence. For example, if the input is "Hello world", the output should be "world Hello".
+// *Hints:*
+//todo=> 1. *Identify Word Boundaries:*
+//todo=>    - Traverse the sentence character by character.
+//todo=>    - Detect the start and end of each word by identifying spaces or the start/end of the string.
+//todo=> 2. *Extract Words:*
+//todo=>    - Use indices to keep track of where each word starts and ends.
+//todo=>    - Build an array of words from these indices by manually copying characters into new strings.
+//todo=> 3. *Reverse the Order of Words:*
+//todo=>    - After extracting the words, create a new array to hold them in reverse order.
+//todo=>    - Iterate through the original array of words from the end to the beginning and insert them into the new array.
+//todo=> 4. *Reconstruct the Sentence:*
+//todo=>    - Concatenate the reversed array of words into a single string, ensuring that words are separated by spaces.
+//todo=> 5. *Edge Cases:*
+//todo=>    - Handle multiple spaces between words by treating consecutive spaces as single separators.
+//todo=>    - Consider sentences with leading, trailing, or multiple spaces.
+//todo=> ### Detailed Steps:
+// *Anagrams:*
+//todo=> 1. *Normalize Case:*
+//todo=>    - Convert each character to lowercase.
+//todo=>    - Example: Convert "Listen" and "Silent" to "listen" and "silent".
+//todo=> 2. *Count Characters:*
+//todo=>    - Use an array of size 26 for lowercase letters.
+//todo=>    - Traverse the first string and increment counts in the array for each character.
+//todo=>   - Traverse the second string and decrement counts in the array for each character.
+//todo=>    - If the array contains only zeroes after processing both strings, they are anagrams.
+//todo=> 3. *Compare Counts:*
+//todo=>    - After processing both strings, ensure that the frequency counts match exactly.
+// *Reverse Words in a Sentence:*
+//todo=> 1. *Identify Word Boundaries:*
+//todo=>    - Loop through the sentence and track the start of a word when encountering a non-space character.
+//todo=>    - Track the end of a word when encountering a space or the end of the sentence.
+//todo=> 2. *Extract Words:*
+//todo=>    - Use substring operations to extract words between the tracked start and end indices.
+//todo=>    - Store these words in an array.
+//todo=> 3. *Reverse Order:*
+//todo=>    - Use a loop to iterate from the end of the word array to the beginning, adding each word to a new array.
+//todo=> 4. *Reconstruct Sentence:*
+//todo=>    - Build the final string by joining words from the reversed array with spaces between them.
+/*
+function reverseWords(sentence: string): string {
+  // Step 1: Trim the sentence to remove leading and trailing spaces, and split by spaces.
+  const words = sentence.trim().split(/\s+/); // The regex \s+ handles multiple spaces.
+
+  // Step 2: Reverse the order of the words.
+  const reversedWords = words.reverse();
+
+  // Step 3: Join the reversed words with a single space to reconstruct the sentence.
+  return reversedWords.join(' ');
+}
+
+// Example usage:
+console.log(reverseWords("Hello world")); // Output: "world Hello"
+console.log(reverseWords("  The quick brown fox  ")); // Output: "fox brown quick The"
+console.log(reverseWords("OpenAI is awesome")); // Output: "awesome is OpenAI"
+ */
+// check the following examples to understand the job of  .trim().split(/\s+/);
+/*
+let sentence = "  Hello world  ";
+console.log(sentence.trim()); // Output: "Hello world"
+ */
+/*
+let sentence = "Hello   world";
+console.log(sentence.trim().split(/\s+/)); // Output: ["Hello", "world"]
+ */
+//~ # Day-16
+//& ### Question:31 *Sum of Even Numbers from Multiple Arrays*
+// *Problem Statement:*
+//todo=> You are given three arrays of integers. Write a function sumEvenNumbers(arr1: number[], arr2: number[], arr3: number[]): number[] that calculates the sum of all even numbers in each array. The function should return a new array containing the sum of even numbers from each of the three arrays.
+// *Example:*
+//todo=> typescript
+//todo=> sumEvenNumbers([1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]) // [6, 14, 22]
+//todo=> sumEvenNumbers([2, 4, 6], [1, 3, 5], [10, 20, 30]) // [12, 0, 60]
+//todo=> sumEvenNumbers([11, 13, 15], [2, 4], [8, 10, 12]) // [0, 6, 30]
+// *Hint:*
+//todo=> - Iterate through each array and sum up only the even numbers.
+//todo=> - Store the sum for each array in a new array.
+//todo=> - Return the new array containing the sums
+/*
+function sumEvenNumbers(arr1: number[], arr2: number[], arr3: number[]): number[] {
+  // Helper function to sum even numbers in a given array
+  function sumEvens(arr: number[]): number {
+      return arr.filter(num => num % 2 === 0) // it will Filter Even Numbers
+                .reduce((acc, num) => acc + num, 0); // it will Sum up the Even Numbers
+  }
+
+  // Calculate the sum of even numbers for each array
+  const sum1 = sumEvens(arr1);
+  const sum2 = sumEvens(arr2);
+  const sum3 = sumEvens(arr3);
+
+  // Return the array of sums
+  return [sum1, sum2, sum3];
+}
+
+// Example usage:
+console.log(sumEvenNumbers([1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12])); // Output: [6, 14, 22]
+console.log(sumEvenNumbers([2, 4, 6], [1, 3, 5], [10, 20, 30])); // Output: [12, 0, 60]
+console.log(sumEvenNumbers([11, 13, 15], [2, 4], [8, 10, 12])); // Output: [0, 6, 30]
+ */
+//& ### Question:32 *Concatenate Strings from Arrays*
+// *Problem Statement:*
+//todo=> You are given three arrays of strings. Write a function concatenateFirstLetters(arr1: string[], arr2: string[], arr3: string[]): string[] that extracts the first letter of each string in the arrays, concatenates these letters for each array, and returns a new array containing the concatenated strings.
+// *Example:*
+//todo=> typescript
+//todo=> concatenateFirstLetters(["apple", "banana", "cherry"], ["dog", "elephant", "frog"], ["grape", "honeydew", "kiwi"])
+//todo=> ["abc", "def", "ghk"]
+//todo=> concatenateFirstLetters(["sun", "moon"], ["star", "planet"], ["galaxy", "comet"])
+//todo=> ["sm", "sp", "gc"]
+//todo=> concatenateFirstLetters(["table", "chair", "lamp"], ["carpet", "curtain", "sofa"], ["desk", "shelf", "cabinet"])
+//todo=> ["tcl", "ccs", "dsc"]
+// *Hint:*
+//todo=> - Iterate through each string in the arrays, extract the first letter, and concatenate them.
+//todo=> - Store the concatenated result for each array in a new array.
+//todo=> - Return the new array containing the concatenated strings.
+/*
+function concatenateFirstLetters(arr1: string[], arr2: string[], arr3: string[]): string[] {
+  // Helper function to concatenate the first letters of each string in an array
+  function concatenateFirstLettersOfArray(arr: string[]): string {
+      return arr.map(str => str.charAt(0)).join('');
+  }
+
+  // Concatenate first letters for each of the input arrays
+  const result1 = concatenateFirstLettersOfArray(arr1);
+  const result2 = concatenateFirstLettersOfArray(arr2);
+  const result3 = concatenateFirstLettersOfArray(arr3);
+
+  // Return the array of concatenated strings
+  return [result1, result2, result3];
+}
+
+// Example usage:
+console.log(concatenateFirstLetters(["apple", "banana", "cherry"], ["dog", "elephant", "frog"], ["grape", "honeydew", "kiwi"]));
+// Output: ["abc", "def", "ghk"]
+
+console.log(concatenateFirstLetters(["sun", "moon"], ["star", "planet"], ["galaxy", "comet"]));
+// Output: ["sm", "sp", "gc"]
+
+console.log(concatenateFirstLetters(["table", "chair", "lamp"], ["carpet", "curtain", "sofa"], ["desk", "shelf", "cabinet"]));
+// Output: ["tcl", "ccs", "dsc"]
+ */
+//~ # Day-17
+//& ### Question 33: *Calculate the Product of Odd Numbers*
+//todo=> Write a function productOfOdds(numbers: number[]): number that takes an array of numbers as input. The function should calculate the product of all odd numbers in the array and return the result. If there are no odd numbers, return 1.
+// *Example:*
+//todo=> typescript
+//todo=> console.log(productOfOdds([2, 3, 5, 6])); // Output: 15
+//todo=> console.log(productOfOdds([2, 4, 6, 8])); // Output: 1
+//todo=> *Hint:* Traverse through the array, multiply the odd numbers, and handle the case where no odd numbers are present.
+/*
+function productOfOdds(numbers: number[]): number {
+  // Initialize the product to 1 (the multiplicative identity)
+  let product = 1;
+  let hasOdd = false;
+
+  // Traverse through the array
+  for (const number of numbers) {
+      // Check if the number is odd
+      if (number % 2 !== 0) {
+          product *= number; // Multiply the odd number to the product
+          hasOdd = true; // Indicate that we found at least one odd number
+      }
+  }
+
+  // If no odd numbers were found, product will remain 1 , after : we can fix any number to see in output
+  return hasOdd ? product : 1;
+  //return hasOdd ? product : 0;
+  //return hasOdd ? product : 99;
+}
+
+// Example usage:
+console.log(productOfOdds([2, 3, 5, 6])); // Output: 15
+console.log(productOfOdds([2, 4, 6, 8])); // Output: 1
+ */
+//& ### Question 34: *Find the Longest Word in a Sentence*
+//todo=> Write a function findLongestWord(sentence: string): string that takes a string sentence as input. The function should return the longest word in the sentence. If there are multiple words with the same length, return the first one.
+// *Example:*
+//todo=> typescript
+//todo=> console.log(findLongestWord("The quick brown fox jumps over the lazy dog")); // Output: "jumps"
+//todo=> console.log(findLongestWord("I love coding in TypeScript")); // Output: "TypeScript"
+//todo=> *Hint:* Split the sentence into words, compare their lengths, and return the longest one.
+function findLongestWord(sentence) {
+    // Split the sentence into words using spaces
+    var words = sentence.split(/\s+/);
+    // Initialize variables to track the longest word and its length
+    var longestWord = '';
+    var maxLength = 0;
+    // Iterate through each word in the array
+    for (var _i = 0, words_1 = words; _i < words_1.length; _i++) {
+        var word = words_1[_i];
+        // Check if the current word's length is greater than the maximum length found so far
+        if (word.length >= maxLength) {
+            longestWord = word; // Update longestWord
+            maxLength = word.length; // Update maxLength
+        }
+    }
+    return longestWord;
+}
+// Example usage:
+console.log(findLongestWord("The quick brown fox jumps over the lazy dog")); // Output: "jumps"
+console.log(findLongestWord("I love coding in TypeScript")); // Output: "TypeScript"

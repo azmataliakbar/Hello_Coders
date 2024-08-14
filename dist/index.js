@@ -1107,58 +1107,351 @@ moveZeroes(nums);
 console.log(nums); // Output: [1, 3, 12, 0, 0]
  */
 //~ # Day 13
-//& ### Question 1: Count Vowels in a String
+//& ### Question 25: Count Vowels in a String
 // *Problem Statement:*
-// Write a function in TypeScript that takes a string as input and returns the number of vowels (a, e, i, o, u) in the string.
+//todo=> Write a function in TypeScript that takes a string as input and returns the number of vowels (a, e, i, o, u) in the string.
 // *Example:*
-// typescript
-// countVowels("hello world"); // Output: 3
-// countVowels("TypeScript"); // Output: 3
+//todo=> typescript
+//todo=> countVowels("hello world"); // Output: 3
+//todo=> countVowels("TypeScript"); // Output: 2
 // *Function Signature:*
-// typescript
-// function countVowels(str: string): number {
-// Your code here
-// }
+//todo=> typescript
+//todo=> function countVowels(str: string): number {
+//todo=> Your code here
+//todo=> }
 // *Hints:*
-// 1. *Loop through the string:*
-//    - Use a loop to iterate over each character in the string.
-// 2. *Check for vowels:*
-//    - Compare each character with the vowels ('a', 'e', 'i', 'o', 'u'). Make sure to check both lowercase and uppercase vowels.
-// 3. *Counting:*
-//    - Maintain a counter variable to keep track of the number of vowels found. Increment this counter each time you encounter a vowel.
-// 4. *Return the count:*
-//    - After completing the loop, return the value of the counter, which represents the total number of vowels in the string.
-function countVowels(str) {
-    let vowelCount = 0;
-    const vowels = "aeiouAEIOU";
-    for (let char of str) {
-        if (vowels.includes(char)) {
-            vowelCount++;
-        }
-    }
-    return vowelCount;
+//todo=> 1. *Loop through the string:*
+//todo=>    - Use a loop to iterate over each character in the string.
+//todo=> 2. *Check for vowels:*
+//todo=>    - Compare each character with the vowels ('a', 'e', 'i', 'o', 'u'). Make sure to check both lowercase and uppercase vowels.
+//todo=> 3. *Counting:*
+//todo=>    - Maintain a counter variable to keep track of the number of vowels found. Increment this counter each time you encounter a vowel.
+//todo=> 4. *Return the count:*
+//todo=>    - After completing the loop, return the value of the counter, which represents the total number of vowels in the string.
+/*
+function countVowels(str: string): number {
+  let vowelCount = 0;
+  const vowels = "aeiouAEIOU";
+
+  for (let char of str) {
+      if (vowels.includes(char)) {
+          vowelCount++;
+      }
+  }
+
+  return vowelCount;
 }
+
 // Example usage:
 console.log(countVowels("hello world")); // Output: 3
-console.log(countVowels("TypeScript")); // Output: 3
+console.log(countVowels("TypeScript")); // Output: 2
+console.log(countVowels("Governor Sindh Initiative Program")); // Output:12
+ */
 //& ### Question 26: Find the Missing Number in an Array
 // *Problem Statement:*
-// Write a function in TypeScript that takes an array of numbers containing n distinct numbers taken from the range 1 to n+1, where one number is missing. The function should find and return the missing number.
+//todo=> Write a function in TypeScript that takes an array of numbers containing n distinct numbers taken from the range 1 to n+1, where one number is missing. The function should find and return the missing number.
 // *Example:*
-// typescript
-// findMissingNumber([1, 2, 4, 5]); // Output: 3
-// findMissingNumber([3, 7, 1, 2, 8, 4, 5]); // Output: 6
+//todo=> typescript
+//todo=> findMissingNumber([1, 2, 4, 5]); // Output: 3
+//todo=> findMissingNumber([3, 7, 1, 2, 8, 4, 5]); // Output: 6
 // *Function Signature:*
-// typescript
-// function findMissingNumber(arr: number[]): number {
-//    Your code here
-// }
+//todo=> typescript
+//todo=> function findMissingNumber(arr: number[]): number {
+//todo=>    Your code here
+//todo=> }
 // *Hints:*
-// 1. *Sum Formula:*
-//    - Use the formula for the sum of the first n natural numbers: \(\text{Sum} = \frac{n(n+1)}{2}\). This gives you the total sum if no numbers were missing.
-// 2. *Sum the Array:*
-//    - Calculate the sum of all elements present in the given array.
-// 3. *Subtract to Find Missing Number:*
-//    - Subtract the sum of the elements in the array from the expected sum (calculated using the formula). The result will be the missing number.
-// 4. *Edge Cases:*
-//    - Consider edge cases where the missing number might be the smallest (1) or the largest number in the range.
+//todo=> 1. *Sum Formula:*
+//todo=>    - Use the formula for the sum of the first n natural numbers: \(\text{Sum} = \frac{n(n+1)}{2}\). This gives you the total sum if no numbers were missing.
+//todo=> 2. *Sum the Array:*
+//todo=>    - Calculate the sum of all elements present in the given array.
+//todo=> 3. *Subtract to Find Missing Number:*
+//todo=>    - Subtract the sum of the elements in the array from the expected sum (calculated using the formula). The result will be the missing number.
+//todo=> 4. *Edge Cases:*
+//todo=>    - Consider edge cases where the missing number might be the smallest (1) or the largest number in the range.
+/*
+function findMissingNumber(arr: number[]): number {
+  const n = arr.length + 1;
+  const totalSum = (n * (n + 1)) / 2;
+  const arraySum = arr.reduce((sum, num) => sum + num, 0);
+
+  return totalSum - arraySum;
+}
+findMissingNumber([1, 2, 4, 5]); // Output: 3
+findMissingNumber([3, 7, 1, 2, 8, 4, 5]); // Output: 6
+ */
+//^ Please check below more mathematical details:
+/* console.log(findMissingNumber([1, 2, 4, 5])); // Output: 3 */
+// Step-by-Step Explanation:
+// Determine n:
+// n is the total number of elements that should be in the array including the missing one.
+// The length of the given array is 4, so n = 4 + 1 = 5.
+// Calculate the Total Sum using the Formula:
+// Total Sum = n ( n + 1 ) / 2
+// Substitute n = 5:
+// Total Sum = 5 × (5 + 1) / 2 = 30 / 2
+// So, the sum of numbers from 1 to 5 is 15.
+// Calculate the Sum of the Given Array:
+// The array [1, 2, 4, 5] has elements that sum to:
+// Array Sum = 1 + 2 + 4 + 5 = 12
+// Find the Missing Number:
+// The missing number is found by subtracting the sum of the array from the total sum:
+// Missing Number = Total Sum − Array Sum = 15 − 12 = 3
+// So, the missing number in the array [1, 2, 4, 5] is 3. This is how the function calculates it.
+//^ Please check below more mathematical details:
+/* console.log(findMissingNumber([3, 7, 1, 2, 8, 4, 5])); // Output: 6 */
+// Step-by-Step Explanation:
+// Determine n:
+// n is the total number of elements that should be in the array including the missing one.
+// The length of the given array is 7, so n = 7 + 1 = 8.
+// Calculate the Total Sum using the Formula:
+// Total Sum = n ( n + 1 ) / 2
+// Substitute n = 8:
+// Total Sum = 8 × (8 + 1) / 2 = 72 / 2
+// So, the sum of numbers from 1 to 8 is 36.
+// Calculate the Sum of the Given Array:
+// The array [3, 7, 1, 2, 8, 4, 5] has elements that sum to:
+// Array Sum = 3 + 7 + 1 + 2 + 8 + 4 + 5 = 30
+// Find the Missing Number:
+// The missing number is found by subtracting the sum of the array from the total sum:
+// Missing Number = Total Sum − Array Sum = 36 − 30 = 6
+// So, the missing number in the array [3, 7, 1, 2, 8, 4, 5] is 6. This is how the function calculates it.
+//~ # DAY 14
+//& ### Q27  *Find the Maximum Sum from Two Arrays*
+// *Problem Statement:*
+//todo=> Create a function findMaxSum that accepts two arrays of numbers. The function should determine the maximum number from each array and return the sum of these two maximum numbers.
+// *Example:*
+//todo=> typescript
+//todo=> findMaxSum([3, 5, 7, 2, 8], [10, 20, 30, 5]); // Output: 38 (8 from the first array + 30 from the second array)
+//todo=> findMaxSum([1, 2, 3], [4, 5, 6]); // Output: 9 (3 from the first array + 6 from the second array)
+// *Hints:*
+//todo=> 1. *Step 1: Write a Helper Function to Find the Maximum Value in an Array*
+//todo=>    - Start by creating a function findMax that takes an array of numbers as its parameter.
+//todo=>    - Initialize a variable (e.g., let max = array[0];) to store the first element of the array, assuming it to be the maximum.
+//todo=>    - Use a for loop to iterate over the remaining elements of the array.
+//todo=>    - During each iteration, compare the current element with max. If the current element is greater, update max.
+//todo=>    - After the loop, max will hold the largest number in the array. Return this value.
+//todo=> 2. *Step 2: Apply the Helper Function to Both Arrays*
+//todo=>    - Use the findMax function to find the maximum value in both input arrays.
+//todo=>    - Store these maximum values in two separate variables.
+//todo=> 3. *Step 3: Sum the Maximum Values*
+//todo=>    - Calculate the sum of the two maximum values obtained from the arrays.
+//todo=>    - Return the final sum.
+//todo=> 4. *Step 4: Test with Multiple Scenarios*
+//todo=>    - Test the function with different arrays to ensure it correctly finds the maximum values and sums them.
+//todo=> By following these steps, students will have a clear path to solving the problem, allowing them to build their understanding of both array traversal and function utilization in TypeScript.
+/*
+Step 1: a Function to Find the Maximum Value in an Array
+function findMax(arr: number[]): number {
+  let max = arr[0]; // Assume the first element is the maximum
+  for (let i = 1; i < arr.length; i++) { // Iterate over the remaining elements
+      if (arr[i] > max) { // Update max if the current element is greater
+          max = arr[i];
+      }
+  }
+  return max; // Return the largest number in the array
+}
+
+Step 2: Apply the Helper Function to Both Arrays
+function findMaxSum(arr1: number[], arr2: number[]): number {
+  const max1 = findMax(arr1); // Find the max in the first array
+  const max2 = findMax(arr2); // Find the max in the second array
+
+  Step 3: Sum the Maximum Values
+  return max1 + max2; // Return the sum of the two maximum values
+}
+
+Step 4: Test with Multiple Scenarios
+console.log(findMaxSum([3, 5, 7, 2, 8], [10, 20, 30, 5])); // Output: 38
+console.log(findMaxSum([1, 2, 3], [4, 5, 6])); // Output: 9
+ */
+//& ### Question 28: *Check if a String is a Palindrome*
+// *Problem Statement:*
+//todo=> Write a function isPalindrome that takes a string as input and checks if it reads the same backward as forward. The function should return true if the string is a palindrome and false otherwise.
+// *Example:*
+//todo=> typescript
+//todo=> isPalindrome("madam"); // Output: true
+//todo=> isPalindrome("hello"); // Output: false
+// *Hints:*
+//todo=> 1. *Step 1: Normalize the String*
+//todo=>    - Convert the string to lowercase to handle case sensitivity (str = str.toLowerCase();).
+//todo=>    - If necessary, remove non-alphanumeric characters (e.g., spaces, punctuation) to focus on the actual content.
+//todo=>   2. *Step 2: Use Two-Pointer Technique*
+//todo=>    - Initialize two pointers: one at the start of the string (let left = 0;) and one at the end (let right = str.length - 1;).
+//todo=>    - Use a while loop to compare characters at these pointers. Continue looping until the two pointers meet in the middle.
+//todo=>    - If at any point the characters at left and right pointers do not match, return false.
+//todo=> 3. *Step 3: Complete the Loop*
+//todo=>    - If the loop completes without finding a mismatch, the string is a palindrome. Return true.
+//todo=> 4. *Step 4: Test with Various Strings*
+//todo=>   - Test the function with both palindromes and non-palindromes to verify that it works as expected.
+/*
+// Step 1: Normalize the String
+function normalizeString(str: string): string {
+  // Convert the string to lowercase and remove non-alphanumeric characters
+  return str.toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+// Step 2: Use Two-Pointer Technique
+function isPalindrome(str: string): boolean {
+  // First, normalize the string
+  const normalizedStr = normalizeString(str);
+  
+  // Initialize two pointers
+  let left = 0;
+  let right = normalizedStr.length - 1;
+  
+  // Step 3: Complete the Loop
+  while (left < right) {
+      // If characters don't match, it's not a palindrome
+      if (normalizedStr[left] !== normalizedStr[right]) {
+          return false;
+      }
+      left++;
+      right--;
+  }
+  
+  // If we complete the loop, it is a palindrome
+  return true;
+}
+
+// Step 4: Test with Various Strings
+console.log(isPalindrome("madam")); // Output: true
+// After normalization, the string becomes "madam".
+console.log(isPalindrome("hello")); // Output: false
+// After normalization, the string becomes "hello".
+console.log(isPalindrome("A man, a plan, a canal, Panama")); // Output: true
+// After normalization, the string becomes "amanaplanacanalpanama".
+console.log(isPalindrome("No 'x' in Nixon")); // Output: true
+// After normalization, the string becomes "noxinnixon".
+console.log(isPalindrome("12321")); // Output: true
+// After normalization, the string becomes "12321".
+console.log(isPalindrome("123456")); // Output: false
+// After normalization, the string becomes "123456".
+ */
+//~ # Day-15
+//& ### Question 29: Anagrams
+// *Problem:*
+//todo=> Write a TypeScript function areAnagrams(str1: string, str2: string): boolean that checks if two strings are anagrams of each other. An anagram is a word or phrase formed by rearranging the letters of another word or phrase using all the original letters exactly once.
+// *Hints:*
+//todo=> 1. *Normalize Case:*
+//todo=>    - Convert both strings to lowercase to ensure that the comparison is case-insensitive.
+//todo=>    - Traverse each character of the strings and convert uppercase characters to lowercase.
+//todo=> 2. *Count Characters:*
+//todo=>    - Use a fixed-size data structure like an array to count the occurrences of each character in both strings. Since we're only dealing with lowercase letters, an array of size 26 (for 'a' to 'z') will suffice.
+//todo=>    - Initialize two arrays (or two objects with 26 keys) to keep track of character frequencies for each string.
+//todo=> 3. *Compare Character Counts:*
+//todo=>    - After populating the frequency arrays for both strings, compare them to determine if they are identical.
+//todo=>    - If they match, then the two strings are anagrams; otherwise, they are not.
+//todo=> 4. *Edge Cases:*
+//todo=>    - Check if the strings have different lengths initially. If they do, they cannot be anagrams.
+//todo=>    - Handle empty strings as valid anagrams of each other.
+function areAnagrams(str1, str2) {
+    // Normalize Case
+    str1 = str1.toLowerCase();
+    str2 = str2.toLowerCase();
+    // Check if the strings have different lengths
+    if (str1.length !== str2.length) {
+        return false;
+    }
+    // Initialize character count arrays for 'a' to 'z'
+    const charCount1 = new Array(26).fill(0);
+    const charCount2 = new Array(26).fill(0);
+    // Count character occurrences in both strings
+    for (let i = 0; i < str1.length; i++) {
+        charCount1[str1.charCodeAt(i) - 97]++;
+        charCount2[str2.charCodeAt(i) - 97]++;
+    }
+    // Compare character counts
+    for (let i = 0; i < 26; i++) {
+        if (charCount1[i] !== charCount2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+// Example usage:
+//console.log(areAnagrams("listen", "silent")); // true
+//console.log(areAnagrams("hello", "world"));   // false
+//& ### Question 30: Reverse Words in a Sentence
+// *Problem:*
+//todo=> Write a TypeScript function reverseWords(sentence: string): string that reverses the words in a given sentence. For example, if the input is "Hello world", the output should be "world Hello".
+// *Hints:*
+//todo=> 1. *Identify Word Boundaries:*
+//todo=>    - Traverse the sentence character by character.
+//todo=>    - Detect the start and end of each word by identifying spaces or the start/end of the string.
+//todo=> 2. *Extract Words:*
+//todo=>    - Use indices to keep track of where each word starts and ends.
+//todo=>    - Build an array of words from these indices by manually copying characters into new strings.
+//todo=> 3. *Reverse the Order of Words:*
+//todo=>    - After extracting the words, create a new array to hold them in reverse order.
+//todo=>    - Iterate through the original array of words from the end to the beginning and insert them into the new array.
+//todo=> 4. *Reconstruct the Sentence:*
+//todo=>    - Concatenate the reversed array of words into a single string, ensuring that words are separated by spaces.
+//todo=> 5. *Edge Cases:*
+//todo=>    - Handle multiple spaces between words by treating consecutive spaces as single separators.
+//todo=>    - Consider sentences with leading, trailing, or multiple spaces.
+//todo=> ### Detailed Steps:
+// *Anagrams:*
+//todo=> 1. *Normalize Case:*
+//todo=>    - Convert each character to lowercase.
+//todo=>    - Example: Convert "Listen" and "Silent" to "listen" and "silent".
+//todo=> 2. *Count Characters:*
+//todo=>    - Use an array of size 26 for lowercase letters.
+//todo=>    - Traverse the first string and increment counts in the array for each character.
+//todo=>   - Traverse the second string and decrement counts in the array for each character.
+//todo=>    - If the array contains only zeroes after processing both strings, they are anagrams.
+//todo=> 3. *Compare Counts:*
+//todo=>    - After processing both strings, ensure that the frequency counts match exactly.
+// *Reverse Words in a Sentence:*
+//todo=> 1. *Identify Word Boundaries:*
+//todo=>    - Loop through the sentence and track the start of a word when encountering a non-space character.
+//todo=>    - Track the end of a word when encountering a space or the end of the sentence.
+//todo=> 2. *Extract Words:*
+//todo=>    - Use substring operations to extract words between the tracked start and end indices.
+//todo=>    - Store these words in an array.
+//todo=> 3. *Reverse Order:*
+//todo=>    - Use a loop to iterate from the end of the word array to the beginning, adding each word to a new array.
+//todo=> 4. *Reconstruct Sentence:*
+//todo=>    - Build the final string by joining words from the reversed array with spaces between them.
+//~ # Day-16
+//& ### Question:31 *Sum of Even Numbers from Multiple Arrays*
+// *Problem Statement:*
+//todo=> You are given three arrays of integers. Write a function sumEvenNumbers(arr1: number[], arr2: number[], arr3: number[]): number[] that calculates the sum of all even numbers in each array. The function should return a new array containing the sum of even numbers from each of the three arrays.
+// *Example:*
+//todo=> typescript
+//todo=> sumEvenNumbers([1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]) // [6, 14, 22]
+//todo=> sumEvenNumbers([2, 4, 6], [1, 3, 5], [10, 20, 30]) // [12, 0, 60]
+//todo=> sumEvenNumbers([11, 13, 15], [2, 4], [8, 10, 12]) // [0, 6, 30]
+// *Hint:*
+//todo=> - Iterate through each array and sum up only the even numbers.
+//todo=> - Store the sum for each array in a new array.
+//todo=> - Return the new array containing the sums
+//& ### Question:32 *Concatenate Strings from Arrays*
+// *Problem Statement:*
+//todo=> You are given three arrays of strings. Write a function concatenateFirstLetters(arr1: string[], arr2: string[], arr3: string[]): string[] that extracts the first letter of each string in the arrays, concatenates these letters for each array, and returns a new array containing the concatenated strings.
+// *Example:*
+//todo=> typescript
+//todo=> concatenateFirstLetters(["apple", "banana", "cherry"], ["dog", "elephant", "frog"], ["grape", "honeydew", "kiwi"])
+//todo=> ["abc", "def", "ghk"]
+//todo=> concatenateFirstLetters(["sun", "moon"], ["star", "planet"], ["galaxy", "comet"])
+//todo=> ["sm", "sp", "gc"]
+//todo=> concatenateFirstLetters(["table", "chair", "lamp"], ["carpet", "curtain", "sofa"], ["desk", "shelf", "cabinet"])
+//todo=> ["tcl", "ccs", "dsc"]
+// *Hint:*
+//todo=> - Iterate through each string in the arrays, extract the first letter, and concatenate them.
+//todo=> - Store the concatenated result for each array in a new array.
+//todo=> - Return the new array containing the concatenated strings.
+//~ # Day-17
+//& ### Question 33: *Calculate the Product of Odd Numbers*
+//todo=> Write a function productOfOdds(numbers: number[]): number that takes an array of numbers as input. The function should calculate the product of all odd numbers in the array and return the result. If there are no odd numbers, return 1.
+// *Example:*
+//todo=> typescript
+//todo=> console.log(productOfOdds([2, 3, 5, 6])); // Output: 15
+//todo=> console.log(productOfOdds([2, 4, 6, 8])); // Output: 1
+//todo=> *Hint:* Traverse through the array, multiply the odd numbers, and handle the case where no odd numbers are present.
+//& ### Question 34: *Find the Longest Word in a Sentence*
+//todo=> Write a function findLongestWord(sentence: string): string that takes a string sentence as input. The function should return the longest word in the sentence. If there are multiple words with the same length, return the first one.
+// *Example:*
+//todo=> typescript
+//todo=> console.log(findLongestWord("The quick brown fox jumps over the lazy dog")); // Output: "jumps"
+//todo=> console.log(findLongestWord("I love coding in TypeScript")); // Output: "TypeScript"
+//todo=> *Hint:* Split the sentence into words, compare their lengths, and return the longest one.
