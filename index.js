@@ -1515,7 +1515,7 @@ console.log(sumEvenNumbers([11, 13, 15], [2, 4], [8, 10, 12])); // Output: [0, 6
 // *Hint:*
 //todo=> - Iterate through each string in the arrays, extract the first letter, and concatenate them.
 //todo=> - Store the concatenated result for each array in a new array.
-//todo=> - Return the new array containing the concatenated strings.
+//todo=> - Return the new array containing the concatenated strings.
 /*
 function concatenateFirstLetters(arr1: string[], arr2: string[], arr3: string[]): string[] {
   // Helper function to concatenate the first letters of each string in an array
@@ -1582,23 +1582,91 @@ console.log(productOfOdds([2, 4, 6, 8])); // Output: 1
 //todo=> console.log(findLongestWord("The quick brown fox jumps over the lazy dog")); // Output: "jumps"
 //todo=> console.log(findLongestWord("I love coding in TypeScript")); // Output: "TypeScript"
 //todo=> *Hint:* Split the sentence into words, compare their lengths, and return the longest one.
-function findLongestWord(sentence) {
-    // Split the sentence into words using spaces
-    var words = sentence.split(/\s+/);
-    // Initialize variables to track the longest word and its length
-    var longestWord = '';
-    var maxLength = 0;
-    // Iterate through each word in the array
-    for (var _i = 0, words_1 = words; _i < words_1.length; _i++) {
-        var word = words_1[_i];
-        // Check if the current word's length is greater than the maximum length found so far
-        if (word.length >= maxLength) {
-            longestWord = word; // Update longestWord
-            maxLength = word.length; // Update maxLength
-        }
-    }
-    return longestWord;
+/*
+function findLongestWord(sentence: string): string {
+
+      // Split the sentence into words using spaces
+      const words = sentence.split(/\s+/);
+  
+  // Initialize variables to track the longest word and its length
+  let longestWord = '';
+  let maxLength = 0;
+
+  // Iterate through each word in the array
+  for (const word of words) {
+      // Check if the current word's length is greater than the maximum length found so far
+      if (word.length >= maxLength) {
+          longestWord = word; // Update longestWord
+          maxLength = word.length; // Update maxLength
+      }
+  }
+
+  return longestWord;
 }
+
 // Example usage:
 console.log(findLongestWord("The quick brown fox jumps over the lazy dog")); // Output: "jumps"
-console.log(findLongestWord("I love coding in TypeScript")); // Output: "TypeScript"
+
+console.log(findLongestWord("I love coding in TypeScript"));// Output: "TypeScript"
+ */
+//~ # Day-18
+//& ### Question: 35 *Sum of Odd Numbers and Multiplication Table*
+// Write a function that takes an array of numbers as input. The function should first find the sum of all the odd numbers in the array. Then, it should generate and return an array containing the multiplication table of that sum from 1 to 10.
+// *Function Signature:*
+// typescript
+// function oddSumMultiplicationTable(numbers: number[]): number[] {
+// Your code here
+// }
+// *Example:*
+// - Input: [2, 3, 5, 8, 11]
+// - Output: [19, 38, 57, 76, 95, 114, 133, 152, 171, 190]
+//   - (Explanation: The odd numbers are 3, 5, and 11. Their sum is 19. The multiplication table of 19 is generated.)
+// *Hint:*
+// 1. Use a loop to iterate through the array and sum the odd numbers.
+// 2. Use another loop to create the multiplication table for the sum.
+/*
+function oddSumMultiplicationTable(numbers: number[]): number[] {
+  // Step 1: the sum of all odd numbers in the array , here result from given array 3 + 5 + 11 = 19
+  let oddSum = numbers.reduce((sum, num) => {
+      return num % 2 !== 0 ? sum + num : sum;
+  }, 0);
+
+  // Step 2: the multiplication table for the sum of odd numbers which is 19 so 19 X 1 = 19 till 19 so 19 X 10 = 190
+  let multiplicationTable: number[] = [];
+  for (let i = 1; i <= 10; i++) {
+      multiplicationTable.push(oddSum * i);
+  }
+
+  return multiplicationTable;
+}
+
+// Example usage:
+const numbers = [2, 3, 5, 8, 11];
+const result = oddSumMultiplicationTable(numbers);
+console.log(result); // Output: [19, 38, 57, 76, 95, 114, 133, 152, 171, 190]
+ */
+//& ### Question: 36 *Filter and Square Even Numbers*
+// Write a function that takes an array of numbers as input. The function should filter out all the even numbers from the array, square each of those even numbers, and return a new array containing these squared values.
+// *Function Signature:*
+// typescript
+// function squareEvenNumbers(numbers: number[]): number[] {
+// Your code here
+// }
+// *Example:*
+// - Input: [1, 2, 3, 4, 5, 6]
+// - Output: [4, 16, 36]
+//   - (Explanation: The even numbers are 2, 4, and 6. Their squares are 4, 16, and 36.)
+// *Hint:*
+// 1. Use a loop or array method to filter out the even numbers.
+// 2. Square each of the filtered numbers and store the results in a new array.
+function squareEvenNumbers(numbers) {
+    // Step 1: Filter out even numbers
+    var evenNumbers = numbers.filter(function (num) { return num % 2 === 0; });
+    // Step 2: Square each of the filtered even numbers
+    var squaredEvenNumbers = evenNumbers.map(function (num) { return num * num; });
+    return squaredEvenNumbers;
+}
+// Example usage:
+var numbers = [1, 2, 3, 4, 5, 6];
+var result = squareEvenNumbers(numbers);
+console.log(result); // Output: [4, 16, 36]

@@ -1848,4 +1848,84 @@ console.log(findLongestWord("The quick brown fox jumps over the lazy dog")); // 
 console.log(findLongestWord("I love coding in TypeScript"));// Output: "TypeScript"
  */
 
+//~ # Day-18
 
+//& ### Question: 35 *Sum of Odd Numbers and Multiplication Table*
+
+//todo=> Write a function that takes an array of numbers as input. The function should first find the sum of all the odd numbers in the array. Then, it should generate and return an array containing the multiplication table of that sum from 1 to 10.
+
+// *Function Signature:*
+//todo=> typescript
+//todo=> function oddSumMultiplicationTable(numbers: number[]): number[] {
+//todo=> Your code here
+//todo=> }
+
+
+// *Example:*
+//todo=> - Input: [2, 3, 5, 8, 11]
+//todo=> - Output: [19, 38, 57, 76, 95, 114, 133, 152, 171, 190]
+//todo=>   - (Explanation: The odd numbers are 3, 5, and 11. Their sum is 19. The multiplication table of 19 is generated.)
+
+//todo=> *Hint:*
+//todo=> 1. Use a loop to iterate through the array and sum the odd numbers.
+//todo=> 2. Use another loop to create the multiplication table for the sum.
+
+
+/* 
+function oddSumMultiplicationTable(numbers: number[]): number[] {
+  // Step 1: the sum of all odd numbers in the array , here result from given array 3 + 5 + 11 = 19
+  let oddSum = numbers.reduce((sum, num) => {
+      return num % 2 !== 0 ? sum + num : sum;
+  }, 0);
+
+  // Step 2: the multiplication table for the sum of odd numbers which is 19 so 19 X 1 = 19 till 19 so 19 X 10 = 190
+  let multiplicationTable: number[] = [];
+  for (let i = 1; i <= 10; i++) {
+      multiplicationTable.push(oddSum * i);
+  }
+
+  return multiplicationTable;
+}
+
+// Example usage:
+const numbers = [2, 3, 5, 8, 11];
+const result = oddSumMultiplicationTable(numbers);
+console.log(result); // Output: [19, 38, 57, 76, 95, 114, 133, 152, 171, 190]
+ */
+
+//& ### Question: 36 *Filter and Square Even Numbers*
+
+//todo=> Write a function that takes an array of numbers as input. The function should filter out all the even numbers from the array, square each of those even numbers, and return a new array containing these squared values.
+
+// *Function Signature:*
+//todo=> typescript
+//todo=> function squareEvenNumbers(numbers: number[]): number[] {
+//todo=> Your code here
+//todo=> }
+
+
+// *Example:*
+//todo=> - Input: [1, 2, 3, 4, 5, 6]
+//todo=> - Output: [4, 16, 36]
+//todo=>   - (Explanation: The even numbers are 2, 4, and 6. Their squares are 4, 16, and 36.)
+
+// *Hint:*
+//todo=> 1. Use a loop or array method to filter out the even numbers.
+//todo=> 2. Square each of the filtered numbers and store the results in a new array.
+
+/*
+function squareEvenNumbers(numbers: number[]): number[] {
+  // Step 1: Filter out even numbers , here from given array numbers are 2, 4, 6
+  const evenNumbers = numbers.filter(num => num % 2 === 0);
+
+  // Step 2: Square each of the filtered even numbers , from given array 2^2 , 4^4, 6^6
+  const squaredEvenNumbers = evenNumbers.map(num => num * num);
+
+  return squaredEvenNumbers;
+}
+
+// Example usage:
+const numbers = [1, 2, 3, 4, 5, 6];
+const result = squareEvenNumbers(numbers);
+console.log(result); // Output: [4, 16, 36]
+ */
