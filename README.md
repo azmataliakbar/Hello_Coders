@@ -692,7 +692,7 @@ console.log(findLongestWord("I love coding in TypeScript")); // Output: "TypeScr
 
 # Day-18
 
-### Question: 1 *Sum of Odd Numbers and Multiplication Table*
+### Question: 35 *Sum of Odd Numbers and Multiplication Table*
 Write a function that takes an array of numbers as input. The function should first find the sum of all the odd numbers in the array. Then, it should generate and return an array containing the multiplication table of that sum from 1 to 10.
 
 *Function Signature:*
@@ -712,7 +712,7 @@ function oddSumMultiplicationTable(numbers: number[]): number[] {
 2. Use another loop to create the multiplication table for the sum.
 
 
-### Question: 2 *Filter and Square Even Numbers*
+### Question: 36 *Filter and Square Even Numbers*
 Write a function that takes an array of numbers as input. The function should filter out all the even numbers from the array, square each of those even numbers, and return a new array containing these squared values.
 
 *Function Signature:*
