@@ -1929,3 +1929,116 @@ const numbers = [1, 2, 3, 4, 5, 6];
 const result = squareEvenNumbers(numbers);
 console.log(result); // Output: [4, 16, 36]
  */
+
+//~ # Day-19
+
+//& ### Question 37: Find the Maximum Difference
+// *Problem Statement:*
+//todo=> Given an array of integers, find the maximum difference between any two elements in the array. The difference should be calculated as difference = arr[j] - arr[i] where j > i.
+
+// *Example:*
+//todo=> typescript
+//todo=> Input: [2, 7, 9, 5, 1, 3, 5]
+//todo=> Output: 7
+//todo=> Explanation: The maximum difference is between 9 and 2, where 9 - 2 = 7.
+
+
+// *Hint:*
+//todo=> Iterate through the array, keeping track of the minimum value encountered so far. Calculate the difference between the current element and the minimum value and update the maximum difference accordingly.
+/* 
+function findMaxDifference(arr: number[]): number {
+  if (arr.length < 2) {
+      throw new Error("Array must contain at least two elements");
+  }
+
+  let minValue = arr[0];
+  let maxDiff = arr[1] - arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+      const currentDiff = arr[i] - minValue;
+      // The algorithm checks a total of 5 differences: 7 - 2 = 5, 9 - 2 = 7, 5 - 2 = 3, 3 - 1 = 2, 5 - 1 = 4
+      if (currentDiff > maxDiff) {
+          maxDiff = currentDiff;
+      }
+      // Given the array [2, 7, 9, 5, 1, 3, 5]:
+
+      // Initial minValue: 2 (first element).
+      // Iteration 1: arr[1] = 7 → 7 is not less than minValue (2), so minValue remains 2.
+      // Iteration 2: arr[2] = 9 → 9 is not less than minValue (2), so minValue remains 2.
+      // Iteration 3: arr[3] = 5 → 5 is not less than minValue (2), so minValue remains 2.
+      // Iteration 4: arr[4] = 1 → 1 is less than minValue (2), so minValue is updated to 1.
+      // Iteration 5: arr[5] = 3 → 3 is not less than minValue (1), so minValue remains 1.
+      // Iteration 6: arr[6] = 5 → 5 is not less than minValue (1), so minValue remains 1.
+
+      if (arr[i] < minValue) {
+          minValue = arr[i];
+      }
+  }
+
+  return maxDiff;
+}
+
+const input1 = [2, 7, 9, 5, 1, 3, 5];
+console.log(findMaxDifference(input1));  // Output: 7
+
+const input2 = [8, 16, 32, 15, 4, 34, 64]; // Output: 60
+console.log(findMaxDifference(input2));
+
+const input3 = [4];
+
+try {
+    console.log(findMaxDifference(input3));
+} catch (error) {
+  // The below line responsible for the output
+    console.error((error as Error).message); // Output: Array must contain at least two elements
+}
+ */
+
+//& ### Question 38: String Character Frequency
+// *Problem Statement:*
+//todo=> Write a function that takes a string as input and returns an object where the keys are characters and the values are the frequency of those characters in the string.
+
+// *Example:*
+//todo=> typescript
+//todo=> Input: "hello"
+//todo=> Output: { h: 1, e: 1, l: 2, o: 1 }
+
+
+// *Hint:*
+//todo=> Use an object to store the frequency of each character. Iterate over the string and update the count for each character
+
+/*
+function charFrequency(str: string): { [key: string]: number } {
+  const frequency: { [key: string]: number } = {};
+  // object is empty & string is "hello"
+  // when we check h, e, o : means that the characters has not been encountered before
+  // for h, frequency[h] = 0
+  // for e, frequency[e] = 0
+  // for l, frequency[l] = 0
+  // for o, frequency[o] = 0
+  // then we iterate over the string and update the frequency
+  // when we encounter 'h' : frequency[h] = 1
+  // when we encounter 'e' : frequency[e] = 1
+  // when we encounter 'l' : frequency[l] = 2
+  // when we encounter 'o' : frequency[o] = 1
+  // finally, we return the frequency object
+  for (const char of str) {
+      if (frequency[char]) {
+          frequency[char]++;
+      } else {
+          frequency[char] = 1;
+      }
+  }
+
+  return frequency;
+}
+
+
+const input1 = "hello";
+const output1 = charFrequency(input1);
+console.log(output1);  // Output: { h: 1, e: 1, l: 2, o: 1 }
+
+const input2 = "aggressiveness";
+const output2 = charFrequency(input2);
+console.log(output2); // Output: { a: 1, g: 2, r: 1, e: 3, s: 4, i: 1, v: 1, n: 1 }
+ */
