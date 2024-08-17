@@ -2042,3 +2042,123 @@ const input2 = "aggressiveness";
 const output2 = charFrequency(input2);
 console.log(output2); // Output: { a: 1, g: 2, r: 1, e: 3, s: 4, i: 1, v: 1, n: 1 }
  */
+
+//~ # Day 20
+
+//& ### Question 39: Check for Prime Number
+// *Problem:*
+//todo=> Write a TypeScript function that takes a positive integer as input and checks whether it is a prime number. A prime number is a number greater than 1 that has no divisors other than 1 and itself. If the number is prime, return true; otherwise, return false.
+
+// *Hint:*
+//todo=> - Use a loop to check divisibility from 2 up to the square root of the number.
+//todo=> - If the number is divisible by any of these, it is not prime.
+
+//todo=> typescript
+//todo=> function isPrime(num: number): boolean {
+//todo=> Your code here
+//todo=> }
+
+/*
+function isPrime(num: number): boolean {
+  // Prime numbers are greater than 1
+  if (num <= 1) {
+      return false;
+  }
+  // divisibility from 2 to the square root of the number
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) {
+          return false; // Not a prime number
+      }
+  }
+  return true; // Prime number
+}
+
+// Code Execution for isPrime(7)
+// Initial Check:
+
+// The function first checks if 7 is less than or equal to 1. Since 7 is greater than 1, it proceeds to the next step.
+// Loop Execution:
+
+// The loop will check divisibility from i = 2 up to the square root of 7. The square root of 7 is approximately 2.64. So, the loop will check divisibility for i = 2.
+
+// Iteration 1 (i = 2):
+
+// The function checks if 7 % 2 === 0.
+// The result is 1, meaning 7 is not divisible by 2.
+// Since the loop only runs up to i = 2, no more iterations are needed.
+// Conclusion:
+
+// Since no divisors were found in the range from 2 to 2, the function concludes that 7 is a prime number and returns true.
+
+console.log(isPrime(7)); // true
+console.log(isPrime(10)); // false
+
+// Code Execution for isPrime(10)
+// Initial Check:
+
+// The function first checks if 10 is less than or equal to 1. Since 10 is greater than 1, it proceeds to the next step.
+// Loop Execution:
+
+// The loop will check divisibility from i = 2 up to the square root of 10. The square root of 10 is approximately 3.16, so the loop will check divisibility for i = 2 and i = 3.
+
+// Iteration 1 (i = 2):
+
+// The function checks if 10 % 2 === 0.
+// The result is 0, meaning 10 is divisible by 2.
+// Since 10 is divisible by 2, the function immediately returns false, indicating that 10 is not a prime number.
+ */
+
+//& ### Question 40: Reverse a Number
+// *Problem:*
+//todo=> Write a TypeScript function that takes a number as input and returns the number with its digits reversed. For example, if the input is 1234, the output should be 4321.
+
+// *Hint:*
+//todo=> - Convert the number to a string, reverse the string, and then convert it back to a number.
+
+//todo=> typescript
+//todo=> function reverseNumber(num: number): number {
+//todo=> Your code here
+//todo=> }
+
+/*
+function reverseNumber(num: number): number {
+  // Convert the number to a string
+  let numStr = num.toString();
+  
+  // Reverse the string
+  let reversedStr = numStr.split('').reverse().join('');
+  
+  // Convert the reversed string back to a number
+  let reversedNum = parseInt(reversedStr);
+  
+  return reversedNum;
+}
+
+
+console.log(reverseNumber(1234)); // Output: 4321
+// Reversing the Number 1234
+// Convert to String:
+
+// num.toString() converts 1234 to the string "1234".
+// Reverse the String:
+
+// numStr.split('') splits "1234" into an array of characters: ['1', '2', '3', '4'].
+// reverse() reverses the array: ['4', '3', '2', '1'].
+// join('') joins the reversed array back into a string: "4321".
+// Convert Back to Number:
+
+// parseInt("4321") converts the string "4321" back into the number 4321.
+console.log(reverseNumber(9876)); // Output: 6789
+// Reversing the Number 9876
+// Convert to String:
+
+// num.toString() converts 9876 to the string "9876".
+// Reverse the String:
+
+// numStr.split('') splits "1234" into an array of characters: ['9', '8', '7', '6'].
+// reverse() reverses the array: ['6', '7', '8', '9'].
+// join('') joins the reversed array back into a string: "6789".
+// Convert Back to Number:
+
+// parseInt("6789") converts the string "6789" back into the number 6789. 
+*/

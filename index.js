@@ -1743,34 +1743,74 @@ try {
 //todo=> Output: { h: 1, e: 1, l: 2, o: 1 }
 // *Hint:*
 //todo=> Use an object to store the frequency of each character. Iterate over the string and update the count for each character
-function charFrequency(str) {
-    var frequency = {};
-    // object is empty & string is "hello"
-    // when we check h, e, o : means that the characters has not been encountered before
-    // for h, frequency[h] = 0
-    // for e, frequency[e] = 0
-    // for l, frequency[l] = 0
-    // for o, frequency[o] = 0
-    // then we iterate over the string and update the frequency
-    // when we encounter 'h' : frequency[h] = 1
-    // when we encounter 'e' : frequency[e] = 1
-    // when we encounter 'l' : frequency[l] = 2
-    // when we encounter 'o' : frequency[o] = 1
-    // finally, we return the frequency object
-    for (var _i = 0, str_1 = str; _i < str_1.length; _i++) {
-        var char = str_1[_i];
-        if (frequency[char]) {
-            frequency[char]++;
-        }
-        else {
-            frequency[char] = 1;
+/*
+function charFrequency(str: string): { [key: string]: number } {
+  const frequency: { [key: string]: number } = {};
+  // object is empty & string is "hello"
+  // when we check h, e, o : means that the characters has not been encountered before
+  // for h, frequency[h] = 0
+  // for e, frequency[e] = 0
+  // for l, frequency[l] = 0
+  // for o, frequency[o] = 0
+  // then we iterate over the string and update the frequency
+  // when we encounter 'h' : frequency[h] = 1
+  // when we encounter 'e' : frequency[e] = 1
+  // when we encounter 'l' : frequency[l] = 2
+  // when we encounter 'o' : frequency[o] = 1
+  // finally, we return the frequency object
+  for (const char of str) {
+      if (frequency[char]) {
+          frequency[char]++;
+      } else {
+          frequency[char] = 1;
+      }
+  }
+
+  return frequency;
+}
+
+
+const input1 = "hello";
+const output1 = charFrequency(input1);
+console.log(output1);  // Output: { h: 1, e: 1, l: 2, o: 1 }
+
+const input2 = "aggressiveness";
+const output2 = charFrequency(input2);
+console.log(output2); // Output: { a: 1, g: 2, r: 1, e: 3, s: 4, i: 1, v: 1, n: 1 }
+ */
+//~ # Day 20
+//& ### Question 39: Check for Prime Number
+// *Problem:*
+//todo=> Write a TypeScript function that takes a positive integer as input and checks whether it is a prime number. A prime number is a number greater than 1 that has no divisors other than 1 and itself. If the number is prime, return true; otherwise, return false.
+// *Hint:*
+//todo=> - Use a loop to check divisibility from 2 up to the square root of the number.
+//todo=> - If the number is divisible by any of these, it is not prime.
+//todo=> typescript
+//todo=> function isPrime(num: number): boolean {
+//todo=> Your code here
+//todo=> }
+function isPrime(num) {
+    // Prime numbers are greater than 1
+    if (num <= 1) {
+        return false;
+    }
+    // Check divisibility from 2 to the square root of the number
+    for (var i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            return false; // Not a prime number
         }
     }
-    return frequency;
+    return true; // Prime number
 }
-var input1 = "hello";
-var output1 = charFrequency(input1);
-console.log(output1); // Output: { h: 1, e: 1, l: 2, o: 1 }
-var input2 = "aggressiveness";
-var output2 = charFrequency(input2);
-console.log(output2);
+// Example usage:
+console.log(isPrime(7)); // true
+console.log(isPrime(10)); // false
+//& ### Question 40: Reverse a Number
+// *Problem:*
+//todo=> Write a TypeScript function that takes a number as input and returns the number with its digits reversed. For example, if the input is 1234, the output should be 4321.
+// *Hint:*
+//todo=> - Convert the number to a string, reverse the string, and then convert it back to a number.
+//todo=> typescript
+//todo=> function reverseNumber(num: number): number {
+//todo=> Your code here
+//todo=> }
