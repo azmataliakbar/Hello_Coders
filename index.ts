@@ -2162,3 +2162,85 @@ console.log(reverseNumber(9876)); // Output: 6789
 
 // parseInt("6789") converts the string "6789" back into the number 6789. 
 */
+
+//~ # Day-21
+
+//& ### Question 41: Sum of Digits
+// *Problem:*
+//todo=> Write a function sumOfDigits that takes a number as input and returns the sum of its digits.
+
+// *Example:*
+// *Problem:*
+//todo=> typescript
+// *Problem:*
+//todo=> sumOfDigits(123); // Output: 6 (1 + 2 + 3)
+// *Problem:*
+//todo=> sumOfDigits(4567); // Output: 22 (4 + 5 + 6 + 7)
+
+// *Hint:*
+// *Problem:*
+//todo=> You can convert the number to a string, split it into individual digits, and then sum them up.
+
+
+/*
+function sumOfDigits(num: number): number {
+  // the number to a string, then split it into individual digits
+  // 1st => num.toString(); // "123"
+  // 2nd =>  numString.split(''); // ['1', '2', '3']
+  const digits = num.toString().split('');
+
+  // Convert the string digits back to numbers and sum them up
+  // 1st => parseInt('1'); // 1
+  // 2nd => parseInt('2'); // 2
+  // 3rd => parseInt('3'); // 3
+  // 4th => 1 + 2 + 3 // 6
+  // 5th => 6 // return the sum as the final result
+  const sum = digits.reduce((acc, digit) => acc + parseInt(digit), 0);
+
+  return sum;
+}
+
+// Example usage:
+console.log(sumOfDigits(123));  // Output: 6
+console.log(sumOfDigits(4567)); // Output: 22
+ */
+
+
+//& ### Question 42: Count Consonants in a String
+// *Problem:*
+// *Problem:*
+//todo=> Write a function countConsonants that takes a string as input and returns the number of consonants in the string. Consonants are all alphabetical characters except a, e, i, o, u (both lowercase and uppercase).
+
+// *Example:*
+// *Problem:*
+//todo=> typescript
+// *Problem:*
+//todo=> countConsonants("hello"); // Output: 3
+// *Problem:*
+//todo=> countConsonants("TypeScript"); // Output: 8
+
+
+/*
+function countConsonants(str: string): number {
+  // Define vowels to exclude
+  const vowels = 'aeiouAEIOU';
+
+  // Initialize consonant count
+  let consonantCount = 0;
+
+  // Iterate over each character in the string
+  for (const char of str) {
+       //^ char.match(/[a-zA-Z]/) checks if the character is an alphabetic letter.
+      //^ !vowels.includes(char) ensures the character is not a vowel.
+      if (char.match(/[a-zA-Z]/) && !vowels.includes(char)) {
+          consonantCount++;
+      }
+  }
+
+  return consonantCount;
+}
+
+
+console.log(countConsonants("hello"));       // Output: 3
+console.log(countConsonants("TypeScript"));  // Output: 8
+ */

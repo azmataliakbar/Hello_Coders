@@ -1789,22 +1789,55 @@ console.log(output2); // Output: { a: 1, g: 2, r: 1, e: 3, s: 4, i: 1, v: 1, n: 
 //todo=> function isPrime(num: number): boolean {
 //todo=> Your code here
 //todo=> }
-function isPrime(num) {
-    // Prime numbers are greater than 1
-    if (num <= 1) {
-        return false;
-    }
-    // Check divisibility from 2 to the square root of the number
-    for (var i = 2; i <= Math.sqrt(num); i++) {
-        if (num % i === 0) {
-            return false; // Not a prime number
-        }
-    }
-    return true; // Prime number
+/*
+function isPrime(num: number): boolean {
+  // Prime numbers are greater than 1
+  if (num <= 1) {
+      return false;
+  }
+  // divisibility from 2 to the square root of the number
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) {
+          return false; // Not a prime number
+      }
+  }
+  return true; // Prime number
 }
-// Example usage:
+
+// Code Execution for isPrime(7)
+// Initial Check:
+
+// The function first checks if 7 is less than or equal to 1. Since 7 is greater than 1, it proceeds to the next step.
+// Loop Execution:
+
+// The loop will check divisibility from i = 2 up to the square root of 7. The square root of 7 is approximately 2.64. So, the loop will check divisibility for i = 2.
+
+// Iteration 1 (i = 2):
+
+// The function checks if 7 % 2 === 0.
+// The result is 1, meaning 7 is not divisible by 2.
+// Since the loop only runs up to i = 2, no more iterations are needed.
+// Conclusion:
+
+// Since no divisors were found in the range from 2 to 2, the function concludes that 7 is a prime number and returns true.
+
 console.log(isPrime(7)); // true
 console.log(isPrime(10)); // false
+
+// Code Execution for isPrime(10)
+// Initial Check:
+
+// The function first checks if 10 is less than or equal to 1. Since 10 is greater than 1, it proceeds to the next step.
+// Loop Execution:
+
+// The loop will check divisibility from i = 2 up to the square root of 10. The square root of 10 is approximately 3.16, so the loop will check divisibility for i = 2 and i = 3.
+
+// Iteration 1 (i = 2):
+
+// The function checks if 10 % 2 === 0.
+// The result is 0, meaning 10 is divisible by 2.
+// Since 10 is divisible by 2, the function immediately returns false, indicating that 10 is not a prime number.
+ */
 //& ### Question 40: Reverse a Number
 // *Problem:*
 //todo=> Write a TypeScript function that takes a number as input and returns the number with its digits reversed. For example, if the input is 1234, the output should be 4321.
@@ -1812,5 +1845,112 @@ console.log(isPrime(10)); // false
 //todo=> - Convert the number to a string, reverse the string, and then convert it back to a number.
 //todo=> typescript
 //todo=> function reverseNumber(num: number): number {
-//todo=> Your code here
+//todo=> Your code here
 //todo=> }
+/*
+function reverseNumber(num: number): number {
+  // Convert the number to a string
+  let numStr = num.toString();
+  
+  // Reverse the string
+  let reversedStr = numStr.split('').reverse().join('');
+  
+  // Convert the reversed string back to a number
+  let reversedNum = parseInt(reversedStr);
+  
+  return reversedNum;
+}
+
+
+console.log(reverseNumber(1234)); // Output: 4321
+// Reversing the Number 1234
+// Convert to String:
+
+// num.toString() converts 1234 to the string "1234".
+// Reverse the String:
+
+// numStr.split('') splits "1234" into an array of characters: ['1', '2', '3', '4'].
+// reverse() reverses the array: ['4', '3', '2', '1'].
+// join('') joins the reversed array back into a string: "4321".
+// Convert Back to Number:
+
+// parseInt("4321") converts the string "4321" back into the number 4321.
+console.log(reverseNumber(9876)); // Output: 6789
+// Reversing the Number 9876
+// Convert to String:
+
+// num.toString() converts 9876 to the string "9876".
+// Reverse the String:
+
+// numStr.split('') splits "1234" into an array of characters: ['9', '8', '7', '6'].
+// reverse() reverses the array: ['6', '7', '8', '9'].
+// join('') joins the reversed array back into a string: "6789".
+// Convert Back to Number:
+
+// parseInt("6789") converts the string "6789" back into the number 6789.
+*/
+//~ # Day-21
+//& ### Question 41: Sum of Digits
+// *Problem:*
+//todo=> Write a function sumOfDigits that takes a number as input and returns the sum of its digits.
+// *Example:*
+// *Problem:*
+//todo=> typescript
+// *Problem:*
+//todo=> sumOfDigits(123); // Output: 6 (1 + 2 + 3)
+// *Problem:*
+//todo=> sumOfDigits(4567); // Output: 22 (4 + 5 + 6 + 7)
+// *Hint:*
+// *Problem:*
+//todo=> You can convert the number to a string, split it into individual digits, and then sum them up.
+/*
+function sumOfDigits(num: number): number {
+  // the number to a string, then split it into individual digits
+  // 1st => num.toString(); // "123"
+  // 2nd =>  numString.split(''); // ['1', '2', '3']
+  const digits = num.toString().split('');
+
+  // Convert the string digits back to numbers and sum them up
+  // 1st => parseInt('1'); // 1
+  // 2nd => parseInt('2'); // 2
+  // 3rd => parseInt('3'); // 3
+  // 4th => 1 + 2 + 3 // 6
+  // 5th => 6 // return the sum as the final result
+  const sum = digits.reduce((acc, digit) => acc + parseInt(digit), 0);
+
+  return sum;
+}
+
+// Example usage:
+console.log(sumOfDigits(123));  // Output: 6
+console.log(sumOfDigits(4567)); // Output: 22
+ */
+//& ### Question 42: Count Consonants in a String
+// *Problem:*
+// *Problem:*
+//todo=> Write a function countConsonants that takes a string as input and returns the number of consonants in the string. Consonants are all alphabetical characters except a, e, i, o, u (both lowercase and uppercase).
+// *Example:*
+// *Problem:*
+//todo=> typescript
+// *Problem:*
+//todo=> countConsonants("hello"); // Output: 3
+// *Problem:*
+//todo=> countConsonants("TypeScript"); // Output: 7
+function countConsonants(str) {
+    // Define vowels to exclude
+    var vowels = 'aeiouAEIOU';
+    // Initialize consonant count
+    var consonantCount = 0;
+    // Iterate over each character in the string
+    for (var _i = 0, str_1 = str; _i < str_1.length; _i++) {
+        var char = str_1[_i];
+        // Check if the character is a letter and not a vowel
+        if (char.match(/[a-zA-Z]/) && !vowels.includes(char)) {
+            consonantCount++;
+        }
+    }
+    return consonantCount;
+}
+// Example usage:
+console.log(countConsonants("hello")); // Output: 3
+console.log(countConsonants("TypeScript")); // Output: 7
