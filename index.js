@@ -1935,22 +1935,152 @@ console.log(sumOfDigits(4567)); // Output: 22
 // *Problem:*
 //todo=> countConsonants("hello"); // Output: 3
 // *Problem:*
-//todo=> countConsonants("TypeScript"); // Output: 7
-function countConsonants(str) {
-    // Define vowels to exclude
-    var vowels = 'aeiouAEIOU';
-    // Initialize consonant count
-    var consonantCount = 0;
-    // Iterate over each character in the string
-    for (var _i = 0, str_1 = str; _i < str_1.length; _i++) {
-        var char = str_1[_i];
-        // Check if the character is a letter and not a vowel
-        if (char.match(/[a-zA-Z]/) && !vowels.includes(char)) {
-            consonantCount++;
-        }
+//todo=> countConsonants("TypeScript"); // Output: 8
+/*
+function countConsonants(str: string): number {
+  // Define vowels to exclude
+  const vowels = 'aeiouAEIOU';
+
+  // Initialize consonant count
+  let consonantCount = 0;
+
+  // Iterate over each character in the string
+  for (const char of str) {
+       //^ char.match(/[a-zA-Z]/) checks if the character is an alphabetic letter.
+      //^ !vowels.includes(char) ensures the character is not a vowel.
+      if (char.match(/[a-zA-Z]/) && !vowels.includes(char)) {
+          consonantCount++;
+      }
+  }
+
+  return consonantCount;
+}
+
+
+console.log(countConsonants("hello"));       // Output: 3
+console.log(countConsonants("TypeScript"));  // Output: 8
+ */
+//~ # Day-22
+//& ### Question 43: Count Digits in a Number
+//todo=> Given a number, your task is to count and return the number of digits in that number.
+// *Example:*
+//todo=> typescript
+//todo=> function countDigits(num: number): number {
+//todo=> Write your logic here
+//todo=> }
+// Example usage
+//todo=> console.log(countDigits(12345)); // Output: 5
+//todo=> console.log(countDigits(987));   // Output: 3
+/*
+function sumOfDigits(num: number): number {
+  // Convert the number to a string, then split into individual characters (digits)
+ //   num.toString()
+// Input: num = 123
+// Operation: num.toString()
+// Output: "123" (The number 123 is converted to the string "123")
+// .split('')
+// Input: "123"
+// Operation: "123".split('')
+// Output: ["1", "2", "3"] (The string "123" is split into an array of its individual characters, resulting in the array ["1", "2", "3"])
+  const digits = num.toString().split('');
+  
+  // Sum up the digits after converting them back to numbers
+//   Array of digits as strings: ["1", "2", "3"]
+
+// This shows the result of splitting the string "123" into an array of its characters ["1", "2", "3"].
+// Sum of digits: 1+2+3 = 6
+
+// Finally, this shows the sum of the digits, which is 6 for the input 123.
+  const sum = digits.reduce((acc, digit) => acc + parseInt(digit), 0);
+  
+  return sum;
+}
+
+// Example usage:
+console.log(sumOfDigits(123));  // Output: 6
+console.log(sumOfDigits(4567)); // Output: 22
+ */
+//& ### Question 44: Calculate the Power of a Number
+//todo=> Given a base number b and an exponent e, your task is to calculate b raised to the power of e without using built-in methods like Math.pow.
+// *Example:*
+//todo=> typescript
+//todo=> function calculatePower(b: number, e: number): number {
+//todo=> Write your logic here
+//todo=> }
+// Example usage
+//todo=> console.log(calculatePower(2, 3)); // Output: 8
+//todo=> console.log(calculatePower(5, 0)); // Output: 1
+/*
+function calculatePower(b: number, e: number): number {
+  // Initialize result to 1, as any number raised to the power of 0 is 1
+  let result = 1;
+
+  // Multiply result by the base number b, e times
+  for (let i = 0; i < e; i++) {
+      result *= b;
+  }
+
+  return result;
+}
+
+// When you want to calculate 2^3, it means you multiply 2 by itself 3 times: 2 x 2 x 2 = 8, 2 x 2 x 2 = 8
+
+// Now, let's break down how the code does this step by step: , Start with result = 1:
+
+// We start with 1 because multiplying any number by 1 doesn't change the number.
+// Loop through 3 times (since the exponent is 3):
+
+// Iteration 1: Multiply result by 2.
+// result = 1 x 2 = 2
+// result=1 x 2 = 2
+// Iteration 2: Multiply result by 2 again.
+// result = 2 x 2 = 4
+
+// Iteration 3: Multiply result by 2 one more time.
+
+// result = 4 x 2 = 8
+// Final Result: After 3 multiplications, the final value of result is 8.
+console.log(calculatePower(2, 3));  // Output: 8
+// calculate  5^0 : In mathematics, any number raised to the power of 0 is 1:
+// 5^0 = 1
+// In this case, since the exponent is 0, the loop doesn't run at all. There are no iterations to perform, so the value of result remains unchanged.
+console.log(calculatePower(5, 0));  // Output: 1
+console.log(calculatePower(3, 4));  // Output: 81
+console.log(calculatePower(7, 2));  // Output: 49
+ */
+//~ # Day-23
+//& ### Question 45: Calculate the Factorial of a Number
+//todo=> Task: Write a function calculateFactorial that takes a number as input and returns its factorial.
+//todo=> Hint: Factorial means multiplying a number by all positive integers less than it. For example, the factorial of 5 is 5 * 4 * 3 * 2 * 1 = 120.
+function calculateFactorial(n) {
+    // Initialize result to 1, as the factorial of 0 is 1
+    var result = 1;
+    // Multiply result by each integer from 2 up to n
+    for (var i = 2; i <= n; i++) {
+        result *= i;
     }
-    return consonantCount;
+    return result;
+}
+console.log(calculateFactorial(5)); // Output: 120
+console.log(calculateFactorial(0)); // Output: 1
+console.log(calculateFactorial(7)); // Output: 5040
+//& ### Question 46: Convert a Number to Binary (Without Using Built-in Functions)
+//todo=> Task: Write a function convertToBinary that takes a number as input and converts it into its binary form.
+//todo=> Hint: Repeatedly divide the number by 2 and note down the remainder. Join the remainders in reverse order to get the binary representation.
+function convertToBinary(num) {
+    var binary = ''; // This will store the binary representation as a string
+    if (num === 0) {
+        return '0'; // Special case: the binary representation of 0 is "0"
+    }
+    while (num > 0) {
+        var remainder = num % 2; // Get the remainder when dividing by 2
+        binary = remainder.toString() + binary; // Add the remainder to the beginning of the binary string
+        num = Math.floor(num / 2); // Divide the number by 2 and update num
+    }
+    return binary;
 }
 // Example usage:
-console.log(countConsonants("hello")); // Output: 3
-console.log(countConsonants("TypeScript")); // Output: 7
+console.log(convertToBinary(5)); // Output: "101"
+console.log(convertToBinary(10)); // Output: "1010"
+console.log(convertToBinary(0)); // Output: "0"
+console.log(convertToBinary(15)); // Output: "1111"

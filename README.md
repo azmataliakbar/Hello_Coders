@@ -819,3 +819,45 @@ countConsonants("TypeScript"); // Output: 7
 
 *Hint:*
 Loop through the string and check each character to see if it is a consonant by excluding vowels.
+
+# Day-22
+
+### Question 43: Count Digits in a Number
+Given a number, your task is to count and return the number of digits in that number.
+
+*Example:*
+typescript
+function countDigits(num: number): number {
+    // Write your logic here
+}
+
+// Example usage
+console.log(countDigits(12345)); // Output: 5
+console.log(countDigits(987));   // Output: 3
+
+
+### Question 44: Calculate the Power of a Number
+Given a base number b and an exponent e, your task is to calculate b raised to the power of e without using built-in methods like Math.pow.
+
+*Example:*
+typescript
+function calculatePower(b: number, e: number): number {
+    // Write your logic here
+}
+
+// Example usage
+console.log(calculatePower(2, 3)); // Output: 8
+console.log(calculatePower(5, 0)); // Output: 1
+
+
+# Day-23
+
+### Question 45: Calculate the Factorial of a Number
+Task: Write a function calculateFactorial that takes a number as input and returns its factorial.
+
+Hint: Factorial means multiplying a number by all positive integers less than it. For example, the factorial of 5 is 5 * 4 * 3 * 2 * 1 = 120.
+
+### Question 46: Convert a Number to Binary (Without Using Built-in Functions)
+Task: Write a function convertToBinary that takes a number as input and converts it into its binary form.
+
+Hint: Repeatedly divide the number by 2 and note down the remainder. Join the remainders in reverse order to get the binary representation.
