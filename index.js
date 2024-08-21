@@ -2052,35 +2052,149 @@ console.log(calculatePower(7, 2));  // Output: 49
 //& ### Question 45: Calculate the Factorial of a Number
 //todo=> Task: Write a function calculateFactorial that takes a number as input and returns its factorial.
 //todo=> Hint: Factorial means multiplying a number by all positive integers less than it. For example, the factorial of 5 is 5 * 4 * 3 * 2 * 1 = 120.
-function calculateFactorial(n) {
-    // Initialize result to 1, as the factorial of 0 is 1
-    var result = 1;
-    // Multiply result by each integer from 2 up to n
-    for (var i = 2; i <= n; i++) {
-        result *= i;
-    }
-    return result;
+/*
+function calculateFactorial(n: number): number {
+  // Initialize result to 1, as the factorial of 0 is 1
+  let result = 1;
+
+  // Multiply result by each integer from 2 up to n
+  for (let i = 2; i <= n; i++) {
+      result *= i;
+  }
+
+  return result;
 }
-console.log(calculateFactorial(5)); // Output: 120
-console.log(calculateFactorial(0)); // Output: 1
-console.log(calculateFactorial(7)); // Output: 5040
+
+
+console.log(calculateFactorial(5));  // Output: 120
+console.log(calculateFactorial(0));  // Output: 1
+console.log(calculateFactorial(7));  // Output: 5040
+ */
 //& ### Question 46: Convert a Number to Binary (Without Using Built-in Functions)
 //todo=> Task: Write a function convertToBinary that takes a number as input and converts it into its binary form.
 //todo=> Hint: Repeatedly divide the number by 2 and note down the remainder. Join the remainders in reverse order to get the binary representation.
-function convertToBinary(num) {
-    var binary = ''; // This will store the binary representation as a string
-    if (num === 0) {
-        return '0'; // Special case: the binary representation of 0 is "0"
-    }
-    while (num > 0) {
-        var remainder = num % 2; // Get the remainder when dividing by 2
-        binary = remainder.toString() + binary; // Add the remainder to the beginning of the binary string
-        num = Math.floor(num / 2); // Divide the number by 2 and update num
-    }
-    return binary;
+/*
+function convertToBinary(num: number): string {
+  let binary = ''; // This will store the binary representation as a string
+
+  if (num === 0) {
+      return '0'; // Special case: the binary representation of 0 is "0"
+  }
+
+  while (num > 0) {
+      const remainder = num % 2; // Get the remainder when dividing by 2
+      binary = remainder.toString() + binary; // Add the remainder to the beginning of the binary string
+      num = Math.floor(num / 2); // Divide the number by 2 and update num
+  }
+
+  return binary;
+}
+
+//convertToBinary(5):
+
+//5 ÷ 2 = 2 remainder 1 → binary = "1"
+
+//2 ÷ 2 = 1 remainder 0 → binary = "01"
+
+// 1 ÷ 2 = 0 remainder 1 → binary = "101"
+// Final output: "101"
+
+console.log(convertToBinary(5));   // Output: "101"
+
+// convertToBinary(10):
+
+// 10÷2=5 remainder 0 → binary = "0"
+
+// 5÷2=2 remainder 1 → binary = "10"
+
+// 2÷2=1 remainder 0 → binary = "010"
+
+// 1÷2=0 remainder 1 → binary = "1010"
+// Final output: "1010"
+console.log(convertToBinary(10));  // Output: "1010"
+console.log(convertToBinary(0));   // Output: "0"
+console.log(convertToBinary(15));  // Output: "1111"
+
+// convertToBinary(15):
+// step 1:
+// 15 ÷ 2 = 7 remainder 1 , Binary so far: "1"
+
+// Step 2:
+// 7÷2=3 remainder 1 , Binary so far: "11"
+
+// Step 3:
+// 3÷2=1 remainder 1 , Binary so far: "111"
+
+// Step 4:
+// 1÷2=0 remainder 1 , Binary so far: "1111"
+
+ */
+//~ # Day-24
+//& ### Question 46: *Generate Fibonacci Sequence*
+//todo=> Write a function generateFibonacci(n: number): number[] that generates and returns the first n numbers of the Fibonacci sequence. The Fibonacci sequence starts with 0 and 1, and each subsequent number is the sum of the previous two.
+// *Hint:* Use a loop or recursion to build the sequence.
+//todo=> *Example:*
+//todo=> typescript
+//todo=> generateFibonacci(5); // Output: [0, 1, 1, 2, 3]
+//todo=> generateFibonacci(7); // Output: [0, 1, 1, 2, 3, 5, 8]
+/*
+function generateFibonacci(n: number): number[] {
+  if (n <= 0) return [];
+  if (n === 1) return [0];
+
+  const sequence: number[] = [0, 1];
+
+  for (let i = 2; i < n; i++) {
+      sequence.push(sequence[i - 1] + sequence[i - 2]);
+  }
+
+  return sequence;
+}
+ */
+// n = 5, which is greater than 1, so the function proceeds.
+// The sequence starts as [0, 1].
+// First Iteration (i = 2):
+// Calculate Next Value: sequence[1] + sequence[0] = 1 + 0 = 1
+// Update Sequence: The sequence becomes [0, 1, 1].Second Iteration (i = 3):
+// Calculate Next Value: sequence[2] + sequence[1] = 1 + 1 = 2
+// Update Sequence: The sequence becomes [0, 1, 1, 2].
+// Third Iteration (i = 4):
+// Calculate Next Value: sequence[3] + sequence[2] = 2 + 1 = 3
+// Update Sequence: The sequence becomes [0, 1, 1, 2, 3].
+// The loop stops since i = 5 is equal to n.
+// The final sequence [0, 1, 1, 2, 3] is returned.
+/*
+ console.log(generateFibonacci(5)); // Output: [0, 1, 1, 2, 3]
+console.log(generateFibonacci(7)); // Output: [0, 1, 1, 2, 3, 5, 8]
+ */
+// n = 7, which is greater than 1, so the function proceeds.
+// Sequence Initialization:
+// The sequence starts as [0, 1].
+// First Iteration (i = 2):
+// Calculate Next Value: sequence[1] + sequence[0] = 1 + 0 = 1
+// Update Sequence: The sequence becomes [0, 1, 1].
+// Second Iteration (i = 3): Calculate Next Value
+// sequence[2] + sequence[1] = 1 + 1 = 2
+// Update Sequence: The sequence becomes [0, 1, 1, 2].
+// Third Iteration (i = 4):
+// Calculate Next Value: sequence[3] + sequence[2] = 2 + 1 = 3
+// Update Sequence: The sequence becomes [0, 1, 1, 2, 3].
+// Fourth Iteration (i = 5):
+// Calculate Next Value: sequence[4] + sequence[3] = 3 + 2 = 5
+// Update Sequence: The sequence becomes [0, 1, 1, 2, 3, 5].
+// Fifth Iteration (i = 6):
+// Calculate Next Value: sequence[5] + sequence[4] = 5 + 3 = 8
+// Update Sequence: The sequence becomes [0, 1, 1, 2, 3, 5, 8].
+//& ### Question 47: *Replace Vowels with Asterisks*
+//todo=> Write a function replaceVowels(str: string): string that takes a string str and returns a new string where all vowels (a, e, i, o, u) are replaced with asterisks (*). The function should be case-insensitive.
+// *Hint:* You can use a loop or a regular expression to find and replace vowels.
+//todo=> *Example:*
+//todo=> typescript
+//todo=> replaceVowels('Hello World'); // Output: 'H*ll* W*rld'
+//todo=> replaceVowels('TypeScript');  // Output: 'Typ*Scr*pt'
+function replaceVowels(str) {
+    return str.replace(/[aeiou]/gi, '*');
 }
 // Example usage:
-console.log(convertToBinary(5)); // Output: "101"
-console.log(convertToBinary(10)); // Output: "1010"
-console.log(convertToBinary(0)); // Output: "0"
-console.log(convertToBinary(15)); // Output: "1111"
+console.log(replaceVowels('Hello World')); // Output: 'H*ll* W*rld'
+console.log(replaceVowels('TypeScript')); // Output: 'Typ*Scr*pt'

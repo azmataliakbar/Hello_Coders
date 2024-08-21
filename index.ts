@@ -2433,3 +2433,91 @@ console.log(convertToBinary(15));  // Output: "1111"
 // 1÷2=0 remainder 1 , Binary so far: "1111"
 
  */
+
+//~ # Day-24
+
+//& ### Question 47: *Generate Fibonacci Sequence*
+//todo=> Write a function generateFibonacci(n: number): number[] that generates and returns the first n numbers of the Fibonacci sequence. The Fibonacci sequence starts with 0 and 1, and each subsequent number is the sum of the previous two.
+
+// *Hint:* Use a loop or recursion to build the sequence.
+
+//todo=> *Example:*
+//todo=> typescript
+//todo=> generateFibonacci(5); // Output: [0, 1, 1, 2, 3]
+//todo=> generateFibonacci(7); // Output: [0, 1, 1, 2, 3, 5, 8]
+
+/*
+function generateFibonacci(n: number): number[] {
+  if (n <= 0) return [];
+  if (n === 1) return [0];
+
+  const sequence: number[] = [0, 1];
+
+  for (let i = 2; i < n; i++) {
+      sequence.push(sequence[i - 1] + sequence[i - 2]);
+  }
+
+  return sequence;
+}
+ */
+
+// n = 5, which is greater than 1, so the function proceeds.
+// The sequence starts as [0, 1].
+// First Iteration (i = 2):
+// Calculate Next Value: sequence[1] + sequence[0] = 1 + 0 = 1
+// Update Sequence: The sequence becomes [0, 1, 1].Second Iteration (i = 3):
+// Calculate Next Value: sequence[2] + sequence[1] = 1 + 1 = 2
+// Update Sequence: The sequence becomes [0, 1, 1, 2].
+// Third Iteration (i = 4):
+// Calculate Next Value: sequence[3] + sequence[2] = 2 + 1 = 3
+// Update Sequence: The sequence becomes [0, 1, 1, 2, 3].
+// The loop stops since i = 5 is equal to n.
+// The final sequence [0, 1, 1, 2, 3] is returned.
+
+/*
+ console.log(generateFibonacci(5)); // Output: [0, 1, 1, 2, 3]
+console.log(generateFibonacci(7)); // Output: [0, 1, 1, 2, 3, 5, 8]
+ */
+// n = 7, which is greater than 1, so the function proceeds.
+// Sequence Initialization:
+// The sequence starts as [0, 1].
+// First Iteration (i = 2):
+// Calculate Next Value: sequence[1] + sequence[0] = 1 + 0 = 1
+// Update Sequence: The sequence becomes [0, 1, 1].
+// Second Iteration (i = 3): Calculate Next Value
+// sequence[2] + sequence[1] = 1 + 1 = 2
+// Update Sequence: The sequence becomes [0, 1, 1, 2].
+// Third Iteration (i = 4):
+// Calculate Next Value: sequence[3] + sequence[2] = 2 + 1 = 3
+// Update Sequence: The sequence becomes [0, 1, 1, 2, 3].
+// Fourth Iteration (i = 5):
+// Calculate Next Value: sequence[4] + sequence[3] = 3 + 2 = 5
+// Update Sequence: The sequence becomes [0, 1, 1, 2, 3, 5].
+// Fifth Iteration (i = 6):
+// Calculate Next Value: sequence[5] + sequence[4] = 5 + 3 = 8
+// Update Sequence: The sequence becomes [0, 1, 1, 2, 3, 5, 8].
+
+//& ### Question 48: *Replace Vowels with Asterisks*
+//todo=> Write a function replaceVowels(str: string): string that takes a string str and returns a new string where all vowels (a, e, i, o, u) are replaced with asterisks (*). The function should be case-insensitive.
+
+// *Hint:* You can use a loop or a regular expression to find and replace vowels.
+
+//todo=> *Example:*
+//todo=> typescript
+//todo=> replaceVowels('Hello World'); // Output: 'H*ll* W*rld'
+//todo=> replaceVowels('TypeScript');  // Output: 'Typ*Scr*pt'
+
+/*
+function replaceVowels(str: string): string {
+  return str.replace(/[aeiou]/gi, '*');
+}
+
+console.log(replaceVowels('Hello World')); // Output: 'H*ll* W*rld'
+console.log(replaceVowels('TypeScript'));  // Output: 'Typ*Scr*pt'
+ */
+//Regular Expression: The regular expression /[aeiou]/gi is used to match all vowels: [aeiou] matches any of the vowels a, e, i, o, u.
+// The g flag stands for "global," meaning it will replace all occurrences of the vowels, not just the first one.
+// The i flag stands for "case-insensitive," so it will match both uppercase and lowercase vowels.
+// Replace Method: The replace method is used to replace each vowel found in the string with an asterisk (*).
+// Return the Modified String: The modified string, where all vowels have been replaced with *, is returned.
+// Example Outputs: Input: 'Hello World' , Output: 'H*ll* W*rld' / Input: 'TypeScript', Output: 'Typ*Scr*pt'
