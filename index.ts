@@ -2575,6 +2575,7 @@ console.log(result); // Output: 2
 
 // *Hint:* Use a loop to check which number divides the integer without leaving a remainder, starting from 2 upwards.
 
+/*
 function findSmallestDivisor(number: number): number {
   // Start from 2 and go upwards then 3 and it stops when it reaches
   for (let i = 2; i <= number; i++) {
@@ -2592,3 +2593,4 @@ function findSmallestDivisor(number: number): number {
 const number = 15;
 const smallestDivisor = findSmallestDivisor(number);
 console.log(smallestDivisor); // Output: 3 is the smallest divisor of 15 that is greater than 1
+ */
