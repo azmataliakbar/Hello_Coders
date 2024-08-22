@@ -2521,3 +2521,74 @@ console.log(replaceVowels('TypeScript'));  // Output: 'Typ*Scr*pt'
 // Replace Method: The replace method is used to replace each vowel found in the string with an asterisk (*).
 // Return the Modified String: The modified string, where all vowels have been replaced with *, is returned.
 // Example Outputs: Input: 'Hello World' , Output: 'H*ll* W*rld' / Input: 'TypeScript', Output: 'Typ*Scr*pt'
+
+//~ # Day-25
+
+//& ### Question 49: Calculate the Difference Between the Sum of Odd and Even Digits
+//todo=> *Problem:* You are given a positive integer. You need to calculate the sum of the odd digits and the sum of the even digits, then find the difference between these two sums. The difference should be positive.
+
+// *Example:*
+//todo=> - Input: number = 1234
+//todo=> - Output: 2 (Odd sum: 1 + 3 = 4, Even sum: 2 + 4 = 6, Difference: |4 - 6| = 2)
+
+// *Hint:* Convert the number to a string, then check each digit to see if it's odd or even, and calculate the respective sums.
+
+/*
+function calculateDifference(number: number): number {
+  // Convert the number to a string to iterate through each digit
+  const digits = number.toString();
+  
+  // Initialize sums for odd and even digits
+  let oddSum = 0;
+  let evenSum = 0;
+  
+  // Iterate through each digit
+  for (let digit of digits) {
+      const num = parseInt(digit, 10); // Convert the string digit back to a number
+      
+      if (num % 2 === 0) { // ensure the number is odd or even
+          // Even digit
+          evenSum += num;
+      } else {
+          // Odd digit
+          oddSum += num;
+      }
+  }
+
+  // Calculate the absolute difference between the sums
+  // Math.abs() ensures that the difference is always reported as a positive number.
+  // The Math.abs() function in JavaScript (and TypeScript) returns the absolute value of a given number. The absolute value of a number is its distance from zero on the number line, without considering whether it is positive or negative.
+  return Math.abs(oddSum - evenSum);
+}
+
+const number = 1234;
+const result = calculateDifference(number);
+console.log(result); // Output: 2
+*/
+
+//& ### Question 50: Find the Smallest Divisor of a Number (Greater than 1)
+//todo=> *Problem:* You are given a positive integer. Your task is to find the smallest divisor of this number that is greater than 1.
+
+// *Example:*
+//todo=> - Input: number = 15
+//todo=> - Output: 3 (because 3 is the smallest divisor of 15 that is greater than 1)
+
+// *Hint:* Use a loop to check which number divides the integer without leaving a remainder, starting from 2 upwards.
+
+function findSmallestDivisor(number: number): number {
+  // Start from 2 and go upwards then 3 and it stops when it reaches
+  for (let i = 2; i <= number; i++) {
+      // Check if i is a divisor of number
+      if (number % i === 0) {
+          return i; // Return the first divisor found 3 as asked in example
+      }
+  }
+  
+  // This point is never reached because 1 is always a divisor,
+  // and 1 is not a valid output based on the problem statement.
+  return number;
+}
+
+const number = 15;
+const smallestDivisor = findSmallestDivisor(number);
+console.log(smallestDivisor); // Output: 3 is the smallest divisor of 15 that is greater than 1
