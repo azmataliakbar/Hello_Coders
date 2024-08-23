@@ -905,3 +905,25 @@ replaceVowels('TypeScript');  // Output: 'Typ*Scr*pt'
 - Output: 3 (because 3 is the smallest divisor of 15 that is greater than 1)
 
 *Hint:* Use a loop to check which number divides the integer without leaving a remainder, starting from 2 upwards.
+
+# Day-26
+
+### Question 51: Reverse a Number
+
+Write a function reverseNumber(n: number): number that takes a positive integer n and returns the number with its digits reversed.
+
+Example:
+typescript
+reverseNumber(1234); // Output: 4321
+reverseNumber(567);  // Output: 765
+
+
+### Question 52: Find the Average of Numbers in a String
+
+Write a function averageOfNumbersInString(str: string): number that extracts all numbers from a given string, calculates their average, and returns the result.
+
+Example:
+typescript
+averageOfNumbersInString('The numbers are 12, 15, and 20.'); // Output: 15.666...
+averageOfNumbersInString('No numbers here!'); // Output: NaN
+

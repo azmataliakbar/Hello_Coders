@@ -2594,3 +2594,76 @@ const number = 15;
 const smallestDivisor = findSmallestDivisor(number);
 console.log(smallestDivisor); // Output: 3 is the smallest divisor of 15 that is greater than 1
  */
+
+//~ # Day-26
+
+//& ### Question 51: Reverse a Number
+
+//todo=> Write a function reverseNumber(n: number): number that takes a positive integer n and returns the number with its digits reversed.
+
+// Example:
+//todo=> typescript
+//todo=> reverseNumber(1234); // Output: 4321
+//todo=> reverseNumber(567);  // Output: 765
+
+/*
+function reverseNumber(rev: number): number {
+  // it will convert the number to a string
+  const str = rev.toString();
+  
+  // 1st it will reverse the string & it will join and convert it back to a number
+  const reversedStr = str.split('').reverse().join('');
+  
+  // Return the reversed number as a number
+  return parseInt(reversedStr, 10);
+}
+ */
+//* parseInt(reversedStr, 10) converts the reversed string "4321" back to the number 4321.
+//* Without the radix 10, the function might interpret the string as a number in a different base (e.g., base-8 if the string starts with 0), which could lead to unexpected results.
+//* Without the radix, there’s a risk that parseInt might misinterpret the string, especially if it starts with 0, potentially leading to incorrect results. Specifying 10 as the radix ensures that the string is interpreted as a base-10 number, avoiding such issues.
+
+
+/*
+ console.log(reverseNumber(1234)); // Output: 4321
+console.log(reverseNumber(567));  // Output: 765
+ */
+
+//& ### Question 52: Find the Average of Numbers in a String
+
+//todo=> Write a function averageOfNumbersInString(str: string): number that extracts all numbers from a given string, calculates their average, and returns the result.
+
+// Example:
+//todo=> typescript
+//todo=> averageOfNumbersInString('The numbers are 12, 15, and 20.'); // Output: 15.666...
+//todo=> averageOfNumbersInString('No numbers here!'); // Output: NaN
+
+/*
+function averageOfNumbersInString(str: string): number {
+  // Use a regular expression to find all numbers in the string
+// str.match(/\d+/g):
+// This regular expression finds all sequences of digits (\d+) in the string. The g flag ensures that all matches are returned as an array.
+// If no matches are found, match returns null.
+
+  const numbers = str.match(/\d+/g);
+
+  // If no numbers are found, return NaN
+  if (!numbers) {
+      return NaN;
+  }
+
+  // It convert the found numbers from strings to numbers
+  // numbers.map(Number):  This applies the Number function to each element in the numbers array.
+  // It converts each string (like "12", "15", "20") into a number (12, 15, 20).
+  const numArray = numbers.map(Number);
+
+  // It calculate the sum of the numbers , 12 + 15 + 20 = 47
+  const sum = numArray.reduce((acc, num) => acc + num, 0);
+
+  // It calculate and return the average , 47 / 3 = 15.66666
+  return sum / numArray.length;
+}
+
+console.log(averageOfNumbersInString('The numbers are 12, 15, and 20.')); // Output: 15.666...
+console.log(averageOfNumbersInString('No numbers here!')); // Output: NaN
+
+ */

@@ -2130,7 +2130,7 @@ console.log(convertToBinary(15));  // Output: "1111"
 
  */
 //~ # Day-24
-//& ### Question 46: *Generate Fibonacci Sequence*
+//& ### Question 47: *Generate Fibonacci Sequence*
 //todo=> Write a function generateFibonacci(n: number): number[] that generates and returns the first n numbers of the Fibonacci sequence. The Fibonacci sequence starts with 0 and 1, and each subsequent number is the sum of the previous two.
 // *Hint:* Use a loop or recursion to build the sequence.
 //todo=> *Example:*
@@ -2185,16 +2185,137 @@ console.log(generateFibonacci(7)); // Output: [0, 1, 1, 2, 3, 5, 8]
 // Fifth Iteration (i = 6):
 // Calculate Next Value: sequence[5] + sequence[4] = 5 + 3 = 8
 // Update Sequence: The sequence becomes [0, 1, 1, 2, 3, 5, 8].
-//& ### Question 47: *Replace Vowels with Asterisks*
+//& ### Question 48: *Replace Vowels with Asterisks*
 //todo=> Write a function replaceVowels(str: string): string that takes a string str and returns a new string where all vowels (a, e, i, o, u) are replaced with asterisks (*). The function should be case-insensitive.
 // *Hint:* You can use a loop or a regular expression to find and replace vowels.
 //todo=> *Example:*
 //todo=> typescript
 //todo=> replaceVowels('Hello World'); // Output: 'H*ll* W*rld'
 //todo=> replaceVowels('TypeScript');  // Output: 'Typ*Scr*pt'
-function replaceVowels(str) {
-    return str.replace(/[aeiou]/gi, '*');
+/*
+function replaceVowels(str: string): string {
+  return str.replace(/[aeiou]/gi, '*');
 }
-// Example usage:
+
 console.log(replaceVowels('Hello World')); // Output: 'H*ll* W*rld'
-console.log(replaceVowels('TypeScript')); // Output: 'Typ*Scr*pt'
+console.log(replaceVowels('TypeScript'));  // Output: 'Typ*Scr*pt'
+ */
+//Regular Expression: The regular expression /[aeiou]/gi is used to match all vowels: [aeiou] matches any of the vowels a, e, i, o, u.
+// The g flag stands for "global," meaning it will replace all occurrences of the vowels, not just the first one.
+// The i flag stands for "case-insensitive," so it will match both uppercase and lowercase vowels.
+// Replace Method: The replace method is used to replace each vowel found in the string with an asterisk (*).
+// Return the Modified String: The modified string, where all vowels have been replaced with *, is returned.
+// Example Outputs: Input: 'Hello World' , Output: 'H*ll* W*rld' / Input: 'TypeScript', Output: 'Typ*Scr*pt'
+//~ # Day-25
+//& ### Question 49: Calculate the Difference Between the Sum of Odd and Even Digits
+//todo=> *Problem:* You are given a positive integer. You need to calculate the sum of the odd digits and the sum of the even digits, then find the difference between these two sums. The difference should be positive.
+// *Example:*
+//todo=> - Input: number = 1234
+//todo=> - Output: 2 (Odd sum: 1 + 3 = 4, Even sum: 2 + 4 = 6, Difference: |4 - 6| = 2)
+// *Hint:* Convert the number to a string, then check each digit to see if it's odd or even, and calculate the respective sums.
+/*
+function calculateDifference(number: number): number {
+  // Convert the number to a string to iterate through each digit
+  const digits = number.toString();
+  
+  // Initialize sums for odd and even digits
+  let oddSum = 0;
+  let evenSum = 0;
+  
+  // Iterate through each digit
+  for (let digit of digits) {
+      const num = parseInt(digit, 10); // Convert the string digit back to a number
+      
+      if (num % 2 === 0) { // ensure the number is odd or even
+          // Even digit
+          evenSum += num;
+      } else {
+          // Odd digit
+          oddSum += num;
+      }
+  }
+
+  // Calculate the absolute difference between the sums
+  // Math.abs() ensures that the difference is always reported as a positive number.
+  // The Math.abs() function in JavaScript (and TypeScript) returns the absolute value of a given number. The absolute value of a number is its distance from zero on the number line, without considering whether it is positive or negative.
+  return Math.abs(oddSum - evenSum);
+}
+
+const number = 1234;
+const result = calculateDifference(number);
+console.log(result); // Output: 2
+*/
+//& ### Question 50: Find the Smallest Divisor of a Number (Greater than 1)
+//todo=> *Problem:* You are given a positive integer. Your task is to find the smallest divisor of this number that is greater than 1.
+// *Example:*
+//todo=> - Input: number = 15
+//todo=> - Output: 3 (because 3 is the smallest divisor of 15 that is greater than 1)
+// *Hint:* Use a loop to check which number divides the integer without leaving a remainder, starting from 2 upwards.
+/*
+function findSmallestDivisor(number: number): number {
+  // Start from 2 and go upwards then 3 and it stops when it reaches
+  for (let i = 2; i <= number; i++) {
+      // Check if i is a divisor of number
+      if (number % i === 0) {
+          return i; // Return the first divisor found 3 as asked in example
+      }
+  }
+  
+  // This point is never reached because 1 is always a divisor,
+  // and 1 is not a valid output based on the problem statement.
+  return number;
+}
+
+const number = 15;
+const smallestDivisor = findSmallestDivisor(number);
+console.log(smallestDivisor); // Output: 3 is the smallest divisor of 15 that is greater than 1
+ */
+//~ # Day-26
+//& ### Question 51: Reverse a Number
+//todo=> Write a function reverseNumber(n: number): number that takes a positive integer n and returns the number with its digits reversed.
+// Example:
+//todo=> typescript
+//todo=> reverseNumber(1234); // Output: 4321
+//todo=> reverseNumber(567);  // Output: 765
+/*
+function reverseNumber(rev: number): number {
+  // it will convert the number to a string
+  const str = rev.toString();
+  
+  // 1st it will reverse the string & it will join and convert it back to a number
+  const reversedStr = str.split('').reverse().join('');
+  
+  // Return the reversed number as a number
+  return parseInt(reversedStr, 10);
+}
+ */
+//* parseInt(reversedStr, 10) converts the reversed string "4321" back to the number 4321.
+//* Without the radix 10, the function might interpret the string as a number in a different base (e.g., base-8 if the string starts with 0), which could lead to unexpected results.
+//* Without the radix, there’s a risk that parseInt might misinterpret the string, especially if it starts with 0, potentially leading to incorrect results. Specifying 10 as the radix ensures that the string is interpreted as a base-10 number, avoiding such issues.
+/*
+ console.log(reverseNumber(1234)); // Output: 4321
+console.log(reverseNumber(567));  // Output: 765
+ */
+//& ### Question 52: Find the Average of Numbers in a String
+//todo=> Write a function averageOfNumbersInString(str: string): number that extracts all numbers from a given string, calculates their average, and returns the result.
+// Example:
+//todo=> typescript
+//todo=> averageOfNumbersInString('The numbers are 12, 15, and 20.'); // Output: 15.666...
+//todo=> averageOfNumbersInString('No numbers here!'); // Output: NaN
+function averageOfNumbersInString(str) {
+    // Use a regular expression to find all numbers in the string
+    var numbers = str.match(/\d+/g);
+    // If no numbers are found, return NaN
+    if (!numbers) {
+        return NaN;
+    }
+    // Convert the found numbers from strings to numbers
+    var numArray = numbers.map(Number);
+    // Calculate the sum of the numbers
+    var sum = numArray.reduce(function (acc, num) { return acc + num; }, 0);
+    // Calculate and return the average
+    return sum / numArray.length;
+}
+// Example usage
+console.log(averageOfNumbersInString('The numbers are 12, 15, and 20.')); // Output: 15.666...
+console.log(averageOfNumbersInString('No numbers here!')); // Output: NaN
