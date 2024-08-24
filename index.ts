@@ -2667,3 +2667,120 @@ console.log(averageOfNumbersInString('The numbers are 12, 15, and 20.')); // Out
 console.log(averageOfNumbersInString('No numbers here!')); // Output: NaN
 
  */
+
+//~ # Day-27
+
+//& ### Question 53: Count the Number of Divisors
+// *Description:*
+//todo=> Write a TypeScript function that takes a positive integer as input and returns the number of its divisors (factors). A divisor is a number that divides the input number without leaving a remainder.
+
+// *Example:*
+//todo=> typescript
+//todo=> Input: 12
+//todo=> Output: 6  // (1, 2, 3, 4, 6, 12)
+
+//todo=> Input: 7
+//todo=> Output: 2  // (1, 7)
+// *Hint:* Use a loop to check each number from 1 to the given number to see if it divides the number evenly.
+
+/*
+function countDivisors(num: number): number {
+  let count = 0;
+
+  for (let i = 1; i <= num; i++) {
+      if (num % i === 0) {
+          count++;
+      }
+  }
+
+  return count;
+}
+*/
+
+// Detailed Iteration Process:
+// Iteration 1: i = 1
+
+// 12 % 1 === 0 (true), so count is incremented by 1.
+// count = 1
+// Iteration 2: i = 2
+
+// 12 % 2 === 0 (true), so count is incremented by 1.
+// count = 2
+// Iteration 3: i = 3
+
+// 12 % 3 === 0 (true), so count is incremented by 1.
+// count = 3
+// Iteration 4: i = 4
+
+// 12 % 4 === 0 (true), so count is incremented by 1.
+// count = 4
+// Iteration 5: i = 5
+
+// 12 % 5 !== 0 (false), so count remains the same.
+// count = 4
+// Iteration 6: i = 6
+
+// 12 % 6 === 0 (true), so count is incremented by 1.
+// count = 5
+// Iteration 7: i = 7
+
+// 12 % 7 !== 0 (false), so count remains the same.
+// count = 5
+// Iteration 8: i = 8
+
+// 12 % 8 !== 0 (false), so count remains the same.
+// count = 5
+// Iteration 9: i = 9
+
+// 12 % 9 !== 0 (false), so count remains the same.
+// count = 5
+// Iteration 10: i = 10
+
+// 12 % 10 !== 0 (false), so count remains the same.
+// count = 5
+// Iteration 11: i = 11
+
+// 12 % 11 !== 0 (false), so count remains the same.
+// count = 5
+// Iteration 12: i = 12
+
+// 12 % 12 === 0 (true), so count is incremented by 1.
+// count = 6
+/*
+ console.log(countDivisors(12)); // Output: 6 // (1, 2, 3, 4, 6, 12)
+console.log(countDivisors(7));  // Output: 2 // (1, 7)
+ */
+//& ### Question 54: Check if a Number is a Perfect Square
+// *Description:*
+//todo=> Write a TypeScript function that takes a positive integer as input and returns true if the number is a perfect square, otherwise return false. A perfect square is a number that is the square of an integer.
+
+// *Example:*
+//todo=> typescript
+//todo=> Input: 16
+//todo=> Output: true  // (4 * 4 = 16)
+
+//todo=> Input: 20
+//todo=> Output: false
+// *Hint:* Use the square root function Math.sqrt() and check if the result is an integer.
+/* 
+function isPerfectSquare(num: number): boolean {
+  const sqrt = Math.sqrt(num);
+  return sqrt === Math.floor(sqrt); // it will confirm that square root of the number should be a whole number/integer.
+}
+
+
+console.log(isPerfectSquare(16)); // Output: true
+console.log(isPerfectSquare(20)); // Output: false
+ */
+// Calculate the Square Root
+// Inside the function, the square root of 20 is calculated using Math.sqrt(num).
+// Math.sqrt(20) returns approximately 4.47213595499958. This value is stored in the variable sqrt.
+// Step 3: Check if the Square Root is an Integer
+// The function checks if sqrt is an integer by comparing it to Math.floor(sqrt).
+// Math.floor(sqrt) returns the largest integer less than or equal to sqrt. In this case, Math.floor(4.47213595499958) returns 4.
+// The function then compares sqrt (4.47213595499958) with Math.floor(sqrt) (4).
+// Step 4: Evaluate the Condition
+// The condition sqrt === Math.floor(sqrt) is evaluated.
+// Since 4.47213595499958 is not equal to 4, the condition is false.
+// Step 5: Return the Result
+// The function returns false, indicating that 20 is not a perfect square.

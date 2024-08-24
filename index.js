@@ -2302,20 +2302,115 @@ console.log(reverseNumber(567));  // Output: 765
 //todo=> typescript
 //todo=> averageOfNumbersInString('The numbers are 12, 15, and 20.'); // Output: 15.666...
 //todo=> averageOfNumbersInString('No numbers here!'); // Output: NaN
-function averageOfNumbersInString(str) {
-    // Use a regular expression to find all numbers in the string
-    var numbers = str.match(/\d+/g);
-    // If no numbers are found, return NaN
-    if (!numbers) {
-        return NaN;
-    }
-    // Convert the found numbers from strings to numbers
-    var numArray = numbers.map(Number);
-    // Calculate the sum of the numbers
-    var sum = numArray.reduce(function (acc, num) { return acc + num; }, 0);
-    // Calculate and return the average
-    return sum / numArray.length;
+/*
+function averageOfNumbersInString(str: string): number {
+  // Use a regular expression to find all numbers in the string
+// str.match(/\d+/g):
+// This regular expression finds all sequences of digits (\d+) in the string. The g flag ensures that all matches are returned as an array.
+// If no matches are found, match returns null.
+
+  const numbers = str.match(/\d+/g);
+
+  // If no numbers are found, return NaN
+  if (!numbers) {
+      return NaN;
+  }
+
+  // It convert the found numbers from strings to numbers
+  // numbers.map(Number):  This applies the Number function to each element in the numbers array.
+  // It converts each string (like "12", "15", "20") into a number (12, 15, 20).
+  const numArray = numbers.map(Number);
+
+  // It calculate the sum of the numbers , 12 + 15 + 20 = 47
+  const sum = numArray.reduce((acc, num) => acc + num, 0);
+
+  // It calculate and return the average , 47 / 3 = 15.66666
+  return sum / numArray.length;
 }
-// Example usage
+
 console.log(averageOfNumbersInString('The numbers are 12, 15, and 20.')); // Output: 15.666...
 console.log(averageOfNumbersInString('No numbers here!')); // Output: NaN
+
+ */
+//~ # Day-27
+//& ### Question 53: Count the Number of Divisors
+// *Description:*
+//todo=> Write a TypeScript function that takes a positive integer as input and returns the number of its divisors (factors). A divisor is a number that divides the input number without leaving a remainder.
+// *Example:*
+//todo=> typescript
+//todo=> Input: 12
+//todo=> Output: 6  // (1, 2, 3, 4, 6, 12)
+//todo=> Input: 7
+//todo=> Output: 2  // (1, 7)
+// *Hint:* Use a loop to check each number from 1 to the given number to see if it divides the number evenly.
+/*
+function countDivisors(num: number): number {
+  let count = 0;
+
+  for (let i = 1; i <= num; i++) {
+      if (num % i === 0) {
+          count++;
+      }
+  }
+
+  return count;
+}
+*/
+// Detailed Iteration Process:
+// Iteration 1: i = 1
+// 12 % 1 === 0 (true), so count is incremented by 1.
+// count = 1
+// Iteration 2: i = 2
+// 12 % 2 === 0 (true), so count is incremented by 1.
+// count = 2
+// Iteration 3: i = 3
+// 12 % 3 === 0 (true), so count is incremented by 1.
+// count = 3
+// Iteration 4: i = 4
+// 12 % 4 === 0 (true), so count is incremented by 1.
+// count = 4
+// Iteration 5: i = 5
+// 12 % 5 !== 0 (false), so count remains the same.
+// count = 4
+// Iteration 6: i = 6
+// 12 % 6 === 0 (true), so count is incremented by 1.
+// count = 5
+// Iteration 7: i = 7
+// 12 % 7 !== 0 (false), so count remains the same.
+// count = 5
+// Iteration 8: i = 8
+// 12 % 8 !== 0 (false), so count remains the same.
+// count = 5
+// Iteration 9: i = 9
+// 12 % 9 !== 0 (false), so count remains the same.
+// count = 5
+// Iteration 10: i = 10
+// 12 % 10 !== 0 (false), so count remains the same.
+// count = 5
+// Iteration 11: i = 11
+// 12 % 11 !== 0 (false), so count remains the same.
+// count = 5
+// Iteration 12: i = 12
+// 12 % 12 === 0 (true), so count is incremented by 1.
+// count = 6
+/*
+ console.log(countDivisors(12)); // Output: 6 // (1, 2, 3, 4, 6, 12)
+console.log(countDivisors(7));  // Output: 2 // (1, 7)
+ */
+//& ### Question 54: Check if a Number is a Perfect Square
+// *Description:*
+//todo=> Write a TypeScript function that takes a positive integer as input and returns true if the number is a perfect square, otherwise return false. A perfect square is a number that is the square of an integer.
+// *Example:*
+//todo=> typescript
+//todo=> Input: 16
+//todo=> Output: true  // (4 * 4 = 16)
+//todo=> Input: 20
+//todo=> Output: false
+// *Hint:* Use the square root function Math.sqrt() and check if the result is an integer.
+function isPerfectSquare(num) {
+    var sqrt = Math.sqrt(num);
+    return sqrt === Math.floor(sqrt);
+}
+// Example usage:
+console.log(isPerfectSquare(16)); // Output: true
+console.log(isPerfectSquare(20)); // Output: false
