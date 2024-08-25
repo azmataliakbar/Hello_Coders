@@ -2407,10 +2407,137 @@ console.log(countDivisors(7));  // Output: 2 // (1, 7)
 //todo=> Input: 20
 //todo=> Output: false
 // *Hint:* Use the square root function Math.sqrt() and check if the result is an integer.
-function isPerfectSquare(num) {
-    var sqrt = Math.sqrt(num);
-    return sqrt === Math.floor(sqrt);
+/*
+function isPerfectSquare(num: number): boolean {
+  const sqrt = Math.sqrt(num);
+  return sqrt === Math.floor(sqrt); // it will confirm that square root of the number should be a whole number/integer.
 }
-// Example usage:
+
+
 console.log(isPerfectSquare(16)); // Output: true
 console.log(isPerfectSquare(20)); // Output: false
+ */
+// Calculate the Square Root
+// Inside the function, the square root of 20 is calculated using Math.sqrt(num).
+// Math.sqrt(20) returns approximately 4.47213595499958. This value is stored in the variable sqrt.
+// Step 3: Check if the Square Root is an Integer
+// The function checks if sqrt is an integer by comparing it to Math.floor(sqrt).
+// Math.floor(sqrt) returns the largest integer less than or equal to sqrt. In this case, Math.floor(4.47213595499958) returns 4.
+// The function then compares sqrt (4.47213595499958) with Math.floor(sqrt) (4).
+// Step 4: Evaluate the Condition
+// The condition sqrt === Math.floor(sqrt) is evaluated.
+// Since 4.47213595499958 is not equal to 4, the condition is false.
+// Step 5: Return the Result
+// The function returns false, indicating that 20 is not a perfect square.
+//~ # Day-28
+//& ### Question 1: Armstrong Number Checker (Without Using split)
+// Problem: Check if a given number is an Armstrong number. An Armstrong number is a number that is equal to the sum of its own digits each raised to the power of the number of digits.
+// JHint:
+// 1. First, count the number of digits in the given number.
+// 2. Then, iterate through each digit by extracting it one by one.
+// 3. Raise each digit to the power of the total number of digits and accumulate the result.
+// 4. Finally, compare the accumulated sum to the original number to determine if it is an Armstrong number.
+/*
+function isArmstrongNumber(num: number): boolean {
+  // Step 1: Here count the number of digits after changing the number into string
+  const numStr = num.toString();
+  const numberOfDigits = numStr.length;
+
+  // Step 2: Initialize a variable to accumulate the sum of powered digits
+  let sum = 0;
+  let temp = num;
+
+  // Step 3: Extract each digit and accumulate the powered sum
+  while (temp > 0) {
+ // To get the last digit , 153 % 10;  // digit = 3
+      const digit = temp % 10;
+// Number 153
+// Total Digits (numberOfDigits): 3 (since 153 has 3 digits).
+// Iteration 1:
+// Digit: 3 (153 % 10)
+// Calculation: Math.pow(3, 3) → 27
+// Sum Update: sum += 27 → sum = 27
+// Iteration 2:
+// Digit: 5 (15 % 10)
+// Calculation: Math.pow(5, 3) → 125
+// Sum Update: sum += 125 → sum = 152
+// Iteration 3:
+// Digit: 1 (1 % 10)
+// Calculation: Math.pow(1, 3) → 1
+// Sum Update: sum += 1 → sum = 153
+// Raise the digit to the power of numberOfDigits and add to sum
+      sum += Math.pow(digit, numberOfDigits);
+      // Initial temp = 153
+      // First Iteration:
+      // Extract Last Digit:
+      // const digit = temp % 10;  // digit = 153 % 10 = 3
+      // 153 % 10 gives 3, which is the last digit of 153.
+      // Remove Last Digit:
+      // temp = Math.floor(temp / 10);  // temp = Math.floor(153 / 10) = 15
+      // 153 / 10 equals 15.3.
+      // Math.floor(15.3) truncates the decimal part, resulting in 15.
+      // temp is now 15.
+      // Second Iteration (temp = 15)
+      // Extract Last Digit:
+      // const digit = temp % 10;  // digit = 15 % 10 = 5
+      // 15 % 10 gives 5, which is the last digit of 15.
+      // Remove Last Digit:
+      // temp = Math.floor(temp / 10);  // temp = Math.floor(15 / 10) = 1
+      // 15 / 10 equals 1.5.
+      // Math.floor(1.5) truncates the decimal part, resulting in 1.
+      // temp is now 1.
+      // Third Iteration (temp = 1)
+      // Extract Last Digit:
+      // const digit = temp % 10;  // digit = 1 % 10 = 1
+      // 1 % 10 gives 1, which is the last digit of 1.
+      // Remove Last Digit:
+      // temp = Math.floor(temp / 10);  // temp = Math.floor(1 / 10) = 0
+      // 1 / 10 equals 0.1.
+      // Math.floor(0.1) truncates the decimal part, resulting in 0.
+      // temp is now 0.
+      //Final Comparison:
+      // After all digits have been processed and temp becomes 0, the cumulative sum of each digit raised to its power is compared with the original number (153).
+      // If the sum matches the original number, then the number is identified as an Armstrong number.
+      temp = Math.floor(temp / 10); // Remove the last digit
+  }
+
+  // Step 4: Compare the sum to the original number
+  // the number 153 is an Armstrong number because: It has 3 digits.    1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
+  // Since 153 is equal to the sum of its digits each raised to the power of 3, 153 is an Armstrong number.
+  // return sum === num; → return 153 === 153;
+  // The function returns true because the calculated sum equals the original num.
+  return sum === num;
+}
+ */
+/* const number = 153;
+if (isArmstrongNumber(number)) {
+  console.log(`${number} is an Armstrong number.`); // This is output
+} else {
+  console.log(`${number} is not an Armstrong number.`);
+}
+ */
+//& ### Question 2: Find the LCM (Least Common Multiple)
+// Problem: Find the Least Common Multiple (LCM) of two numbers. LCM is the smallest number that is a multiple of both given numbers.
+// Hint:
+// 1. Calculate the Greatest Common Divisor (GCD) of the two numbers using the Euclidean algorithm.
+// 2. Use the GCD to find the LCM with the formula: [text{LCM}(a, b) = frac{|a \times b|}{text{GCD}(a, b)}]
+// Function to calculate the Greatest Common Divisor (GCD) using Euclidean algorithm
+function gcd(a, b) {
+    while (b !== 0) {
+        var temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+// Function to calculate the Least Common Multiple (LCM) using the GCD
+function lcm(a, b) {
+    if (a === 0 || b === 0) {
+        return 0; // LCM of zero with any number is zero
+    }
+    return Math.abs(a * b) / gcd(a, b);
+}
+// Example usage
+var num1 = 12;
+var num2 = 18;
+console.log("LCM of ".concat(num1, " and ").concat(num2, " is ").concat(lcm(num1, num2)));
