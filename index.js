@@ -2430,13 +2430,13 @@ console.log(isPerfectSquare(20)); // Output: false
 // Step 5: Return the Result
 // The function returns false, indicating that 20 is not a perfect square.
 //~ # Day-28
-//& ### Question 1: Armstrong Number Checker (Without Using split)
-// Problem: Check if a given number is an Armstrong number. An Armstrong number is a number that is equal to the sum of its own digits each raised to the power of the number of digits.
+//& ### Question 55: Armstrong Number Checker (Without Using split)
+//todo=> Problem: Check if a given number is an Armstrong number. An Armstrong number is a number that is equal to the sum of its own digits each raised to the power of the number of digits.
 // JHint:
-// 1. First, count the number of digits in the given number.
-// 2. Then, iterate through each digit by extracting it one by one.
-// 3. Raise each digit to the power of the total number of digits and accumulate the result.
-// 4. Finally, compare the accumulated sum to the original number to determine if it is an Armstrong number.
+//todo=> 1. First, count the number of digits in the given number.
+//todo=> 2. Then, iterate through each digit by extracting it one by one.
+//todo=> 3. Raise each digit to the power of the total number of digits and accumulate the result.
+//todo=> 4. Finally, compare the accumulated sum to the original number to determine if it is an Armstrong number.
 /*
 function isArmstrongNumber(num: number): boolean {
   // Step 1: Here count the number of digits after changing the number into string
@@ -2516,28 +2516,140 @@ if (isArmstrongNumber(number)) {
   console.log(`${number} is not an Armstrong number.`);
 }
  */
-//& ### Question 2: Find the LCM (Least Common Multiple)
-// Problem: Find the Least Common Multiple (LCM) of two numbers. LCM is the smallest number that is a multiple of both given numbers.
+//& ### Question 56: Find the LCM (Least Common Multiple)
+//todo=> Problem: Find the Least Common Multiple (LCM) of two numbers. LCM is the smallest number that is a multiple of both given numbers.
 // Hint:
-// 1. Calculate the Greatest Common Divisor (GCD) of the two numbers using the Euclidean algorithm.
-// 2. Use the GCD to find the LCM with the formula: [text{LCM}(a, b) = frac{|a \times b|}{text{GCD}(a, b)}]
+//todo=> 1. Calculate the Greatest Common Divisor (GCD) of the two numbers using the Euclidean algorithm.
+//todo=> 2. Use the GCD to find the LCM with the formula: [text{LCM}(a, b) = frac{|a times b|}{text{GCD}(a, b)}]
+/*
 // Function to calculate the Greatest Common Divisor (GCD) using Euclidean algorithm
-function gcd(a, b) {
-    while (b !== 0) {
-        var temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+function gcd(a: number, b: number): number {
+  while (b !== 0) {
+      const temp = b;
+      b = a % b;
+      a = temp;
+  }
+  return a;
 }
+
 // Function to calculate the Least Common Multiple (LCM) using the GCD
-function lcm(a, b) {
-    if (a === 0 || b === 0) {
-        return 0; // LCM of zero with any number is zero
-    }
-    return Math.abs(a * b) / gcd(a, b);
+function lcm(a: number, b: number): number {
+  if (a === 0 || b === 0) {
+      return 0;  // LCM of zero with any number is zero
+  }
+  // LCM(a,b) = | a x b| / GCD(a,b)
+  // Plug in a = 12, b = 18, and GCD = 6:
+  // LCM(12,18) =  | 12 x 18| / 6
+  // Calculate the numerator: 12 x 18 = 216
+  // Divide by the GCD: 216 / 6 = 36
+
+//   First Iteration:
+
+// We start with a = 12 and b = 18.
+// 12 % 18 is 12 because 12 is less than 18, and 18 doesn't divide 12 evenly.
+// Update a to 18 and b to 12.
+// Second Iteration:
+
+// Now a = 18 and b = 12.
+// 18 % 12 is 6 because 18 divided by 12 gives a quotient of 1 and a remainder of 6.
+// Update a to 12 and b to 6.
+// Third Iteration:
+
+// Now a = 12 and b = 6.
+// 12 % 6 is 0 because 12 is evenly divisible by 6 with no remainder.
+// Stop Condition:
+
+// The process stops when the remainder is 0.
+// The last non-zero remainder before reaching 0 is the GCD.
+// The Euclidean algorithm involves repeatedly applying the modulo operation to find the remainder when dividing the two numbers. The GCD is the last non-zero remainder. For 12 and 18, the GCD is 6, which is the largest number that divides both 12 and 18 without leaving any remainder.
+  return Math.abs(a * b) / gcd(a, b);
 }
-// Example usage
-var num1 = 12;
-var num2 = 18;
-console.log("LCM of ".concat(num1, " and ").concat(num2, " is ").concat(lcm(num1, num2)));
+
+
+const num1: number = 12;
+const num2: number = 18;
+console.log(`LCM of ${num1} and ${num2} is ${lcm(num1, num2)}`);
+ */
+//~ # Day-29
+//& Question 57: Calculate the Product of Non-Zero Digits*
+//todo=> Description:
+//todo=> Write a TypeScript function that takes a number as input and returns the product of all non-zero digits in the number.
+//todo=> Example:
+//todo=> typescript
+//todo=> Input: 4056
+//todo=> Output: 120  // 4 * 5 * 6 = 120
+//todo=> Input: 1002
+//todo=> Output: 2  // 1 * 2 = 2
+//todo=> Hint: Loop through each digit, skip zeros, and multiply the rest.
+/* function productOfNonZeroDigits(num: number): number {
+  // Convert the number to a string to access each digit
+  const numStr = num.toString();
+
+  // Initialize the product to 1
+  let product = 1;
+
+  // Loop through each digit
+  for (let i = 0; i < numStr.length; i++) {
+      // Get the numeric value of the current digit
+      // numStr[i]: Accesses the character at index i of the string numStr. Since numStr is a string representation of a number, numStr[i] will be a character like '4', '0', '5', etc.
+     // parseInt(numStr[i], 10): Converts the character to a number.
+     // parseInt is a function that parses a string and returns an integer.
+     // The first argument (numStr[i]) is the string (or character) to be converted to a number.
+    // The second argument (10) specifies the radix (base) of the number system to be used for the conversion. Here, 10 indicates that the number is in base 10, which is the standard decimal numbering system.
+   // const digit = ...: Assigns the result of parseInt(numStr[i], 10) to the variable digit.
+
+  // Example:
+   // If numStr is "4056" and i is 0, numStr[i] is '4'.
+   // parseInt('4', 10) converts the string '4' to the number 4.
+   // So, digit will be assigned the value 4.
+      const digit = parseInt(numStr[i], 10);
+
+      // Skip if the digit is zero
+      // Here the code !== 0 will eliminate the 0 digit & the code *= digit will be multiply non zero digits
+      if (digit !== 0) {
+          // Multiply the product by the digit & the code *= digit will multiply non zero digits
+          product *= digit;
+      }
+  }
+
+  return product;
+}
+
+// Example usage:
+console.log(productOfNonZeroDigits(4056)); // Output: 120
+console.log(productOfNonZeroDigits(1002)); // Output: 2
+ */
+//& Question 58: Find the Difference Between the Largest and Smallest Digit*
+//todo=> Description:
+//todo=> Write a TypeScript function that takes a number as input and returns the difference between its largest and smallest digits.
+//todo=> Example:
+//todo=> typescript
+//todo=> Input: 7593
+//todo=> Output: 6  // 9 - 3 = 6
+//todo=> Input: 12345
+//todo=> Output: 4  // 5 - 1 = 4
+//todo=> Hint: Convert the number to a string or use a loop to identify the largest and smallest digits, then calculate their difference.
+function differenceBetweenLargestAndSmallestDigit(num) {
+    // Convert the number to a string to access each digit
+    var numStr = num.toString();
+    // Initialize the smallest and largest digits
+    var smallestDigit = 9;
+    var largestDigit = 0;
+    // Loop through each digit
+    for (var i = 0; i < numStr.length; i++) {
+        // Get the numeric value of the current digit
+        var digit = parseInt(numStr[i], 10);
+        // Update the smallest and largest digits accordingly
+        if (digit < smallestDigit) {
+            smallestDigit = digit;
+        }
+        if (digit > largestDigit) {
+            largestDigit = digit;
+        }
+    }
+    // Calculate the difference between the largest and smallest digits
+    return largestDigit - smallestDigit;
+}
+// Example usage:
+console.log(differenceBetweenLargestAndSmallestDigit(7593)); // Output: 6
+console.log(differenceBetweenLargestAndSmallestDigit(12345)); // Output: 4
