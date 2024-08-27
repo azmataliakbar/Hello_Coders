@@ -2938,7 +2938,7 @@ console.log(`LCM of ${num1} and ${num2} is ${lcm(num1, num2)}`);
 
 //~ # Day-29
 
-//& Question 57: Calculate the Product of Non-Zero Digits*
+//& ### Question 57: Calculate the Product of Non-Zero Digits*
 
 //todo=> Description:
 
@@ -2996,7 +2996,7 @@ console.log(productOfNonZeroDigits(1002)); // Output: 2
 
 
 
-//& Question 58: Find the Difference Between the Largest and Smallest Digit*
+//& ### Question 58: Find the Difference Between the Largest and Smallest Digit*
 
 //todo=> Description:
 
@@ -3043,3 +3043,121 @@ function differenceBetweenLargestAndSmallestDigit(num: number): number {
 console.log(differenceBetweenLargestAndSmallestDigit(7593)); // Output: 6
 console.log(differenceBetweenLargestAndSmallestDigit(12345)); // Output: 4
  */
+
+//~ # Day-30
+
+//& ### Question 59: Convert Number to Words*
+
+// *Problem:*
+//todo=> Write a TypeScript function that takes a number between 0 and 99 and returns the number in words. For example, if the input is 45, the output should be "Forty-Five".
+
+// *Hint:*
+//todo=> - Create arrays for single digits (0-9), teens (10-19), and tens (20, 30, ... 90).
+//todo=> - Handle different cases separately: numbers less than 10, between 10 and 19, and between 20 and 99.
+
+// *Function Signature:*
+//todo=> typescript
+//todo=> function numberToWords(num: number): string {
+// Your code here
+//todo=> }
+
+/*
+function numberToWords(num: number): string {
+  const ones: string[] = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
+  const teens: string[] = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
+  const tens: string[] = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
+
+  if (num < 10) {
+      return ones[num];
+  } else if (num < 20) {
+      return teens[num - 10];
+  } else {
+      const tenValue: number = Math.floor(num / 10);
+      const oneValue: number = num % 10;
+      return oneValue === 0 ? tens[tenValue] : `${tens[tenValue]}-${ones[oneValue]}`;
+  }
+}
+ */
+
+// console.log(numberToWords(45)); // Output: "Forty-Five"
+// console.log(numberToWords(13)); // Output: "Thirteen"
+// Condition Check:
+// The function checks the first condition: if (num < 10).
+// Since num = 99, which is not less than 10, the function moves to the next condition.
+// Teens Check:
+// The function checks the second condition: else if (num < 20).
+// Since num = 99, which is not less than 20, the function moves to the next block of code.
+// Tens and Ones Calculation:
+// Since the number is between 20 and 99, the function calculates the tens and ones places:
+// const tenValue: number = Math.floor(num / 10); // tenValue = 9
+// const oneValue: number = num % 10;            // oneValue = 9
+// Here, Math.floor(num / 10) calculates the tens digit by performing integer division, which gives 9.
+// num % 10 calculates the ones digit by getting the remainder when 99 is divided by 10, which is also 9.
+// Return Statement:
+// The function checks whether oneValue is 0 to determine if it should return only the tens word:
+// return oneValue === 0 ? tens[tenValue] : `${tens[tenValue]}-${ones[oneValue]}`;
+// Since oneValue is not 0 (it's 9), the function returns:
+//return `${tens[tenValue]}-${ones[oneValue]}`;
+// This translates to:
+// return `${tens[9]}-${ones[9]}`;  // return "Ninety-Nine";
+// The function returns the string "Ninety-Nine".
+// console.log(numberToWords(99)); // Output: "Ninety-Nine"
+// console.log(numberToWords(0));  // Output: "Zero"
+
+//& ### Question 60: Calculate the Sum of the First n Natural Numbers*
+
+// *Problem:*
+//todo=> Write a TypeScript function that takes a positive integer n and returns the sum of the first n natural numbers. For example, if n = 5, the output should be 15 (because 1 + 2 + 3 + 4 + 5 = 15).
+
+// *Hint:*
+//todo=> - Use the formula for the sum of the first n natural numbers: \(\text{Sum} = \frac{n \times (n + 1)}{2}\).
+//todo=> - Alternatively, implement the sum using a loop that adds each number from 1 to n.
+
+// *Function Signature:*
+//todo=> typescript
+//todo=> function sumOfNaturalNumbers(n: number): number {
+// Your code here
+//todo=> }
+
+//^ Method-1
+/*
+function sumOfNaturalNumbers(n: number): number {
+  return (n * (n + 1)) / 2;
+}
+ */
+
+// console.log(sumOfNaturalNumbers(5)); // Output: 15
+// console.log(sumOfNaturalNumbers(10)); // Output: 55
+
+//^ Method-2
+/*
+function sumOfNaturalNumber(n: number): number {
+  let sum: number = 0;
+  for (let i = 1; i <= n; i++) {
+      sum += i;
+  }
+  return sum;
+}
+ */
+
+//^ Method-1 explanation
+// Explanation:
+// Formula: The sum of the first n natural numbers can be calculated using the formula:
+// Sum = Sum = n X (n+1) / 2
+// This formula works because the sum of a sequence of consecutive numbers can be viewed as pairing numbers from the beginning and end of the sequence (e.g., for n = 5: (1+5), (2+4), and then the middle number 3).
+//^ Method-2 explanation
+// Example Walkthrough:
+// For n = 5:
+// Formula Method:
+// Sum = 5 x ( 5 + 1 ) / 2 = 5 x 6 / 2 = 30 / 2 = 15
+// Loop Method:
+// Start with sum = 0.
+// Add 1, sum = 1.
+// Add 2, sum = 3.
+// Add 3, sum = 6.
+// Add 4, sum = 10.
+// Add 5, sum = 15.
+// Final sum is 15.
+
+// console.log(sumOfNaturalNumber(5)); // Output: 15
+// console.log(sumOfNaturalNumber(10)); // Output: 55
